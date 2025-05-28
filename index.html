@@ -1,13 +1,288 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto ELM Psicologia p/ Desastres</title>
+    <title>Recomeço - Apoio Psicológico Pós-Desastre</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./assets/js/script.js"></script>
+    <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
-    
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="./index.html" class="logo-link">
+                <img src="./assets/imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img"><span class="logo-text-header">Recomeço</span>
+            </a>
+            <nav class="main-navigation" id="primary-navigation" aria-hidden="true">
+                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="./index.html" class="nav-link active">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon">
+                        Início
+                    </a></li>
+                    <li><a href="./paginas/autocuidado.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon">
+                        Autocuidado
+                    </a></li>
+                    <li><a href="./paginas/entendendo_emocoes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon">
+                        Entendendo Emoções
+                    </a></li>
+                    <li><a href="./paginas/integrantes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon">
+                        Integrantes
+                    </a></li>
+                    <li><a href="./paginas/faq.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon">
+                        FAQ
+                    </a></li>
+                    <li><a href="./paginas/contato.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
+                        Contato
+                    </a></li>
+                    <li class="nav-item-login"><a href="./paginas/login.html" class="nav-link btn btn-login-in-list">Entrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Hero -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>Apoio Especializado Após <span class="highlight-text">Desastres Naturais</span></h1>
+                <p class="hero-subtitle">
+                    Recursos profissionais para sobreviventes de incêndios, inundações e deslizamentos. Oferecemos
+                    ferramentas baseadas em evidência científica para apoio psicológico imediato e orientação para
+                    recuperação a longo prazo.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#recursosEmergencia" class="btn btn-primary"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shield.svg" alt="Ícone Escudo" class="btn-icon"> Recursos de Emergência </a>
+                    <a href="#emergenciaPsicologica" class="btn btn-secondary"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone.svg" alt="Ícone Telefone" class="btn-icon"> Emergência Psicológica </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Pilares/Diferenciais -->
+        <section class="pillars-section" id="pilares">
+            <div class="container pillars-grid">
+                <div class="pillar-item">
+                    <img src="https://cdn-icons-png.flaticon.com/128/4001/4001048.png" alt="Ícone Escudo com Check" class="pillar-icon">
+                    <h3>Abordagem Baseada em Evidência</h3>
+                    <p>Recursos fundamentados em pesquisas sobre trauma pós-desastre natural.</p>
+                </div>
+                <div class="pillar-item">
+                    <img src="https://cdn-icons-png.flaticon.com/128/10740/10740622.png" alt="Ícone Usuário com Coração" class="pillar-icon">
+                    <h3>Cuidado Centrado na Pessoa</h3>
+                    <p>Respeitando a experiência única de cada sobrevivente.</p>
+                </div>
+                <div class="pillar-item">
+                    <img src="https://cdn-icons-png.flaticon.com/128/3459/3459381.png" alt="Ícone Livro Aberto" class="pillar-icon">
+                    <h3>Educação em Saúde Mental</h3>
+                    <p>Informações especializadas sobre recuperação após desastres.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como o Recomeço Te Ajuda -->
+        <section class="how-it-helps-section">
+            <div class="container">
+                <h2>Como o Recomeço Te Ajuda</h2>
+                <p class="section-subtitle">Um processo cuidadoso e estruturado para te apoiar em cada etapa da recuperação</p>
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <img src="https://img.icons8.com/fluency/48/007bff/time.png" alt="Ícone Relógio" class="step-icon">
+                        <h3>1. Apoio Imediato</h3>
+                        <p>Acesse técnicas de primeiros socorros psicológicos para estabilização emocional imediata.</p>
+                    </div>
+                    <div class="step-item">
+                        <img src="https://img.icons8.com/fluency/48/28a745/brain.png" alt="Ícone Cérebro Verde" class="step-icon">
+                        <h3>2. Compreensão</h3>
+                        <p>Entenda suas reações e aprenda sobre o processo natural de recuperação após trauma.</p>
+                    </div>
+                    <div class="step-item">
+                        <img src="https://img.icons8.com/fluency/48/7C3AED/conference-call.png" alt="Ícone Grupo de Pessoas" class="step-icon">
+                        <h3>3. Rede de Apoio</h3>
+                        <p>Conecte-se com profissionais especializados quando precisar de ajuda mais aprofundada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipos de Desastres Naturais -->
+        <section class="disaster-types-section" id="recursosEmergencia">
+            <div class="container">
+                <h2>Tipos de Desastres Naturais</h2>
+                <p class="section-subtitle">Cada tipo de desastre natural pode gerar reações e traumas específicos. Entenda as particularidades de cada situação e como buscar ajuda adequada.</p>
+                <div class="disaster-cards-grid">
+                    <div class="disaster-card">
+                        <img src="https://img.icons8.com/fluency/48/f97316/fire-element.png" alt="Ícone Incêndio" class="disaster-icon">
+                        <h3>Incêndios</h3>
+                        <p>Apoio especializado para sobreviventes de incêndios florestais e urbanos.</p>
+                        <h4>Reações Comuns:</h4>
+                        <ul>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Medo do fogo</li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Pesadelos recorrentes</li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Hipervigilância a cheiros de fumaça</li>
+                        </ul>
+                    </div>
+                    <div class="disaster-card">
+                        <img src="https://img.icons8.com/fluency/48/3b82f6/water.png" alt="Ícone Inundação" class="disaster-icon">
+                        <h3>Inundações</h3>
+                        <p>Recursos para quem passou por enchentes e alagamentos.</p>
+                        <h4>Reações Comuns:</h4>
+                        <ul>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Ansiedade com chuvas</li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Medo de água</li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Preocupação excessiva com o tempo</li>
+                        </ul>
+                    </div>
+                    <div class="disaster-card">
+                        <img src="https://img.icons8.com/fluency/48/a16207/landslide.png" alt="Ícone Deslizamento" class="disaster-icon">
+                        <h3>Deslizamentos</h3>
+                        <p>Suporte para vítimas de deslizamentos de terra e encostas.</p>
+                        <h4>Reações Comuns:</h4>
+                        <ul>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Medo de terrenos inclinados</li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Ansiedade em dias chuvosos</li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon"> Hipervigilância a ruídos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Especializados em Trauma Pós-Desastre -->
+        <section class="specialized-resources-section">
+            <div class="container">
+                <h2>Recursos Especializados em Trauma Pós-Desastre</h2>
+                <p class="section-subtitle">Desenvolvidos com base nas melhores práticas internacionais para intervenção em crise e apoio psicológico após desastres naturais, seguindo protocolos estabelecidos por organizações de referência mundial.</p>
+                <div class="resource-cards-grid">
+                    <div class="resource-card">
+                        <img src="https://img.icons8.com/fluency/48/007bff/like.png" alt="Ícone Coração Primeiros Socorros" class="resource-icon">
+                        <h3>Primeiros Socorros Psicológicos</h3>
+                        <p>Técnicas imediatas para estabilização emocional após incêndios, inundações e deslizamentos.</p>
+                        <a href="./paginas/autocuidado.html#psp" class="btn btn-dark">Acessar Recursos</a>
+                    </div>
+                    <div class="resource-card">
+                        <img src="https://img.icons8.com/fluency/48/28a745/mind-map.png" alt="Ícone Cérebro Trauma" class="resource-icon">
+                        <h3>Compreendendo o Trauma</h3>
+                        <p>Informações sobre reações normais após desastres naturais e quando procurar ajuda especializada.</p>
+                        <a href="./paginas/entendendo_emocoes.html#trauma" class="btn btn-dark">Acessar Recursos</a>
+                    </div>
+                    <div class="resource-card">
+                        <img src="https://img.icons8.com/fluency/48/7C3AED/help.png" alt="Ícone Rede de Apoio" class="resource-icon">
+                        <h3>Rede de Apoio Especializada</h3>
+                        <p>Acesso a profissionais qualificados em trauma pós-desastre natural.</p>
+                        <a href="./paginas/ajuda_sp.html#rede" class="btn btn-dark">Acessar Recursos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compreendendo as Reações -->
+        <section class="understanding-reactions-section">
+            <div class="container reactions-content-grid">
+                <div class="reactions-text">
+                    <h2>Compreendendo as Reações Após Desastres Naturais</h2>
+                    <p><strong>Desastres naturais</strong> são eventos extremos que podem causar trauma psicológico significativo. Reações como ansiedade, medo de recorrência, evitação de locais similares e hipervigilância são respostas normais.</p>
+                    <p>A <strong>intervenção especializada</strong> em trauma pós-desastre natural pode prevenir o desenvolvimento de transtornos de estresse pós-traumático e facilitar a adaptação e recuperação.</p>
+                    <p><strong>Fatores de proteção</strong> incluem apoio comunitário, preparação para emergências, estratégias de enfrentamento específicas e acesso a cuidados especializados em trauma pós-desastre.</p>
+                </div>
+                <div class="help-signs">
+                    <h3>Sinais de Que Você Precisa de Ajuda Especializada</h3>
+                    <ul>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon-blue"> Medo intenso e persistente relacionado ao tipo de desastre</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon-blue"> Evitação de locais ou situações que lembrem o evento</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon-blue"> Flashbacks vívidos do momento do desastre</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon-blue"> Ansiedade extrema com condições climáticas similares</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle.svg" alt="Checkmark" class="checkmark-icon-blue"> Dificuldade para retomar atividades normais após 4 semanas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiências de Quem Já Usou (Carrossel) -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2>Experiências de Quem Já Usou</h2>
+                <div class="carousel-wrapper">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <p>"O site me orientou a buscar ajuda profissional no momento certo. Obrigada!"</p>
+                            <cite>Ana L., Campinas</cite>
+                        </div>
+                        <div class="carousel-item">
+                            <p>"Os exercícios de respiração me ajudaram muito durante os momentos mais difíceis após o incêndio."</p>
+                            <cite>Maria S., Ribeirão Preto</cite>
+                        </div>
+                        <div class="carousel-item">
+                            <p>"Encontrei aqui informações que me fizeram entender que minhas reações eram normais."</p>
+                            <cite>João P., São José dos Campos</cite>
+                        </div>
+                    </div>
+                    <button class="carousel-control prev" aria-label="Depoimento anterior">❮</button>
+                    <button class="carousel-control next" aria-label="Próximo depoimento">❯</button>
+                </div>
+                <div class="carousel-indicators">
+                    <!-- Indicadores serão gerados por JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <aside class="emergency-banner-bottom" id="emergenciaPsicologica">
+        <div class="container emergency-content">
+            <h3>Emergência Psicológica Pós-Desastre</h3>
+            <p>Se você ou alguém que conhece está em crise psicológica aguda após um desastre natural, procure ajuda profissional imediatamente.</p>
+            <div class="emergency-contacts">
+                <a href="tel:188" class="emergency-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone-forwarded.svg" alt="Ícone Telefone CVV" class="btn-icon"> CVV - 188 (24h)</a>
+                <a href="tel:199" class="emergency-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/building.svg" alt="Ícone Prédio Defesa Civil" class="btn-icon"> Defesa Civil - 199</a>
+                <a href="tel:193" class="emergency-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/flame.svg" alt="Ícone Chama Bombeiros" class="btn-icon"> Bombeiros - 193</a>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="professional-warning-bottom">
+        <div class="container">
+            <h4>Aviso Profissional</h4>
+            <p>Este site oferece recursos educacionais e de apoio psicossocial específicos para trauma pós-desastre natural, mas não constitui atendimento psicológico, diagnóstico ou tratamento profissional. Em situações de crise ou necessidade de intervenção clínica, procure sempre um profissional de saúde mental qualificado em trauma pós-desastre ou serviços de emergência.</p>
+        </div>
+    </aside>
+
+    <footer class="site-footer-final">
+        <div class="container footer-content-grid">
+            <div class="footer-logo-info">
+                <a href="./index.html" class="logo-link-footer">
+                    <img src="./assets/imagens/icone-logo.png" alt="Logo Recomeço" class="footer-logo-img">
+                    <span class="logo-text-footer">Recomeço</span>
+                </a>
+                <p>Apoio psicológico especializado para vítimas de desastres naturais.</p>
+            </div>
+            <div class="footer-links-section">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="./index.html">Início</a></li>
+                    <li><a href="./paginas/autocuidado.html">Autocuidado</a></li>
+                    <li><a href="./paginas/entendendo_emocoes.html">Entendendo Emoções</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-section">
+                <h4>Sobre Nós</h4>
+                <ul>
+                    <li><a href="./paginas/integrantes.html">Integrantes</a></li>
+                    <li><a href="./paginas/faq.html">FAQ</a></li>
+                    <li><a href="./paginas/contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright-container">
+            <p class="important-notice-footer"><strong>Importante:</strong> Este site oferece informações e ferramentas de apoio, mas não substitui o aconselhamento ou tratamento psicológico profissional. Em caso de crise ou emergência, procure ajuda imediatamente.</p>
+            <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
