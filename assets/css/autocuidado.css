@@ -429,6 +429,10 @@
     background-color: var(--color-primary);
 }
 .breathing-instruction {
+    position: absolute;
+    z-index: 10;
+    max-width: 117px;
+    padding: 0 5px;
     font-size: 1.15rem;
     color: #fff;
     font-weight: 600;
