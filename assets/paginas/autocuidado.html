@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocuidado Pós-Desastre - Recomeço</title>
+    <link rel="stylesheet" href="../css/style.css"> <!-- Caminho corrigido -->
+    <link rel="stylesheet" href="../css/autocuidado.css"> <!-- Caminho corrigido -->
+    <script src="../js/script.js" defer></script> <!-- Caminho corrigido -->
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="../../index.html" class="logo-link"> <!-- Caminho corrigido -->
+                <img src="../imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img"><span class="logo-text-header">Recomeço</span>
+            </a>
+            <nav class="main-navigation" id="primary-navigation" aria-hidden="true">
+                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link"> <!-- Caminho corrigido -->
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon">
+                        Início
+                    </a></li>
+                    <li><a href="./autocuidado.html" class="nav-link active"> <!-- Link ativo -->
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon">
+                        Autocuidado
+                    </a></li>
+                    <li><a href="./entendendo_emocoes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon">
+                        Entendendo Emoções
+                    </a></li>
+                    <li><a href="./integrantes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon">
+                        Integrantes
+                    </a></li>
+                    <li><a href="./faq.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon">
+                        FAQ
+                    </a></li>
+                    <li><a href="./contato.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
+                        Contato
+                    </a></li>
+                    <li class="nav-item-login"><a href="./login.html" class="nav-link btn btn-login-in-list">Entrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-autocuidado">
+        <section class="page-title-section">
+            <div class="container">
+                <h1>Autocuidado Pós-Desastre Natural</h1>
+                <p class="section-subtitle short-subtitle">Técnicas específicas e universais para ajudar você a lidar com as reações emocionais<br>após incêndios, inundações e deslizamentos.</p>
+            </div>
+        </section>
+
+        <section class="immediate-alert-section">
+            <div class="container alert-cards-grid">
+                <div class="alert-card flashback-card">
+                    <h3><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/alert-triangle.svg" alt="Alerta" class="alert-icon"> Se você está tendo um flashback AGORA:</h3>
+                    <ul>
+                        <li>Lembre-se: você está SEGURO(A) no presente</li>
+                        <li>Olhe ao redor e nomeie 5 objetos que você vê</li>
+                        <li>Toque uma superfície e descreva sua textura</li>
+                        <li>Respire profundamente e devagar</li>
+                        <li>Diga em voz alta: "Isso já passou, estou seguro(a) agora"</li>
+                    </ul>
+                </div>
+                <div class="alert-card panic-card">
+                    <h3><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/alert-octagon.svg" alt="Alerta" class="alert-icon"> Se você está tendo um ataque de pânico:</h3>
+                    <ul>
+                        <li>Sente-se ou deite-se em um local seguro</li>
+                        <li>Lembre-se: isso vai passar, você não está em perigo</li>
+                        <li>Use a respiração 4-2-6 (Inspire por 4s, segure por 2s, expire por 6s)</li>
+                        <li>Coloque os pés firmemente no chão</li>
+                        <li>Se possível, ligue para alguém de confiança</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="breathing-exercise-section">
+            <div class="container">
+                <h2>Exercício de Respiração Guiada</h2>
+                <p class="section-subtitle">Use esta animação para regular sua respiração e encontrar um momento de calma.</p>
+                <div class="breathing-circle-container">
+                    <div class="breathing-circle" id="breathingCircle"></div>
+                    <p class="breathing-instruction" id="breathingInstruction">Prepare-se<span id="breathingTimer"></span></p>
+                </div>
+                <div class="breathing-controls">
+                    <button id="startBreathingBtn" class="btn btn-primary-cta">Iniciar Exercício</button>
+                    <p class="breathing-description">Siga o círculo: Inspire enquanto ele expande, segure brevemente, e expire enquanto ele contrai.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="techniques-by-disaster-section" id="tecnicas-especificas">
+            <div class="container">
+                <h2>Técnicas Específicas por Tipo de Desastre</h2>
+                <div class="tabs-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="incendios"><img src="https://img.icons8.com/fluency/48/f97316/fire-element.png" alt="" class="tab-icon">Incêndios</button>
+                        <button class="tab-button" data-tab="inundacoes"><img src="https://img.icons8.com/fluency/48/3b82f6/water.png" alt="" class="tab-icon">Inundações</button>
+                        <button class="tab-button" data-tab="deslizamentos"><img src="https://img.icons8.com/fluency/48/a16207/landslide.png" alt="" class="tab-icon">Deslizamentos</button>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="tab-pane active" id="incendios" role="tabpanel" aria-labelledby="tab-incendios">
+                            <h4>Técnicas para Sobreviventes de Incêndios</h4>
+                            <p>Reações comuns: medo de fogo/fumaça, flashbacks, perda de segurança. Tente estas técnicas:</p>
+
+                            <div class="technique-block">
+                                <h4>1. Segurança no Agora (Aterramento)</h4>
+                                <p class="technique-description">Traga sua atenção ao presente para reduzir a sobrecarga de lembranças.</p>
+                                <ol>
+                                    <li><strong>Veja:</strong> 5 coisas ao redor não ligadas ao incêndio.</li>
+                                    <li><strong>Sinta:</strong> 4 texturas (roupas, cadeira).</li>
+                                    <li><strong>Ouça:</strong> 3 sons do ambiente atual.</li>
+                                    <li><strong>Afirme:</strong> "O incêndio passou. Estou seguro(a) agora."</li>
+                                </ol>
+                            </div>
+
+                            <div class="technique-block">
+                                <h4>2. Ambiente de Calma</h4>
+                                <p class="technique-description">Crie um espaço que promova tranquilidade, longe de gatilhos.</p>
+                                <ol>
+                                    <li><strong>Identifique gatilhos:</strong> Cheiros (queimado) ou sons (sirenes) que causam ansiedade.</li>
+                                    <li><strong>Use cheiros calmantes:</strong> Lavanda, camomila (difusor) ou cozinhe algo agradável.</li>
+                                    <li><strong>Crie sons positivos:</strong> Músicas relaxantes, sons da natureza.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="inundacoes" role="tabpanel" aria-labelledby="tab-inundacoes">
+                            <h4>Técnicas para Sobreviventes de Inundações</h4>
+                            <p>Comum sentir: medo de novas chuvas, ansiedade, tristeza. Experimente estas abordagens:</p>
+
+                            <div class="technique-block">
+                                <h4>1. Ancoragem na Incerteza</h4>
+                                <p class="technique-description">Recrie um senso de normalidade e segurança.</p>
+                                <ol>
+                                    <li><strong>Rotina Mínima:</strong> Mantenha horários para dormir, acordar e comer.</li>
+                                    <li><strong>Espaço "Seu":</strong> Organize um canto com seus pertences.</li>
+                                    <li><strong>Limite Notícias:</strong> Informe-se do essencial, evite excesso sobre o desastre.</li>
+                                </ol>
+                            </div>
+
+                            <div class="technique-block">
+                                <h4>2. Enfrentando o Medo com Preparação</h4>
+                                <p class="technique-description">Medo de novas chuvas é comum. Preparação e calma ajudam.</p>
+                                <ol>
+                                    <li><strong>Plano de Segurança:</strong> Tenha um kit de emergência e ponto de encontro familiar.</li>
+                                    <li><strong>Respiração Calmante:</strong> Pratique respiração diafragmática (lenta e profunda) ao sentir medo.</li>
+                                    <li><strong>Distração Positiva:</strong> Tenha atividades que acalmem (ler, ouvir música).</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="deslizamentos" role="tabpanel" aria-labelledby="tab-deslizamentos">
+                            <h4>Técnicas para Sobreviventes de Deslizamentos</h4>
+                            <p>Comum: medo intenso, TEPT, perda de confiança. O apoio social é crucial.</p>
+
+                            <div class="technique-block">
+                                <h4>1. Encontrando Chão Firme</h4>
+                                <p class="technique-description">Deslizamentos abalam a segurança física. Crie um ambiente seguro e previsível.</p>
+                                <ol>
+                                    <li><strong>Local Seguro:</strong> Busque abrigo seguro. Informe-se antes de retornar.</li>
+                                    <li><strong>Atenção ao Corpo:</strong> Observe reações ao estresse. Use respiração para acalmar, especialmente com chuva/ruídos.</li>
+                                </ol>
+                            </div>
+
+                            <div class="technique-block">
+                                <h4>2. Acalmando Mente e Corpo</h4>
+                                <p class="technique-description">Memórias intrusivas e medo são comuns. Aterramento ajuda.</p>
+                                <ol>
+                                    <li><strong>Aterramento (5 sentidos):</strong> Reconecte-se ao presente durante flashbacks ou ansiedade.</li>
+                                    <li><strong>Valide Sentimentos:</strong> Converse sobre seus medos com alguém de confiança.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="universal-techniques-section">
+            <div class="container">
+                <h2>Técnicas Universais de Autocuidado</h2>
+                <div class="universal-cards-grid">
+                    <div class="universal-card">
+                        <h4>Respiração 4-2-6</h4>
+                        <p>Técnica de respiração para reduzir ansiedade aguda.</p>
+                        <ol>
+                            <li>Inspire contando até 4</li>
+                            <li>Segure a respiração por 2 segundos</li>
+                            <li>Expire lentamente contando até 6</li>
+                            <li>Repita por 5-10 ciclos</li>
+                        </ol>
+                    </div>
+                    <div class="universal-card">
+                        <h4>Técnica 5-4-3-2-1</h4>
+                        <p>Grounding sensorial para momentos de dissociação ou flashbacks.</p>
+                        <ol>
+                            <li>5 coisas que você pode VER ao seu redor</li>
+                            <li>4 coisas que você pode TOCAR</li>
+                            <li>3 coisas que você pode OUVIR</li>
+                            <li>2 coisas que você pode CHEIRAR</li>
+                            <li>1 coisa que você pode SABOREAR</li>
+                        </ol>
+                    </div>
+                    <div class="universal-card">
+                        <h4>Lugar Seguro Mental</h4>
+                        <p>Visualização para criar sensação de segurança.</p>
+                        <ol>
+                            <li>Visualize um lugar onde se sente completamente seguro(a)</li>
+                            <li>Inclua detalhes sensoriais: cores, sons, texturas</li>
+                            <li>Pratique 'visitar' este lugar regularmente</li>
+                            <li>Use esta visualização em momentos de ansiedade</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="daily-routine-section">
+            <div class="container">
+                <h2>Rotina Diária de Autocuidado Pós-Desastre</h2>
+                <div class="routine-grid">
+                    <div class="routine-column">
+                        <h4>Manhã</h4>
+                        <ul>
+                            <li>Check-in emocional</li>
+                            <li>Respiração consciente</li>
+                            <li>Planejamento do dia</li>
+                        </ul>
+                    </div>
+                    <div class="routine-column">
+                        <h4>Tarde</h4>
+                        <ul>
+                            <li>Técnica de grounding</li>
+                            <li>Atividade prazerosa</li>
+                            <li>Conexão social</li>
+                        </ul>
+                    </div>
+                    <div class="routine-column">
+                        <h4>Noite</h4>
+                        <ul>
+                            <li>Reflexão do dia</li>
+                            <li>Relaxamento</li>
+                            <li>Preparação para dormir</li>
+                        </ul>
+                    </div>
+                    <div class="routine-column">
+                        <h4>Conforme necessário</h4>
+                        <ul>
+                            <li>Técnicas específicas</li>
+                            <li>Busca de apoio</li>
+                            <li>Pausa e descanso</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="professional-help-cta-section">
+            <div class="container">
+                <h2>Quando Buscar Ajuda Profissional</h2>
+                <p>Se as técnicas de autocuidado não estão sendo suficientes ou se você sente que precisa de apoio adicional, não hesite em buscar ajuda profissional.</p>
+                <div class="cta-buttons">
+                    <a href="./contato.html" class="btn btn-primary-cta">Encontrar Ajuda Profissional</a>
+                    <a href="tel:188" class="btn btn-secondary-cta">CVV - 188 (Emergência)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-final">
+        <!-- Conteúdo do footer idêntico ao da index.html -->
+        <div class="container footer-content-grid">
+            <div class="footer-logo-info">
+                <a href="../../index.html" class="logo-link-footer"> <!-- Caminho corrigido -->
+                    <img src="../imagens/icone-logo.png" alt="Logo Recomeço" class="footer-logo-img"> <!-- Caminho corrigido -->
+                    <span class="logo-text-footer">Recomeço</span>
+                </a>
+                <p>Apoio psicológico especializado para vítimas de desastres naturais.</p>
+            </div>
+            <div class="footer-links-section">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="../../index.html">Início</a></li> <!-- Caminho corrigido -->
+                    <li><a href="./autocuidado.html">Autocuidado</a></li>
+                    <li><a href="./entendendo_emocoes.html">Entendendo Emoções</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-section">
+                <h4>Sobre Nós</h4>
+                <ul>
+                    <li><a href="./integrantes.html">Integrantes</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="./contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright-container">
+            <p class="important-notice-footer"><strong>Importante:</strong> Este site oferece informações e ferramentas de apoio, mas não substitui o aconselhamento ou tratamento psicológico profissional. Em caso de crise ou emergência, procure ajuda imediatamente.</p>
+            <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
+        </div>
+    </footer>
+
+</body>
+</html> 

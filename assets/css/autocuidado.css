@@ -1,0 +1,464 @@
+/* Estilos gerais da página de Autocuidado */
+.page-autocuidado main {
+    padding-top: var(--header-height); /* Considerar o header fixo */
+}
+
+.page-autocuidado {
+    padding-top: var(--header-height); /* Garante que o conteúdo não comece sob o header fixo */
+}
+
+/* Ajuste adicional para a primeira seção, se necessário, para mais espaço */
+.page-autocuidado .page-title-section {
+    padding-top: 40px; /* Exemplo de espaço adicional */
+    padding-bottom: 40px;
+    background-color: var(--color-background-hero); /* Um fundo suave como na hero da home */
+}
+
+.page-title-section {
+    /* background-color: var(--color-background-hero); */ /* Estilo original, agora coberto acima seletor mais específico */
+    padding: 60px 0; /* Estilo original */
+    text-align: center; /* Estilo original */
+}
+.page-title-section h1 {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem); 
+    color: var(--color-text-dark);
+    margin-bottom: 0.5em;
+}
+.page-title-section .short-subtitle {
+    font-size: 1.1rem;
+    color: #4B5563;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    margin-bottom: 2em; 
+}
+
+/* Estilos para a seção de Alertas Imediatos - Descomentados */
+.immediate-alert-section {
+    padding: 50px 0;
+    background-color: var(--color-background-light);
+}
+.alert-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.alert-card {
+    background-color: var(--color-background-section-alt);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border-left: 5px solid;
+}
+.alert-card.flashback-card { border-left-color: #FFC107; }
+.alert-card.panic-card { border-left-color: #FD7E14; }
+.alert-card h3 {
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+}
+.alert-icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 10px;
+}
+.alert-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.alert-card ul li {
+    margin-bottom: 0.6em;
+    font-size: 0.95rem;
+    color: var(--color-text-medium);
+}
+
+/* Estilos para a seção de Técnicas por Tipo de Desastre (Abas) - Revertido */
+.techniques-by-disaster-section {
+    padding: 60px 0;
+    background-color: var(--color-background-section-alt);
+}
+.techniques-by-disaster-section h2 {
+    margin-bottom: 1.5em;
+}
+.tabs-container {
+    background-color: var(--color-background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    margin-top: 2em;
+}
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+.tab-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-medium);
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+    justify-content: center;
+}
+.tab-button:hover {
+    color: var(--color-primary);
+}
+.tab-button.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+.tab-icon {
+    width: 24px; 
+    height: 24px;
+}
+.tab-pane {
+    display: none; 
+    animation: fadeIn 0.5s ease-in-out;
+}
+.tab-pane.active {
+    display: block; 
+}
+
+/* Adiciona espaço entre o parágrafo introdutório e o primeiro bloco de técnica */
+.tab-pane > h4 + p {
+    margin-bottom: 1.5em;
+}
+
+.technique-block {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+}
+.technique-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.technique-block h4 {
+    font-size: 1.3rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.5em;
+}
+.technique-description {
+    font-style: italic;
+    color: var(--color-text-medium);
+    margin-bottom: 1em;
+    font-size: 0.95rem;
+}
+.technique-block ol {
+    list-style-position: inside;
+    padding-left: 5px;
+}
+.technique-block ol li {
+    margin-bottom: 0.5em;
+    font-size: 0.95rem;
+}
+
+/* Estilos para Técnicas Universais - Modernizado */
+.universal-techniques-section {
+    padding: 64px 0 48px 0;
+    background: linear-gradient(180deg, #fff 0%, var(--color-background-section-alt) 100%);
+}
+.universal-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 36px;
+    margin-top: 2.5em;
+}
+.universal-card {
+    background-color: #fff;
+    padding: 32px 26px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.universal-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    transform: translateY(-2px) scale(1.01);
+}
+.universal-card h4 {
+    font-size: 1.28rem;
+    color: var(--color-secondary);
+    margin-bottom: 0.7em;
+}
+.universal-card p {
+    font-size: 1.01rem;
+    color: var(--color-text-medium);
+    margin-bottom: 1em;
+}
+.universal-card ol {
+    list-style-position: inside;
+    padding-left: 5px;
+}
+.universal-card ol li {
+    margin-bottom: 0.5em;
+    font-size: 0.99rem;
+}
+
+/* Seção Rotina Diária - Modernizada */
+.daily-routine-section {
+    padding: 64px 0 48px 0;
+    background: var(--color-background-section-alt);
+}
+.routine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+    margin-top: 2.5em;
+}
+.routine-column {
+    background-color: #fff;
+    padding: 28px 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.routine-column:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+    transform: translateY(-2px) scale(1.01);
+}
+.routine-column h4 {
+    font-size: 1.18rem;
+    color: var(--color-primary);
+    margin-bottom: 1em;
+    border-bottom: 2px solid var(--color-primary-light, #e0e0e0); 
+    padding-bottom: 0.5em;
+}
+.routine-column ul {
+    list-style: none;
+}
+.routine-column ul li {
+    margin-bottom: 0.7em;
+    font-size: 0.97rem;
+    color: var(--color-text-medium);
+    position: relative;
+    padding-left: 22px;
+}
+.routine-column ul li::before {
+    content: "✓";
+    color: var(--color-secondary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Seção CTA Ajuda Profissional - Revertida para tema de aviso amarelo */
+.professional-help-cta-section {
+    padding: 70px 0;
+    background-color: var(--color-warning-banner-bg); /* Tema de aviso */
+    text-align: center;
+    color: var(--color-warning-banner-text); /* Texto para tema de aviso */
+}
+.professional-help-cta-section h2 {
+    color: var(--color-warning-banner-text); /* Texto para tema de aviso */
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+.professional-help-cta-section p {
+    font-size: 1.1rem;
+    margin: 0 auto 2em auto;
+    opacity: 0.9;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.btn-primary-cta, .btn-secondary-cta {
+    padding: 0.9em 2.2em;
+    font-size: 1.05rem;
+    border-width: 2px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.btn-primary-cta {
+    background-color: #2a6ed5;
+    color: #fff;
+    border-color: #4F8FF0;
+}
+.btn-primary-cta:hover {
+    background-color: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+.btn-secondary-cta {
+    background-color: #c81e1e;
+    color: #fff;
+    border-color: #c81e1e;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.btn-secondary-cta:hover {
+    background-color: #a11212;
+    color: #fff;
+    border-color: #a11212;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+}
+.btn-primary-cta:hover, .btn-secondary-cta:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+}
+
+/* Animação FadeIn para abas - Pode ser removida se não houver abas ativas com JS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade aprimorada */
+@media (max-width: 900px) {
+    .tabs-container, .universal-cards-grid, .routine-grid {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+@media (max-width: 600px) {
+    .tabs-container {
+        padding: 18px 2px;
+    }
+    .tab-buttons {
+        flex-direction: column;
+        gap: 8px;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .tab-button {
+        border-radius: 10px;
+        border-bottom: 3px solid transparent !important;
+        border-left: 3px solid transparent;
+        padding: 12px 0;
+    }
+    .tab-button.active {
+        border-left: 3px solid var(--color-primary);
+        border-bottom: 3px solid transparent;
+        background: #eaf3ff;
+    }
+    .universal-cards-grid, .routine-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+/* Seção Exercício de Respiração Guiada */
+.breathing-exercise-section {
+    padding: 60px 0;
+    background-color: #e9f5ff; /* Azul bem suave para destacar a seção */
+    text-align: center;
+}
+
+.breathing-circle-container {
+    width: 220px; /* Aumentado para dar mais espaço */
+    height: 220px;
+    margin: 40px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Para o container também, se quisermos um fundo nele */
+    /* background-color: #f0f7ff; */ /* Exemplo de fundo suave para o container */
+}
+
+.breathing-circle {
+    width: 120px;
+    height: 120px;
+    background-color: var(--color-primary); /* Mantém #007bff para estado normal/expiração */
+    border-radius: 50%;
+    position: absolute;
+    transition: transform 4s ease-in-out, background-color 4s ease-in-out;
+    transform-origin: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.breathing-circle.inhale {
+    transform: scale(1.85);
+    background-color: #5bbaff; /* Azul mais vivo e claro para inspirar, bom contraste com texto branco */
+}
+
+.breathing-circle.exhale {
+    transform: scale(1);
+    background-color: var(--color-primary); /* Volta ao azul primário */
+}
+
+.breathing-instruction {
+    font-size: 1.15rem;
+    color: #fff; /* Mantém texto branco, bom contraste com os azuis escolhidos */
+    font-weight: 600;
+    position: absolute;
+    width: 90%;
+    text-align: center;
+    z-index: 1;
+    padding: 0 5px;
+    line-height: 1.3;
+}
+
+.breathing-instruction #breathingTimer {
+    font-weight: 700;
+    margin-left: 5px;
+    /* opacity: 0.85; */ /* Opcional: leve transparência para o timer */
+}
+
+.breathing-controls {
+    margin-top: 30px;
+}
+.breathing-controls .btn-primary-cta { /* Aplicando a classe correta usada no HTML */
+    margin-bottom: 20px;
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: #fff;
+    padding: 0.8em 1.8em; /* Padrão .btn */
+    font-weight: 600; /* Padrão .btn */
+    border-radius: var(--border-radius); /* Padrão .btn */
+    /* A animação de hover já deve ser herdada se .btn tiver */
+}
+.breathing-controls .btn-primary-cta:hover {
+    background-color: #15803D;
+    border-color: #15803D;
+}
+
+.breathing-description {
+    font-size: 0.95rem; /* Levemente aumentado */
+    color: var(--color-text-medium);
+    max-width: 450px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Responsividade para o círculo */
+@media (max-width: 480px) {
+    .breathing-circle-container {
+        width: 180px;
+        height: 180px;
+        margin: 30px auto;
+    }
+    .breathing-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .breathing-circle.inhale {
+        transform: scale(1.7);
+    }
+    .breathing-instruction {
+        font-size: 1rem;
+    }
+    .breathing-controls .btn-primary-cta {
+        font-size: 0.95rem;
+        padding: 0.7em 1.5em;
+    }
+}
