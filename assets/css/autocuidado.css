@@ -1,23 +1,22 @@
-/* Estilos gerais da página de Autocuidado */
+/* Estilos Gerais da Página de Autocuidado */
 .page-autocuidado main {
-    padding-top: var(--header-height); /* Considerar o header fixo */
+    padding-top: var(--header-height);
 }
 
 .page-autocuidado {
-    padding-top: var(--header-height); /* Garante que o conteúdo não comece sob o header fixo */
+    padding-top: var(--header-height);
 }
 
-/* Ajuste adicional para a primeira seção, se necessário, para mais espaço */
+/* Título da Página */
 .page-autocuidado .page-title-section {
-    padding-top: 40px; /* Exemplo de espaço adicional */
+    padding-top: 40px;
     padding-bottom: 40px;
-    background-color: var(--color-background-hero); /* Um fundo suave como na hero da home */
+    background-color: var(--color-background-hero);
 }
 
 .page-title-section {
-    /* background-color: var(--color-background-hero); */ /* Estilo original, agora coberto acima seletor mais específico */
-    padding: 60px 0; /* Estilo original */
-    text-align: center; /* Estilo original */
+    padding: 60px 0;
+    text-align: center;
 }
 .page-title-section h1 {
     font-size: clamp(2.2rem, 4.5vw, 3.2rem); 
@@ -33,7 +32,7 @@
     margin-bottom: 2em; 
 }
 
-/* Estilos para a seção de Alertas Imediatos - Descomentados */
+/* Alertas Imediatos */
 .immediate-alert-section {
     padding: 50px 0;
     background-color: var(--color-background-light);
@@ -73,7 +72,7 @@
     color: var(--color-text-medium);
 }
 
-/* Estilos para a seção de Técnicas por Tipo de Desastre (Abas) - Revertido */
+/* Técnicas por Tipo de Desastre (Abas) */
 .techniques-by-disaster-section {
     padding: 60px 0;
     background-color: var(--color-background-section-alt);
@@ -129,12 +128,9 @@
 .tab-pane.active {
     display: block; 
 }
-
-/* Adiciona espaço entre o parágrafo introdutório e o primeiro bloco de técnica */
 .tab-pane > h4 + p {
     margin-bottom: 1.5em;
 }
-
 .technique-block {
     margin-bottom: 30px;
     padding-bottom: 20px;
@@ -165,7 +161,7 @@
     font-size: 0.95rem;
 }
 
-/* Estilos para Técnicas Universais - Modernizado */
+/* Técnicas Universais */
 .universal-techniques-section {
     padding: 64px 0 48px 0;
     background: linear-gradient(180deg, #fff 0%, var(--color-background-section-alt) 100%);
@@ -177,7 +173,7 @@
     margin-top: 2.5em;
 }
 .universal-card {
-    background-color: #e6f9ee; /* Verde claro suave */
+    background-color: #e6f9ee;
     padding: 32px 26px;
     border-radius: 16px;
     box-shadow: 0 2px 12px rgba(0, 128, 96, 0.07);
@@ -240,7 +236,7 @@
     line-height: 1;
 }
 
-/* Seção Rotina Diária - Modernizada */
+/* Rotina Diária */
 .daily-routine-section {
     padding: 64px 0 48px 0;
     background: var(--color-background-section-alt);
@@ -288,15 +284,15 @@
     font-size: 1.1em;
 }
 
-/* Seção CTA Ajuda Profissional - Revertida para tema de aviso amarelo */
+/* CTA Ajuda Profissional */
 .professional-help-cta-section {
     padding: 70px 0;
-    background-color: var(--color-warning-banner-bg); /* Tema de aviso */
+    background-color: var(--color-warning-banner-bg);
     text-align: center;
-    color: var(--color-warning-banner-text); /* Texto para tema de aviso */
+    color: var(--color-warning-banner-text);
 }
 .professional-help-cta-section h2 {
-    color: var(--color-warning-banner-text); /* Texto para tema de aviso */
+    color: var(--color-warning-banner-text);
     font-size: clamp(1.8rem, 4vw, 2.4rem);
 }
 .professional-help-cta-section p {
@@ -348,13 +344,12 @@
     box-shadow: 0 8px 18px rgba(0,0,0,0.10);
 }
 
-/* Animação FadeIn para abas - Pode ser removida se não houver abas ativas com JS */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsividade aprimorada */
+/* Responsividade */
 @media (max-width: 900px) {
     .tabs-container, .universal-cards-grid, .routine-grid {
         padding-left: 8px;
@@ -397,29 +392,26 @@
     }
 }
 
-/* Seção Exercício de Respiração Guiada */
+/* Exercício de Respiração Guiada */
 .breathing-exercise-section {
     padding: 60px 0;
-    background-color: #e9f5ff; /* Azul bem suave para destacar a seção */
+    background-color: #e9f5ff;
     text-align: center;
 }
-
 .breathing-circle-container {
-    width: 220px; /* Aumentado para dar mais espaço */
+    width: 220px;
     height: 220px;
     margin: 40px auto;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* Para o container também, se quisermos um fundo nele */
-    /* background-color: #f0f7ff; */ /* Exemplo de fundo suave para o container */
+    border-radius: 50%;
 }
-
 .breathing-circle {
     width: 120px;
     height: 120px;
-    background-color: var(--color-primary); /* Mantém #007bff para estado normal/expiração */
+    background-color: var(--color-primary);
     border-radius: 50%;
     position: absolute;
     transition: transform 4s ease-in-out, background-color 4s ease-in-out;
@@ -428,62 +420,49 @@
     align-items: center;
     justify-content: center;
 }
-
 .breathing-circle.inhale {
     transform: scale(1.85);
-    background-color: #5bbaff; /* Azul mais vivo e claro para inspirar, bom contraste com texto branco */
+    background-color: #5bbaff;
 }
-
 .breathing-circle.exhale {
     transform: scale(1);
-    background-color: var(--color-primary); /* Volta ao azul primário */
+    background-color: var(--color-primary);
 }
-
 .breathing-instruction {
     font-size: 1.15rem;
-    color: #fff; /* Mantém texto branco, bom contraste com os azuis escolhidos */
+    color: #fff;
     font-weight: 600;
-    position: absolute;
-    width: 90%;
     text-align: center;
-    z-index: 1;
-    padding: 0 5px;
     line-height: 1.3;
+    word-break: break-word;
 }
-
 .breathing-instruction #breathingTimer {
     font-weight: 700;
     margin-left: 5px;
-    /* opacity: 0.85; */ /* Opcional: leve transparência para o timer */
 }
-
 .breathing-controls {
     margin-top: 30px;
 }
-.breathing-controls .btn-primary-cta { /* Aplicando a classe correta usada no HTML */
+.breathing-controls .btn-primary-cta {
     margin-bottom: 20px;
     background-color: var(--color-secondary);
     border-color: var(--color-secondary);
     color: #fff;
-    padding: 0.8em 1.8em; /* Padrão .btn */
-    font-weight: 600; /* Padrão .btn */
-    border-radius: var(--border-radius); /* Padrão .btn */
-    /* A animação de hover já deve ser herdada se .btn tiver */
+    padding: 0.8em 1.8em;
+    font-weight: 600;
+    border-radius: var(--border-radius);
 }
 .breathing-controls .btn-primary-cta:hover {
     background-color: #15803D;
     border-color: #15803D;
 }
-
 .breathing-description {
-    font-size: 0.95rem; /* Levemente aumentado */
+    font-size: 0.95rem;
     color: var(--color-text-medium);
     max-width: 450px;
     margin: 0 auto;
     line-height: 1.5;
 }
-
-/* Responsividade para o círculo */
 @media (max-width: 480px) {
     .breathing-circle-container {
         width: 180px;

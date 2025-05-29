@@ -1,7 +1,6 @@
-/* Importar fontes do Google Fonts */
+/*Variáveis, Reset e Fontes*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Poppins:wght@600;700;800&display=swap');
 
-/* Variáveis de Cores e Fontes */
 :root {
     --color-primary: #007bff;
     --color-primary-dark: #0056b3;
@@ -17,10 +16,8 @@
     --color-emergency-banner-bg: #c81e1e;
     --color-warning-banner-bg: #fff3cd;
     --color-warning-banner-text: #856404;
-
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-headings: 'Poppins', sans-serif;
-
     --header-height: 80px;
     --border-radius: 8px;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -100,11 +97,11 @@ h3 {
     font-size: clamp(1rem, 2.5vw, 1.15rem);
     color: var(--color-text-medium);
     margin-bottom: 3em;
-    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/*Botões Gerais*/
 .btn {
     display: inline-flex;
     align-items: center;
@@ -124,19 +121,19 @@ h3 {
     line-height: 1.5;
 }
 .btn:hover {
-    transform: translateY(-3px); /* Restaurado efeito de elevação */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.12); /* Restaurada sombra */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
 }
 
 .btn-primary {
-    background-color: transparent; /* Fundo transparente no estado normal */
-    color: #10B981; /* Texto verde no estado normal */
+    background-color: transparent;
+    color: #10B981;
     border: 2px solid #10B981;
 }
 .btn-primary:hover {
-    background-color: #10B981; /* Fundo verde no hover */
-    color: var(--color-text-light); /* Texto claro no hover */
-    border: 2px solid #10B981; /* Borda verde no hover (pode ser a mesma cor do fundo) */
+    background-color: #10B981;
+    color: var(--color-text-light);
+    border: 2px solid #10B981;
 }
 
 .btn-secondary {
@@ -160,7 +157,7 @@ h3 {
     color: var(--color-text-light);
 }
 
-/* Header */
+/*Header e Navegação*/
 .site-header {
     background-color: var(--color-background-light);
     height: var(--header-height);
@@ -193,7 +190,6 @@ h3 {
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--color-primary);
-    /* margin-left: 8px; */ /* Removido pois o margin-right na img é melhor */
 }
 
 .main-navigation .nav-list {
@@ -232,7 +228,7 @@ h3 {
 
 .menu-toggle { display: none; }
 
-/* Hero Section */
+/*Hero Section*/
 .hero-section {
     padding-top: calc(var(--header-height) + 80px);
     padding-bottom: 80px;
@@ -250,7 +246,6 @@ h3 {
 .hero-subtitle {
     font-size: 1.15rem;
     color: #4B5563;
-    max-width: 700px;
     margin: 1.5em auto 2.5em auto;
 }
 .hero-buttons {
@@ -261,14 +256,11 @@ h3 {
 .hero-buttons .icon-placeholder-heart,
 .hero-buttons .icon-placeholder-phone {
     margin-left: 8px;
-    /* Estilizar os ícones reais (SVG ou Font Icon) aqui */
 }
-/* Substituir placeholders de ícones dos botões hero */
 .btn-primary .icon-placeholder-heart::before { content: '❤'; }
 .btn-secondary .icon-placeholder-phone::before { content: '📞'; }
 
-
-/* Seção Pilares (Pillars Section) */
+/*Seção Pilares*/
 .pillars-section {
     padding: 80px 0;
     background-color: var(--color-background-light);
@@ -290,8 +282,6 @@ h3 {
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    /* Se os SVGs forem monocromáticos e você quiser colorir com CSS: */
-    /* filter: invert(38%) sepia(89%) saturate(1789%) hue-rotate(206deg) brightness(97%) contrast(95%); */
 }
 .pillar-item h3 {
     font-size: 1.25rem;
@@ -303,7 +293,7 @@ h3 {
     color: var(--color-text-medium);
 }
 
-/* Como o Recomeço Te Ajuda */
+/*Como o Recomeço Te Ajuda*/
 .how-it-helps-section {
     padding: 80px 0;
     background-color: var(--color-background-section-alt);
@@ -326,9 +316,7 @@ h3 {
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    /* Aplicar cor aos ícones (verde, roxo, azul do vídeo) */
 }
-
 .step-item h3 {
     font-size: 1.25rem;
     color: #1E293B;
@@ -339,7 +327,7 @@ h3 {
     color: var(--color-text-medium);
 }
 
-/* Tipos de Desastres Naturais */
+/*Tipos de Desastres Naturais*/
 .disaster-types-section {
     padding: 80px 0;
 }
@@ -353,7 +341,6 @@ h3 {
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    /* A borda colorida à esquerda não aparece no vídeo, mas pode ser mantida se gostar */
 }
 .disaster-icon {
     height: 45px;
@@ -383,7 +370,7 @@ h3 {
     align-items: center;
 }
 
-/* Recursos Especializados */
+/*Recursos Especializados*/
 .specialized-resources-section {
     padding: 80px 0;
     background-color: var(--color-background-section-alt);
@@ -428,7 +415,7 @@ h3 {
     margin: 0 auto;
 }
 
-/* Compreendendo as Reações */
+/*Compreendendo as Reações*/
 .understanding-reactions-section {
     padding: 80px 0;
 }
@@ -469,20 +456,8 @@ h3 {
     align-items: flex-start;
     color: #075985;
 }
-/*
-.help-signs .checkmark-list {
-    width: 18px;
-    height: 18px;
-    background-image: url('assets/imagens/icon_checkmark_blue.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-    margin-top: 4px;
-    flex-shrink: 0;
-}
-*/
 
-/* Testimonials Section */
+/*Depoimentos (Carrossel)*/
 .testimonials-section {
     padding: 80px 0;
     background: linear-gradient(to right, #4F46E5, #7C3AED);
@@ -570,7 +545,7 @@ h3 {
     background-color: white;
 }
 
-/* Emergency Banner (Rodapé Vermelho) */
+/*Banner de Emergência (Rodapé Vermelho)*/
 .emergency-banner-bottom {
     background-color: var(--color-emergency-banner-bg);
     color: var(--color-text-light);
@@ -615,7 +590,7 @@ h3 {
     transform: translateY(-1px);
 }
 
-/* Professional Warning (Amarelo) */
+/*Aviso Profissional (Amarelo)*/
 .professional-warning-bottom {
     background-color: var(--color-warning-banner-bg);
     color: var(--color-warning-banner-text);
@@ -630,13 +605,12 @@ h3 {
 }
 .professional-warning-bottom p {
     font-size: 0.95rem;
-    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
 }
 
-/* Footer Final */
+/*Footer Final*/
 .site-footer-final {
     background-color: var(--color-footer-bg);
     color: #A1A1AA;
@@ -703,111 +677,89 @@ h3 {
     font-size: 0.85rem;
 }
 
-/* Estilos de Ícones como Imagens */
+/*Ícones e Utilidades*/
 .btn-icon {
     width: 1em;
     height: 1em;
     margin-right: 8px;
     vertical-align: middle;
 }
-
 .checkmark-icon {
     width: 1em; 
     height: 1em; 
     margin-right: 8px;
     vertical-align: middle; 
-    color: #10B981; /* Cor verde */
-    /* Se o SVG for monocromático e a cor não aplicar, pode ser necessário um filtro ou SVG local */
-    /* filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(127deg) brightness(95%) contrast(101%); */
+    color: #10B981;
 }
-
 .checkmark-icon-blue {
     width: 1em; 
     height: 1em; 
     margin-right: 10px;
     vertical-align: middle; 
     margin-top: 3px; 
-    color: var(--color-primary); /* Cor azul */
-    /* Se o SVG for monocromático e a cor não aplicar, pode ser necessário um filtro ou SVG local */
-    /* filter: invert(38%) sepia(89%) saturate(1789%) hue-rotate(206deg) brightness(97%) contrast(95%); */
+    color: var(--color-primary);
 }
 
-/* Estilo para o item de lista do botão de login */
 .nav-item-login {
     margin-left: auto;
 }
-
-/* Estilo para o botão de login quando dentro da lista */
 .btn-login-in-list {
-    background-color: var(--color-primary) !important; /* Mantém o fundo azul normal */
+    background-color: var(--color-primary) !important;
     color: var(--color-text-light) !important; 
     padding: 0.6em 1.5em;
-    border: 2px solid var(--color-primary); /* Adiciona borda azul */
+    border: 2px solid var(--color-primary);
 }
-
-/* Hover específico para o botão de login na lista */
 .main-navigation .nav-list li.nav-item-login a.btn-login-in-list:hover {
-    background-color: transparent !important; /* Fundo transparente no hover */
-    color: var(--color-primary) !important; /* Texto azul no hover */
-    border-color: var(--color-primary) !important; /* Mantém borda azul */
-    transform: none !important; /* Remove o efeito de translação Y */
-    box-shadow: none !important; /* Remove a sombra do hover */
+    background-color: transparent !important;
+    color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /*Responsividade e Breakpoints*/
-
-/* Extra Small devices (phones, 600px and down) */
 @media (max-width: 600px) {
-    :root { --header-height: 60px; }
     .container { width: 98%; padding-left: 10px; padding-right: 10px; }
-    .hero-section { padding-top: calc(var(--header-height) + 20px); padding-bottom: 20px; min-height: auto; }
+    .hero-section { 
+        padding-top: calc(var(--header-height) + 80px);
+        padding-bottom: 20px; 
+        min-height: auto; 
+    }
     .hero-section h1 { font-size: 1.5rem; line-height: 1.2; }
     .hero-subtitle { font-size: 0.9rem; margin: 1em auto 1.5em auto; }
     .hero-buttons { flex-direction: column; gap: 8px; align-items: center; }
     .hero-buttons .btn { width: 80%; max-width: 300px; margin-left: 0; font-size: 0.9rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid, .footer-content-grid { grid-template-columns: 1fr; gap: 15px; }
-    .site-header { height: 60px; }
-    .logo-img { height: 28px; }
-    .logo-text-header { font-size: 1.1rem; }
+    .site-header { height: var(--header-height); }
     .main-navigation .nav-link { font-size: 0.95rem; padding: 12px 10px; }
     .footer-logo-info, .footer-links-section { text-align: center; }
     .footer-links-section ul { justify-content: center; }
     .emergency-contacts { flex-direction: column; gap: 10px; }
-    .main-navigation .nav-list { top: 60px; }
+    .main-navigation .nav-list { top: var(--header-height); }
 }
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
 @media (min-width: 600px) {
     .container { width: 98%; padding-left: 10px; padding-right: 10px; }
     .hero-section h1 { font-size: 2rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid, .footer-content-grid { grid-template-columns: 1fr; gap: 20px; }
 }
-
-/* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 768px) {
     .container { width: 94%; }
     .hero-section h1 { font-size: 2.5rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
     .footer-content-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-/* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 992px) {
     .container { width: 96%; }
     .hero-section h1 { font-size: 3rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
     .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
 }
-
-/* Extra-Large devices (large laptops and desktops, 1300px and up) */
 @media (min-width: 1300px) {
     .container { width: 96%; max-width: 1300px; }
     .hero-section h1 { font-size: 3.8rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 48px; }
     .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
 }
-
-/* MENU-TOGGLE E NAV MOBILE (mantido e migrado) */
 @media (max-width: 1190px) {
     .header-container {
         position: relative;

@@ -1,0 +1,290 @@
+/*Estilos Gerais da Página entendendo_emocoes.html*/
+.page-entendendo-emocoes {
+    padding-top: var(--header-height);
+}
+
+/*Título da Página entendendo_emocoes.html*/
+.page-title-section {
+    padding-top: 40px;
+    text-align: center;
+}
+.page-title-section h1 {
+    text-align: center;
+}
+.page-title-section .title-accent {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.8em;
+    margin-top: 0.2em;
+}
+
+/*Seção Introdutória*/
+.intro-comprehension-section {
+    padding: 40px 0;
+    background-color: #E0F2FE;
+    text-align: center;
+}
+.intro-comprehension-content .intro-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+    color: var(--color-primary);
+}
+.intro-comprehension-content h3 {
+    font-size: 1.6rem;
+    color: #0C4A6E;
+    margin-bottom: 15px;
+}
+.intro-comprehension-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-medium);
+}
+
+/*Reações Comuns ao Trauma*/
+.common-reactions-section {
+    padding: 60px 0;
+}
+.common-reactions-section h2 {
+    margin-bottom: 1.8em;
+}
+.reactions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+@media (min-width: 768px) {
+    .reactions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.reaction-card {
+    background-color: var(--color-background-light);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    border-top: 4px solid;
+}
+.reaction-card:nth-child(1) { border-top-color: #FACC15; }
+.reaction-card:nth-child(2) { border-top-color: #F87171; }
+.reaction-card:nth-child(3) { border-top-color: #34D399; }
+.reaction-card h4 {
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.reaction-card-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.reaction-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+.reaction-card ul li {
+    font-size: 0.9rem;
+    color: var(--color-text-medium);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+.checkmark-list-item {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    color: var(--color-secondary);
+}
+.reaction-card:nth-child(1) .checkmark-list-item { color: #D97706; }
+.reaction-card:nth-child(2) .checkmark-list-item { color: #DC2626; }
+.reaction-card:nth-child(3) .checkmark-list-item { color: #059669; }
+
+/*Seção de Auto-observação Reflexiva*/
+.self-reflection-section {
+    padding: 50px 0;
+    background-color: #F3E8FF;
+}
+.self-reflection-section h2 {
+    color: #5B21B6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-title-icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 10px;
+}
+.self-reflection-section .short-subtitle {
+    color: #6D28D9;
+    margin-bottom: 2.5em;
+}
+.reflexion-form {
+    background-color: var(--color-background-light);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.reflexion-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #F3F4F6;
+}
+.reflexion-item:last-child {
+    border-bottom: none;
+}
+.reflexion-item input[type="checkbox"] {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    accent-color: #7C3AED;
+}
+.reflexion-item label {
+    font-size: 0.95rem;
+    color: var(--color-text-medium);
+    cursor: pointer;
+}
+.reflexion-feedback {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #F5F3FF;
+    border-radius: var(--border-radius);
+    border: 1px solid #DDD6FE;
+}
+.reflexion-feedback p {
+    font-size: 0.95rem;
+    color: #5B21B6;
+    line-height: 1.6;
+    text-align: center;
+}
+.reflexion-feedback .reflexion-counter-text {
+    font-weight: bold;
+}
+
+.static-feedback-wrapper {
+    margin-top: 1em;
+}
+
+/*Seção Quando Buscar Ajuda Profissional*/
+.when-to-seek-help-section {
+    padding: 60px 0;
+    background-color: #FEF2F2;
+}
+.when-to-seek-help-section h2 {
+    color: #B91C1C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.red-icon {
+    color: #DC2626 !important;
+}
+.when-to-seek-help-section .short-subtitle {
+    color: #991B1B;
+}
+.seek-help-list {
+    list-style: none;
+    padding-left: 0;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    text-align: left;
+}
+.seek-help-list li {
+    background-color: var(--color-background-light);
+    padding: 12px 15px 12px 45px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    border: 1px solid #FEE2E2;
+}
+.seek-help-list li::before {
+    content: '';
+    background-image: url('https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/alert-triangle.svg');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    filter: invert(19%) sepia(77%) saturate(4759%) hue-rotate(348deg) brightness(92%) contrast(97%);
+}
+
+/* Botão de ação vermelho (CTA) */
+.cta-button-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.btn-secondary-cta {
+    background-color: #c81e1e;
+    color: #fff;
+    border-color: #c81e1e;
+    border-width: 2px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.9em 2.2em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.18s, box-shadow 0.18s;
+    display: inline-block;
+}
+.btn-secondary-cta:hover {
+    background-color: #a11212;
+    color: #fff;
+    border-color: #a11212;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+}
+
+/*Seção Recuperação é um Processo*/
+.recovery-process-section {
+    padding: 50px 0;
+    background-color: #F0FDF4;
+    text-align: center;
+}
+.recovery-process-section h2 {
+    color: #15803D;
+    margin-bottom: 0.7em;
+}
+.recovery-process-section p {
+    color: #166534;
+    margin: 0 auto 1em auto;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+.recovery-process-section p strong {
+    font-weight: 700;
+}
+
+/*Responsividade*/
+@media (max-width: 767px) {
+    .page-title-section h1 { font-size: 1.8rem; }
+    .page-title-section .short-subtitle { font-size: 0.95rem; }
+    .intro-comprehension-section { padding: 30px 0; }
+    .intro-comprehension-content h3 { font-size: 1.4rem; }
+    .intro-comprehension-content p { font-size: 1rem; }
+    .reactions-grid { grid-template-columns: 1fr; }
+    .reaction-card { padding: 20px; }
+    .reaction-card h4 { font-size: 1.1rem; }
+    .self-reflection-section { padding: 40px 0; }
+    .reflexion-form { padding: 20px; }
+    .reflexion-item label { font-size: 0.9rem; }
+    .when-to-seek-help-section { padding: 40px 0; }
+    .seek-help-list li { padding: 10px 12px 10px 40px; font-size: 0.9rem; }
+    .seek-help-list li::before { width: 18px; height: 18px; left: 12px; }
+    .recovery-process-section { padding: 40px 0; }
+    .recovery-process-section p { font-size: 1rem; }
+}
