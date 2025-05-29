@@ -177,33 +177,67 @@
     margin-top: 2.5em;
 }
 .universal-card {
-    background-color: #fff;
+    background-color: #e6f9ee; /* Verde claro suave */
     padding: 32px 26px;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 128, 96, 0.07);
+    border: 1.5px solid #b6f0d2;
     transition: box-shadow 0.2s, transform 0.2s;
+    color: #17694a;
+    position: relative;
 }
 .universal-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    box-shadow: 0 8px 32px rgba(0,128,96,0.13);
     transform: translateY(-2px) scale(1.01);
 }
 .universal-card h4 {
     font-size: 1.28rem;
-    color: var(--color-secondary);
+    color: #17694a;
     margin-bottom: 0.7em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.universal-card h4 .universal-icon {
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: 6px;
 }
 .universal-card p {
     font-size: 1.01rem;
-    color: var(--color-text-medium);
+    color: #17694a;
     margin-bottom: 1em;
 }
 .universal-card ol {
-    list-style-position: inside;
-    padding-left: 5px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
 .universal-card ol li {
-    margin-bottom: 0.5em;
-    font-size: 0.99rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7em;
+    font-size: 1.05rem;
+    color: #17694a;
+    font-weight: 500;
+}
+.universal-card ol li .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4em;
+    height: 1.4em;
+    min-width: 1.4em;
+    min-height: 1.4em;
+    background: #1ec97a;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1em;
+    margin-right: 9px;
+    box-shadow: 0 1px 4px rgba(30,201,122,0.10);
+    line-height: 1;
 }
 
 /* Seção Rotina Diária - Modernizada */
@@ -351,6 +385,15 @@
     .universal-cards-grid, .routine-grid {
         grid-template-columns: 1fr;
         gap: 18px;
+    }
+}
+@media (max-width: 700px) {
+    .universal-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .universal-card {
+        padding: 22px 10px;
     }
 }
 
