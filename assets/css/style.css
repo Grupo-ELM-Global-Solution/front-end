@@ -1,4 +1,7 @@
-/* assets/css/style.css */
+/* Importar fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Poppins:wght@600;700;800&display=swap');
+
+/* Variáveis de Cores e Fontes */
 :root {
     --color-primary: #007bff;
     --color-primary-dark: #0056b3;
@@ -25,9 +28,6 @@
     --transition-speed-fast: 0.15s;
     --transition-easing: ease-in-out;
 }
-
-/* Importar fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Poppins:wght@600;700;800&display=swap');
 
 * {
     margin: 0;
@@ -231,7 +231,6 @@ h3 {
 }
 
 .menu-toggle { display: none; }
-.hamburger { /* ... */ }
 
 /* Hero Section */
 .hero-section {
@@ -329,16 +328,7 @@ h3 {
     margin-right: auto;
     /* Aplicar cor aos ícones (verde, roxo, azul do vídeo) */
 }
-/* Cores específicas para os ícones dos passos */
-.step-item:nth-child(1) .step-icon {
-    /* filter: invert(51%) sepia(72%) saturate(4499%) hue-rotate(198deg) brightness(97%) contrast(99%); */
-}
-.step-item:nth-child(2) .step-icon {
-    /* filter: invert(55%) sepia(38%) saturate(642%) hue-rotate(85deg) brightness(94%) contrast(88%); */
-}
-.step-item:nth-child(3) .step-icon {
-    /* filter: invert(34%) sepia(35%) saturate(2301%) hue-rotate(230deg) brightness(92%) contrast(89%); */
-}
+
 .step-item h3 {
     font-size: 1.25rem;
     color: #1E293B;
