@@ -53,11 +53,6 @@
     grid-template-columns: 1fr;
     gap: 30px;
 }
-@media (min-width: 768px) {
-    .reactions-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 .reaction-card {
     background-color: var(--color-background-light);
     padding: 25px;
@@ -267,6 +262,16 @@
 }
 .recovery-process-section p strong {
     font-weight: 700;
+}
+
+
+/* Media Queries */
+
+
+@media (min-width: 768px) {
+    .reactions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /*Responsividade*/

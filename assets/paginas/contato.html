@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - Recomeço</title>
     <link rel="stylesheet" href="../css/style.css">
-    <!-- <link rel="stylesheet" href="../css/contato.css"> --> <!-- Adicionar se criar um CSS específico -->
+    <link rel="stylesheet" href="../css/contato.css">
     <script src="../js/script.js" defer></script>
     <script src="../js/contato.js" defer></script>
 </head>
@@ -40,34 +40,204 @@
                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon">
                         FAQ
                     </a></li>
-                    <li><a href="#" class="nav-link active">
+                    <li><a href="./contato.html" class="nav-link active">
                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
                         Contato
                     </a></li>
-                    <li class="nav-item-login"><a href="./login.html" class="nav-link btn btn-login-in-list">Entrar</a></li>
+                    <li class="nav-item-login"><a href="./cadastro-login.html" class="nav-link btn btn-login-in-list">Entrar</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="page-contato">
-        <section class="page-title-section">
+        <section class="page-title-section contato-title-section">
             <div class="container">
-                 <h1>Entre em Contato</h1>
-                 <p class="section-subtitle short-subtitle">Se precisar de ajuda ou tiver dúvidas, fale conosco.</p>
+                <h1>Entre em Contato</h1>
+                <p class="section-subtitle short-subtitle">Estamos aqui para ouvir você. Compartilhe suas dúvidas, sugestões ou experiências para ajudarmos a melhorar o Recomeço.</p>
             </div>
         </section>
-        
-        <section class="contact-content-section">
+
+        <section class="contact-notice-section">
             <div class="container">
-                <p><em>Página de contato em desenvolvimento.</em></p>
-                <p>Se precisar de ajuda urgente, procure os canais de emergência indicados na página inicial ou na seção de FAQ.</p>
+                <div class="notice-box important-notice-box">
+                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/alert-triangle.svg" alt="Ícone Alerta" class="notice-icon">
+                    <p><strong>Importante:</strong> Este formulário não é para situações de emergência ou crise. Se você precisa de ajuda imediata, utilize os números de emergência listados mais abaixo ou procure atendimento médico presencial.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-content-section"> 
+            <div class="container contact-main-layout"> 
+                <div class="contact-form-column"> 
+                    <div class="contact-form-wrapper">
+                        <h3><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/send.svg" alt="Enviar Mensagem" class="form-title-icon"> Envie sua Mensagem</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="contactName">Nome <span class="required-asterisk">*</span></label>
+                                <input type="text" id="contactName" name="contactName" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email <span class="required-asterisk">*</span></label>
+                                <input type="email" id="contactEmail" name="contactEmail" placeholder="seu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Assunto <span class="required-asterisk">*</span></label>
+                                <input type="text" id="contactSubject" name="contactSubject" placeholder="Sobre o que você gostaria de falar?" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Mensagem <span class="required-asterisk">*</span></label>
+                                <textarea id="contactMessage" name="contactMessage" rows="6" placeholder="Compartilhe suas dúvidas, sugestões ou feedback..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-form-submit">
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/send-horizontal.svg" alt="Enviar" class="btn-icon">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                        <div id="formSubmissionFeedback" class="form-feedback" aria-live="polite"></div>
+                    </div>
+                </div>
+
+                <aside class="other-contact-column"> 
+                    <h3>Outras Formas de Contato</h3>
+                    <div class="contact-method-card">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail-open.svg" alt="Email" class="contact-method-icon">
+                        <h4>Email</h4>
+                        <p>Para dúvidas, sugestões ou feedback:</p>
+                        <a href="mailto:contato@recomeco.com.br" class="contact-email-link">contato@recomeco.com.br</a>
+                        <a href="mailto:contato@recomeco.com.br" class="btn btn-outline">Enviar Email</a>
+                    </div>
+
+                    <div class="emergency-contact-sidebar">
+                        <h4><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone-call.svg" alt="Emergência" class="contact-method-icon red-icon"> Emergência? Use estes números:</h4>
+                        <div class="emergency-number">
+                            <span>CVV - Centro de Valorização da Vida</span>
+                            <a href="tel:188" class="emergency-tel-btn">188</a>
+                            <small>Apoio emocional 24h</small>
+                        </div>
+                        <div class="emergency-number">
+                            <span>SAMU</span>
+                            <a href="tel:192" class="emergency-tel-btn">192</a>
+                            <small>Emergências médicas</small>
+                        </div>
+                         <div class="emergency-number">
+                            <span>Polícia Militar</span>
+                            <a href="tel:190" class="emergency-tel-btn">190</a>
+                            <small>Emergências de segurança</small>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+
+        <section class="onde-buscar-ajuda-section" id="ondeBuscarAjuda">
+            <div class="container">
+                <div class="psychological-support-services">
+                    <h2>Serviços de Apoio Psicológico</h2>
+                    <div class="support-category">
+                        <div class="support-category-header">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/hospital.svg" alt="CAPS" class="support-category-icon">
+                            <h3>CAPS - Centros de Atenção Psicossocial</h3>
+                        </div>
+                        <p>Serviços públicos especializados em saúde mental.</p>
+                        <ul>
+                            <li>Atendimento gratuito pelo SUS</li>
+                            <li>Equipe multidisciplinar (psicólogos, psiquiatras, assistentes sociais)</li>
+                            <li>Tratamento especializado para transtornos mentais</li>
+                            <li>Busque o CAPS mais próximo da sua região</li>
+                        </ul>
+                        <a href="#" class="btn btn-link-small">Procure a Secretaria de Saúde do seu município</a>
+                    </div>
+
+                    <div class="support-category">
+                         <div class="support-category-header">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/graduation-cap.svg" alt="Universidades" class="support-category-icon">
+                            <h3>Universidades com Cursos de Psicologia</h3>
+                        </div>
+                        <p>Clínicas-escola oferecem atendimento gratuito ou de baixo custo.</p>
+                        <ul>
+                            <li>Atendimento supervisionado por professores qualificados</li>
+                            <li>Valores acessíveis ou gratuitos</li>
+                            <li>Formação de qualidade para estudantes</li>
+                            <li>Fila de espera pode ser necessária</li>
+                        </ul>
+                        <a href="#" class="btn btn-link-small">Procure universidades próximas à sua região</a>
+                    </div>
+
+                    <div class="support-category">
+                        <div class="support-category-header">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/heart-handshake.svg" alt="ONGs" class="support-category-icon">
+                            <h3>ONGs e Organizações Sociais</h3>
+                        </div>
+                        <p>Diversas organizações oferecem apoio psicológico.</p>
+                        <ul>
+                            <li>Instituto de Psiquiatria do Hospital das Clínicas (IPq-HC)</li>
+                            <li>CEIP - Centro de Estudos Instituto de Psiquiatria</li>
+                            <li>Programa de Ansiedade (AMBAN)</li>
+                            <li>Muitas outras organizações locais</li>
+                        </ul>
+                        <a href="#" class="btn btn-link-small">Pesquise organizações em sua cidade</a>
+                    </div>
+                </div>
+
+                <div class="prepare-for-help-section">
+                    <h2>Como se Preparar para Buscar Ajuda</h2>
+                    <div class="prepare-grid">
+                        <div class="prepare-card">
+                            <h4>O que levar na primeira consulta</h4>
+                            <ul>
+                                <li>Documentos pessoais (RG, CPF, cartão SUS se aplicável)</li>
+                                <li>Lista de medicamentos que você toma</li>
+                                <li>Anotações sobre seus sintomas ou sentimentos</li>
+                                <li>Perguntas que gostaria de fazer ao profissional</li>
+                            </ul>
+                        </div>
+                        <div class="prepare-card">
+                            <h4>Como se preparar emocionalmente</h4>
+                            <ul>
+                                <li>É normal sentir nervosismo antes da primeira consulta</li>
+                                <li>Não há pressão para contar tudo na primeira sessão</li>
+                                <li>O profissional está ali para ajudar, não julgar</li>
+                                <li>Seja honesto sobre seus sentimentos e experiências</li>
+                            </ul>
+                        </div>
+                        <div class="prepare-card">
+                            <h4>O que esperar do tratamento</h4>
+                            <ul>
+                                <li>O progresso acontece gradualmente, não da noite para o dia</li>
+                                <li>Você pode precisar tentar diferentes abordagens</li>
+                                <li>É importante manter a regularidade das sessões</li>
+                                <li>Você sempre pode mudar de profissional se necessário</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="courage-to-seek-help">
+                    <h3>Buscar ajuda é um ato de coragem</h3>
+                    <p>Reconhecer que precisa de apoio e dar o primeiro passo para buscá-lo demonstra força e autocuidado. Você merece se sentir melhor e há profissionais capacitados prontos para ajudar.</p>
+                    <p class="courage-reminder"><strong>Lembre-se:</strong> pedir ajuda não é sinal de fraqueza, é sinal de sabedoria.</p>
+                </div>
+
+                 <div class="notice-box important-guidance">
+                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/info.svg" alt="Ícone Informação" class="notice-icon blue-icon">
+                    <p><strong>Importante:</strong> As informações aqui são orientativas. Para situações específicas da sua região ou necessidades particulares, consulte a Secretaria de Saúde do seu município ou um profissional de saúde mental.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="contact-thank-you-section">
+            <div class="container">
+                <h2>Obrigado por fazer parte desta jornada</h2>
+                <p>Seu feedback e experiência são fundamentais para melhorarmos continuamente os recursos que oferecemos. Juntos, podemos criar um espaço ainda mais acolhedor e efetivo para quem precisa de apoio.</p>
             </div>
         </section>
     </main>
 
     <footer class="site-footer-final">
-        <div class="container footer-content-grid">
+         <div class="container footer-content-grid">
             <div class="footer-logo-info">
                 <a href="../../index.html" class="logo-link-footer">
                     <img src="../imagens/icone-logo.png" alt="Logo Recomeço" class="footer-logo-img">
@@ -97,6 +267,5 @@
             <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
         </div>
     </footer>
-
 </body>
 </html>

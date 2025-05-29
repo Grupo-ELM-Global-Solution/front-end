@@ -115,13 +115,11 @@ h3 {
     transition: background-color var(--transition-speed) var(--transition-easing),
                 color var(--transition-speed) var(--transition-easing),
                 border-color var(--transition-speed) var(--transition-easing),
-                transform var(--transition-speed-fast) var(--transition-easing),
                 box-shadow var(--transition-speed-fast) var(--transition-easing);
     border: none;
     line-height: 1.5;
 }
 .btn:hover {
-    transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.12);
 }
 
@@ -134,6 +132,8 @@ h3 {
     background-color: #10B981;
     color: var(--color-text-light);
     border: 2px solid #10B981;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
 }
 
 .btn-secondary {
@@ -145,6 +145,8 @@ h3 {
 .btn-secondary:hover {
     background-color: #EF4444;
     color: var(--color-text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
 }
 .btn-dark {
     background-color: #334155;
@@ -155,6 +157,8 @@ h3 {
 .btn-dark:hover {
     background-color: #1E293B;
     color: var(--color-text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
 }
 
 /*Header e Navegação*/
@@ -310,6 +314,7 @@ h3 {
     border-radius: var(--border-radius);
     text-align: center;
     box-shadow: var(--box-shadow);
+    transition: transform 0.25s var(--transition-easing), box-shadow 0.25s var(--transition-easing);
 }
 .step-icon {
     height: 50px;
@@ -326,6 +331,11 @@ h3 {
     font-size: 0.95rem;
     color: var(--color-text-medium);
 }
+.step-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    z-index: 2;
+}
 
 /*Tipos de Desastres Naturais*/
 .disaster-types-section {
@@ -341,6 +351,7 @@ h3 {
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    transition: transform 0.25s var(--transition-easing), box-shadow 0.25s var(--transition-easing);
 }
 .disaster-icon {
     height: 45px;
@@ -369,6 +380,11 @@ h3 {
     display: flex;
     align-items: center;
 }
+.disaster-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    z-index: 2;
+}
 
 /*Recursos Especializados*/
 .specialized-resources-section {
@@ -389,6 +405,7 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.25s var(--transition-easing), box-shadow 0.25s var(--transition-easing);
 }
 .resource-icon {
     width: 60px;
@@ -414,6 +431,11 @@ h3 {
     padding-right: 25px;
     margin: 0 auto;
 }
+.resource-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    z-index: 2;
+}
 
 /*Compreendendo as Reações*/
 .understanding-reactions-section {
@@ -424,11 +446,6 @@ h3 {
     grid-template-columns: 1fr;
     gap: 40px;
     align-items: flex-start;
-}
-@media (min-width: 992px) {
-    .reactions-content-grid {
-        grid-template-columns: 1.8fr 1fr;
-    }
 }
 .reactions-text h2 {
     text-align: left;
@@ -717,49 +734,12 @@ h3 {
     box-shadow: none !important;
 }
 
+
+
+/* Media Queries */
+
+
 /*Responsividade e Breakpoints*/
-@media (max-width: 600px) {
-    .container { width: 98%; padding-left: 10px; padding-right: 10px; }
-    .hero-section { 
-        padding-top: calc(var(--header-height) + 80px);
-        padding-bottom: 20px; 
-        min-height: auto; 
-    }
-    .hero-section h1 { font-size: 1.5rem; line-height: 1.2; }
-    .hero-subtitle { font-size: 0.9rem; margin: 1em auto 1.5em auto; }
-    .hero-buttons { flex-direction: column; gap: 8px; align-items: center; }
-    .hero-buttons .btn { width: 80%; max-width: 300px; margin-left: 0; font-size: 0.9rem; }
-    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid, .footer-content-grid { grid-template-columns: 1fr; gap: 15px; }
-    .site-header { height: var(--header-height); }
-    .main-navigation .nav-link { font-size: 0.95rem; padding: 12px 10px; }
-    .footer-logo-info, .footer-links-section { text-align: center; }
-    .footer-links-section ul { justify-content: center; }
-    .emergency-contacts { flex-direction: column; gap: 10px; }
-    .main-navigation .nav-list { top: var(--header-height); }
-}
-@media (min-width: 600px) {
-    .container { width: 98%; padding-left: 10px; padding-right: 10px; }
-    .hero-section h1 { font-size: 2rem; }
-    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid, .footer-content-grid { grid-template-columns: 1fr; gap: 20px; }
-}
-@media (min-width: 768px) {
-    .container { width: 94%; }
-    .hero-section h1 { font-size: 2.5rem; }
-    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-    .footer-content-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 992px) {
-    .container { width: 96%; }
-    .hero-section h1 { font-size: 3rem; }
-    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
-    .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (min-width: 1300px) {
-    .container { width: 96%; max-width: 1300px; }
-    .hero-section h1 { font-size: 3.8rem; }
-    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 48px; }
-    .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
-}
 @media (max-width: 1190px) {
     .header-container {
         position: relative;
@@ -852,11 +832,52 @@ h3 {
     }
 }
 
-.step-item, .disaster-card, .resource-card {
-    transition: transform 0.25s var(--transition-easing), box-shadow 0.25s var(--transition-easing);
+@media (min-width: 992px) {
+    .container { width: 96%; }
+    .hero-section h1 { font-size: 3rem; }
+    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
+    .reactions-content-grid {
+        grid-template-columns: 1.8fr 1fr;
+    }
 }
-.step-item:hover, .disaster-card:hover, .resource-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-    z-index: 2;
+
+@media (min-width: 768px) {
+    .container { width: 94%; }
+    .hero-section h1 { font-size: 2.5rem; }
+    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .footer-content-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .container { width: 98%; padding-left: 10px; padding-right: 10px; }
+    .hero-section { 
+        padding-top: calc(var(--header-height) + 80px); /* Mantido o +80px, ajustar se o design mudar */
+        padding-bottom: 20px; 
+        min-height: auto; 
+    }
+    .hero-section h1 { font-size: 1.5rem; line-height: 1.2; }
+    .hero-subtitle { font-size: 0.9rem; margin: 1em auto 1.5em auto; }
+    .hero-buttons { flex-direction: column; gap: 8px; align-items: center; }
+    .hero-buttons .btn { width: 80%; max-width: 300px; margin-left: 0; font-size: 0.9rem; }
+    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid, .footer-content-grid { grid-template-columns: 1fr; gap: 15px; }
+    /* .site-header { height: var(--header-height); }  Removido, pois já é 80px por padrão */
+    .main-navigation .nav-link { font-size: 0.95rem; padding: 12px 10px; }
+    .footer-logo-info, .footer-links-section { text-align: center; }
+    .footer-links-section ul { justify-content: center; }
+    .emergency-contacts { flex-direction: column; gap: 10px; }
+    /* .main-navigation .nav-list { top: var(--header-height); } Removido, pois o menu mobile tem seu próprio top */
+}
+
+@media (min-width: 600px) { /* Este bloco parece redundante com os outros min-width. Verificar se é necessário ou se pode ser mesclado. */
+    .container { width: 98%; padding-left: 10px; padding-right: 10px; }
+    .hero-section h1 { font-size: 2rem; }
+    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid, .footer-content-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (min-width: 1300px) {
+    .container { width: 96%; max-width: 1300px; }
+    .hero-section h1 { font-size: 3.8rem; }
+    .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 48px; }
+    .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
 }
