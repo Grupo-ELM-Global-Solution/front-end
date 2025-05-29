@@ -1,59 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Lógica para o Acordeão (FAQ)
     const accordionItems = document.querySelectorAll('.faq-accordion-section .accordion-item');
 
     if (accordionItems.length > 0) {
         accordionItems.forEach(item => {
             const header = item.querySelector('.accordion-header');
             const content = item.querySelector('.accordion-content');
-            const icon = header.querySelector('.accordion-icon'); 
 
             if (header && content) {
+                // Set initial ARIA states
+                const isInitiallyExpanded = header.classList.contains('active') || header.getAttribute('aria-expanded') === 'true';
+                header.setAttribute('aria-expanded', isInitiallyExpanded ? 'true' : 'false');
+                content.setAttribute('aria-hidden', isInitiallyExpanded ? 'false' : 'true');
+                if (isInitiallyExpanded) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = null;
+                }
+
+
                 header.addEventListener('click', () => {
                     const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
-                    // Fecha todos os outros itens (opcional, para acordeão "um por vez")
+                    // Option 1: Close all others when one is opened
                     accordionItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             const otherHeader = otherItem.querySelector('.accordion-header');
-                            otherHeader.setAttribute('aria-expanded', 'false');
                             const otherContent = otherItem.querySelector('.accordion-content');
-                            otherContent.style.maxHeight = null;
-                            otherContent.setAttribute('aria-hidden', 'true');
-                            otherHeader.classList.remove('active'); 
-                            const otherIcon = otherHeader.querySelector('.accordion-icon');
-                            if (otherIcon) otherIcon.textContent = '+'; // Garante que o ícone dos outros itens volte para '+'
+                            if (otherHeader && otherContent) {
+                                otherHeader.setAttribute('aria-expanded', 'false');
+                                otherContent.style.maxHeight = null;
+                                otherContent.setAttribute('aria-hidden', 'true');
+                                otherHeader.classList.remove('active'); // Ensure class is also removed
+                            }
                         }
                     });
 
                     if (isExpanded) {
                         header.setAttribute('aria-expanded', 'false');
-                        content.style.maxHeight = null; 
+                        content.style.maxHeight = null;
                         content.setAttribute('aria-hidden', 'true');
-                        header.classList.remove('active'); 
-                        if (icon) icon.textContent = '+'; 
+                        header.classList.remove('active');
                     } else {
                         header.setAttribute('aria-expanded', 'true');
-                        content.style.maxHeight = content.scrollHeight + "px"; 
+                        content.style.maxHeight = content.scrollHeight + "px";
                         content.setAttribute('aria-hidden', 'false');
-                        header.classList.add('active'); 
-                        if (icon) icon.textContent = '−'; 
+                        header.classList.add('active');
                     }
                 });
-
-                // Inicializa o conteúdo escondido e o estado do ícone
-                if (header.getAttribute('aria-expanded') === 'false') {
-                    content.style.maxHeight = null;
-                    content.setAttribute('aria-hidden', 'true');
-                    header.classList.remove('active');
-                    if (icon) icon.textContent = '+';
-                } else { 
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    content.setAttribute('aria-hidden', 'false');
-                    header.classList.add('active');
-                    if (icon) icon.textContent = '−';
-                }
             }
         });
     }
-}); // Fim do DOMContentLoaded 
+});

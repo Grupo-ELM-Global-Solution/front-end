@@ -1,10 +1,6 @@
 /* assets/css/faq.css */
 
-.page-faq {
-    padding-top: var(--header-height);
-}
-
-.page-faq main {
+main.page-faq {
     padding-top: var(--header-height);
 }
 
