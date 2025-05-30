@@ -4,47 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Cadastro - Recomeço</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cadastro-login.css">
-    <script src="../js/script.js" defer></script>
-    <script src="../js/cadastro-login.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css"> <!-- CSS Global -->
+    <link rel="stylesheet" href="../css/cadastro-login.css"> <!-- CSS Específico da página -->
+    <script src="../js/dados-usuarios.js" defer></script> <!-- JS Dados Usuarios -->
+    <script src="../js/script.js" defer></script> <!-- JS Global (menu, etc.) -->
+    <script src="../js/cadastro-login.js" defer></script> <!-- JS específico da página -->
 </head>
 <body>
     <header class="site-header">
         <div class="container header-container">
             <a href="../../index.html" class="logo-link">
-                <img src="../imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img"><span class="logo-text-header">Recomeço</span>
+                <img src="../imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img">
+                <span class="logo-text-header">Recomeço</span>
             </a>
             <nav class="main-navigation" id="primary-navigation" aria-hidden="true">
                 <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
                     <span class="hamburger"></span>
                 </button>
                 <ul class="nav-list">
-                    <li><a href="../../index.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon">
-                        Início
-                    </a></li>
-                    <li><a href="./autocuidado.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon">
-                        Autocuidado
-                    </a></li>
-                    <li><a href="./entendendo_emocoes.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon">
-                        Entendendo Emoções
-                    </a></li>
-                    <li><a href="./integrantes.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon">
-                        Integrantes
-                    </a></li>
-                    <li><a href="./faq.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon">
-                        FAQ
-                    </a></li>
-                    <li><a href="./contato.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
-                        Contato
-                    </a></li>
-                    <li class="nav-item-login"><a href="#" class="nav-link btn btn-login-in-list active">Entrar</a></li>
+                    <li><a href="../../index.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon"> Início</a></li>
+                    <li><a href="./autocuidado.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon"> Autocuidado</a></li>
+                    <li><a href="./entendendo_emocoes.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon"> Entendendo Emoções</a></li>
+                    <li><a href="./integrantes.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon"> Integrantes</a></li>
+                    <li><a href="./faq.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon"> FAQ</a></li>
+                    <li><a href="./contato.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon"> Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,19 +36,19 @@
     <main class="page-login-register">
         <div class="form-container">
             <div class="form-toggle-buttons">
-                <button id="showLoginBtn" class="toggle-btn active">Login</button>
-                <button id="showRegisterBtn" class="toggle-btn">Cadastro</button>
+                <button id="showLoginBtn" class="toggle-btn active">Entrar</button>
+                <button id="showRegisterBtn" class="toggle-btn">Cadastrar</button>
             </div>
 
             <!-- Formulário de Login -->
             <form id="loginForm" class="auth-form active">
-                <h2>Acesse sua Conta</h2>
+                <h2>Acessar sua Conta</h2>
                 <div class="form-group">
-                    <label for="loginEmail">Email:</label>
-                    <input type="email" id="loginEmail" name="loginEmail" required>
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="loginEmail" placeholder="seu@email.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="loginPassword">Senha:</label>
+                    <label for="loginPassword">Senha</label>
                     <input type="password" id="loginPassword" name="loginPassword" required>
                 </div>
                 <div class="form-options">
@@ -79,25 +62,34 @@
             <form id="registerForm" class="auth-form">
                 <h2>Crie sua Conta</h2>
                 <div class="form-group">
-                    <label for="registerName">Nome Completo:</label>
+                    <label for="registerName">Nome Completo</label>
                     <input type="text" id="registerName" name="registerName" required>
                 </div>
                 <div class="form-group">
-                    <label for="registerEmail">Email:</label>
+                    <label for="registerEmail">Email</label>
                     <input type="email" id="registerEmail" name="registerEmail" required>
                 </div>
                 <div class="form-group">
-                    <label for="registerPassword">Senha:</label>
+                    <label for="registerDataNascimento">Data de Nascimento</label>
+                    <input type="text" id="registerDataNascimento" name="registerDataNascimento" placeholder="DD/MM/AAAA" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerTelefone">Telefone</label>
+                    <input type="tel" id="registerTelefone" name="registerTelefone" placeholder="(XX) XXXXX-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Senha (mínimo 6 caracteres)</label>
                     <input type="password" id="registerPassword" name="registerPassword" required minlength="6">
                 </div>
                 <div class="form-group">
-                    <label for="confirmPassword">Confirmar Senha:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
                 </div>
                 <button type="submit" class="btn-submit">Cadastrar</button>
                 <p class="form-switch-text">Já tem uma conta? <a href="#" id="switchToLoginLink">Faça login</a></p>
             </form>
-            <p id="formFeedback" class="form-feedback" aria-live="assertive"></p>
+
+            <div id="formFeedback" class="form-feedback" style="display: none;"></div>
         </div>
     </main>
 
@@ -114,16 +106,16 @@
                 <h4>Navegação</h4>
                 <ul>
                     <li><a href="../../index.html">Início</a></li>
-                    <li><a href="./autocuidado.html">Autocuidado</a></li>
-                    <li><a href="./entendendo_emocoes.html">Entendendo Emoções</a></li>
+                    <li><a href="autocuidado.html">Autocuidado</a></li>
+                    <li><a href="entendendo_emocoes.html">Entendendo Emoções</a></li>
                 </ul>
             </div>
             <div class="footer-links-section">
                 <h4>Sobre Nós</h4>
                 <ul>
-                    <li><a href="./integrantes.html">Integrantes</a></li>
-                    <li><a href="./faq.html">FAQ</a></li>
-                    <li><a href="./contato.html">Contato</a></li>
+                    <li><a href="integrantes.html">Integrantes</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contato.html">Contato</a></li>
                 </ul>
             </div>
         </div>
@@ -132,5 +124,6 @@
             <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
         </div>
     </footer>
+
 </body>
 </html>

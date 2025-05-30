@@ -1,222 +1,366 @@
-Ok, vamos focar em fazer a página cadastro-login.html funcionar com a lógica de alternar entre os formulários de login e cadastro, e simular o processo (já que não temos backend). Depois, criaremos a meu-perfil.html básica e seu CSS.
+Perfeito! Se você já tem um código funcional para cadastro-login.js e dados-pacientes.js (que simula o backend e o localStorage) do projeto "SimplesHC", podemos adaptá-lo para o "RecomeçaSP".
 
-Arquivos Fornecidos:
-Você forneceu vários arquivos. Para esta etapa, os mais relevantes são:
+O que precisamos fazer:
 
-cadastro-login.html
+Analisar seu cadastro-login.js e dados-pacientes.js do SimplesHC: Entender como eles manipulam os dados, o localStorage, e como interagem com os formulários.
 
-cadastro-login.css
+Adaptar para o HTML do RecomeçaSP:
 
-cadastro-login.js (para a lógica dos formulários)
+Verificar se os IDs e classes dos elementos nos formulários de cadastro-login.html do RecomeçaSP correspondem aos que seu JS do SimplesHC espera. Se não, precisaremos ajustar os seletores no JS ou os IDs/classes no HTML do RecomeçaSP.
 
-style.css (para estilos globais e do header/footer)
+Garantir que as mensagens de feedback e erro sejam exibidas nos locais corretos.
 
-script.js (para o menu hambúrguer, se aplicável nesta página)
+Adaptar meu-perfil.html (RecomeçaSP):
 
-1. Ajustes e Implementação para cadastro-login.html
+Certificar-se de que a página meu-perfil.html do RecomeçaSP consegue ler os dados do usuário logado do localStorage da mesma forma que o dados-pacientes.js e cadastro-login.js do SimplesHC os salvam.
 
-O cadastro-login.js que você forneceu já tem uma boa base para alternar entre os formulários e uma simulação de feedback. Vamos garantir que ele esteja corretamente linkado e que o CSS suporte os estados active.
+Criar o assets/css/meu_perfil.css para estilizar a página de perfil.
 
-paginas/cadastro-login.html (Revisão e Confirmação)
-O HTML que você forneceu para cadastro-login.html parece bom. Ele já tem:
+Criar ou adaptar um assets/js/meu_perfil.js para carregar os dados do usuário na página e lidar com o logout.
 
-Botões showLoginBtn e showRegisterBtn.
+Vamos seguir os passos com base nos arquivos que você acabou de fornecer para o "SimplesHC" e adaptá-los para o "RecomeçaSP".
 
-Formulários loginForm e registerForm.
+Arquivos Fornecidos (do SimplesHC, a serem adaptados):
 
-Links switchToRegisterLink e switchToLoginLink.
+cadastro-login.js (SimplesHC)
 
-Elemento formFeedback.
+dados-pacientes.js (SimplesHC)
 
-assets/css/cadastro-login.css (Revisão e Confirmação)
-O CSS fornecido já tem:
+cadastro-login.html (SimplesHC - para referência de IDs)
 
-Estilos para .form-container, .form-toggle-buttons, .toggle-btn e seu estado .active.
+meu-perfil.html (SimplesHC - para referência de como os dados são exibidos)
 
-Estilos para .auth-form e seu estado .active (para mostrar/esconder).
+Arquivos do RecomeçaSP (que serão modificados/criados):
 
-Estilos para os campos, botões e links dentro dos formulários.
+paginas/cadastro-login.html (RecomeçaSP - HTML que já temos)
 
-Estilos para .form-feedback.success e .form-feedback.error.
+assets/js/cadastro-login.js (RecomeçaSP - será baseado no do SimplesHC)
 
-assets/js/cadastro-login.js (Revisão e Confirmação)
-O JavaScript que você forneceu para cadastro-login.js é sólido e faz o seguinte:
+assets/js/dados-pacientes.js (RecomeçaSP - será baseado no do SimplesHC)
 
-Adiciona event listeners aos botões de toggle (showLoginBtn, showRegisterBtn).
+paginas/area-paciente/meu-perfil.html (RecomeçaSP - a ser criado)
 
-Adiciona event listeners aos links de troca (switchToRegisterLink, switchToLoginLink).
+assets/css/meu_perfil.css (RecomeçaSP - a ser criado)
 
-A função showForm corretamente alterna as classes active para mostrar o formulário desejado.
+assets/js/meu_perfil.js (RecomeçaSP - a ser criado)
 
-Simula o envio de login e cadastro com console.log e exibe mensagens de feedback (erro, pois não há backend).
+Passo 1: Adaptar dados-pacientes.js para o RecomeçaSP
 
-Inclui validação básica para senhas no cadastro.
+O seu dados-pacientes.js do SimplesHC é excelente e já contém a lógica de localStorage e dados mockados. Vamos renomeá-lo e fazer pequenos ajustes, se necessário, para o contexto do RecomeçaSP.
 
-O que já deve estar funcionando:
-Com os arquivos cadastro-login.html, cadastro-login.css e cadastro-login.js que você forneceu, a funcionalidade de alternar entre o formulário de login e o de cadastro, e a simulação de envio/feedback, já devem estar operacionais.
+Crie/Substitua assets/js/dados-pacientes.js (RecomeçaSP) com o conteúdo do dados-pacientes.js do SimplesHC.
 
-Certifique-se de que:
+// assets/js/dados-pacientes.js (RecomeçaSP - Baseado no seu SimplesHC)
 
-Os caminhos para os arquivos CSS e JS no <head> da cadastro-login.html estão corretos (ex: ../css/style.css, ../css/cadastro-login.css, ../js/script.js para o menu, ../js/cadastro-login.js para a lógica da página).
+const DADOS_PACIENTES_STORAGE_KEY = 'recomecoDadosPacientes'; // CHAVE PARA O RECOMEÇOSP
+const USUARIO_LOGADO_CPF_KEY = 'recomecoUsuarioLogadoCpf';   // CHAVE PARA O RECOMEÇOSP
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Cadastro - Recomeço</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- CSS Global -->
-    <link rel="stylesheet" href="../css/cadastro-login.css"> <!-- CSS Específico -->
-    <script src="../js/script.js" defer></script> <!-- JS Global (menu, etc.) -->
-    <script src="../js/cadastro-login.js" defer></script> <!-- JS da Página -->
-</head>
+// Dados iniciais/padrão se não houver nada no localStorage
+const dadosIniciaisPacientesRecomeco = { // Renomeado para clareza
+    "39294208052": {
+        nomeCompleto: "Enzo Recomeço Okuizumi", // Adaptado para RecomeçaSP
+        cpf: "392.942.080-52",
+        dataNascimento: "30/10/2006",
+        email: "enzo.recomeco@example.com",
+        telefone: "(11) 98765-4321",
+        senhaPlana: "123@mudar", // MANTENHA ESSA SENHA PARA TESTE
+        // Remover campos específicos do SimplesHC que não se aplicam ao RecomeçaSP
+        // como telegramId, notificacoes, proximasConsultas, receitasAtivas, ultimosExames, historicoConsultas
+        // A menos que você queira simular algo similar no RecomeçaSP
+        // Para o perfil básico, só precisamos de nome, cpf, dataNasc, email, telefone, senha
+    },
+    "76913995881": {
+        nomeCompleto: "Lucas Recomeço Barros", // Adaptado
+        cpf: "769.139.958-81",
+        dataNascimento: "22/09/1992",
+        email: "lucas.recomeco@example.com",
+        telefone: "(11) 91234-5678",
+        senhaPlana: "123@mudar",
+    },
+    "60363928855": {
+        nomeCompleto: "Milton Recomeço Marcelino", // Adaptado
+        cpf: "603.639.288-55",
+        dataNascimento: "05/03/1978",
+        email: "milton.recomeco@example.com",
+        telefone: "(11) 90987-6543",
+        senhaPlana: "123@mudar",
+    }
+};
+
+function getAllPacientesData() {
+    const dadosString = localStorage.getItem(DADOS_PACIENTES_STORAGE_KEY);
+    if (dadosString) {
+        return JSON.parse(dadosString);
+    }
+    // Se não existir, inicializa com os dados do RecomeçaSP
+    localStorage.setItem(DADOS_PACIENTES_STORAGE_KEY, JSON.stringify(dadosIniciaisPacientesRecomeco));
+    return dadosIniciaisPacientesRecomeco;
+}
+
+function saveAllPacientesData(todosOsDados) {
+    localStorage.setItem(DADOS_PACIENTES_STORAGE_KEY, JSON.stringify(todosOsDados));
+}
+
+// Inicializa a variável global (ou exporta, dependendo de como o cadastro-login.js a usa)
+// Se cadastro-login.js espera 'dadosPacientes' como global, mantenha. Senão, exporte as funções.
+let dadosPacientes = getAllPacientesData(); // Renomeei para dadosPacientes para manter consistência com o SimplesHC
 
 
-O script.js (global) não interfira negativamente com o cadastro-login.js (específico). Como eles manipulam elementos diferentes (menu vs. formulários de login), não deve haver conflito.
+function simularLogin(cpfInput, senhaInput) {
+    // const todosOsDados = getAllPacientesData(); // dadosPacientes já está carregado globalmente
+    const cpfLimpo = cpfInput.replace(/\D/g, "");
 
-2. Criar a Página paginas/area-paciente/meu-perfil.html
+    if (dadosPacientes[cpfLimpo] && dadosPacientes[cpfLimpo].senhaPlana === senhaInput) {
+        localStorage.setItem(USUARIO_LOGADO_CPF_KEY, cpfLimpo);
+        return true; // Login bem-sucedido
+    }
+    return false; // Falha no login
+}
 
-Esta será uma página simples inicialmente, representando o que o usuário veria após um "login" bem-sucedido.
+function registrarNovoUsuario(dadosNovoUsuario) {
+    // let todosOsDados = getAllPacientesData(); // dadosPacientes já está carregado
+    const cpfLimpo = dadosNovoUsuario.cpf.replace(/\D/g, "");
 
-Objetivo da Página meu-perfil.html:
-Mostrar informações básicas do usuário (simuladas) e talvez links para outras seções da área do paciente (que podem ser desenvolvidas depois, como "Diário" ou "Mapa de Riscos").
+    if (dadosPacientes[cpfLimpo]) {
+        console.error("Tentativa de registrar CPF já existente:", cpfLimpo);
+        return false; // CPF já existe
+    }
+    dadosPacientes[cpfLimpo] = {
+        nomeCompleto: dadosNovoUsuario.nome,
+        cpf: formatarCPF(cpfLimpo), // Salva formatado para exibição, a chave é limpa
+        dataNascimento: dadosNovoUsuario.dataNascimento,
+        email: dadosNovoUsuario.email,
+        telefone: dadosNovoUsuario.telefone || "",
+        senhaPlana: dadosNovoUsuario.senha,
+        // Adicionar outros campos padrões para RecomeçaSP se houver
+    };
+    saveAllPacientesData(dadosPacientes);
+    // dadosPacientes já foi atualizado, não precisa recarregar explicitamente aqui
+    return true; // Cadastro bem-sucedido
+}
 
-paginas/area-paciente/meu-perfil.html
+function formatarCPF(cpf) { // Função auxiliar, pode ser mantida
+    cpf = cpf.replace(/\D/g, '');
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+}
+
+function getUsuarioLogadoCpf() {
+    return localStorage.getItem(USUARIO_LOGADO_CPF_KEY);
+}
+
+function getDadosUsuarioLogado() {
+    const cpfLogado = getUsuarioLogadoCpf();
+    if (!cpfLogado) return null;
+    // const todosOsDados = getAllPacientesData(); // dadosPacientes já está carregado
+    return dadosPacientes[cpfLogado] || null;
+}
+
+function simularLogout() {
+    localStorage.removeItem(USUARIO_LOGADO_CPF_KEY);
+}
+
+// Função para atualizar dados do paciente (se for usar na tela de perfil do RecomeçaSP)
+// Por enquanto, vamos focar no login/cadastro.
+/*
+function atualizarDadosPacienteLogado(pacienteAtualizado) {
+    const cpfLimpo = pacienteAtualizado.cpf.replace(/\D/g, "");
+    // let todosOsDados = getAllPacientesData();
+    if (dadosPacientes[cpfLimpo]) {
+        dadosPacientes[cpfLimpo] = { ...dadosPacientes[cpfLimpo], ...pacienteAtualizado }; // Mescla para não perder campos não editados
+        saveAllPacientesData(dadosPacientes);
+        return true;
+    }
+    return false;
+}
+*/
+
+
+Observações para dados-pacientes.js (RecomeçaSP):
+
+Mudei as chaves do localStorage para recomecoDadosPacientes e recomecoUsuarioLogadoCpf para evitar conflitos se você tiver ambos os projetos rodando no mesmo domínio/porta.
+
+Simplifiquei os dados iniciais dos usuários fake para conter apenas o essencial para o perfil do RecomeçaSP (nome, cpf, dataNasc, email, telefone, senha). Removi campos como telegramId, notificacoes, proximasConsultas, etc., que são específicos do SimplesHC. Adicione-os de volta se o RecomeçaSP for ter funcionalidades similares.
+
+A variável dadosPacientes é carregada globalmente no escopo deste script. As funções simularLogin e registrarNovoUsuario usam essa variável global.
+
+Passo 2: Adaptar cadastro-login.js para o RecomeçaSP
+
+Crie/Substitua assets/js/cadastro-login.js (RecomeçaSP) com o conteúdo do cadastro-login.js do SimplesHC.
+
+Agora, precisamos garantir que os IDs dos elementos HTML na cadastro-login.html do RecomeçaSP correspondam aos que este script espera.
+
+HTML do RecomeçaSP (paginas/cadastro-login.html):
+Você precisará criar esta página para o RecomeçaSP, baseando-se na estrutura do cadastro-login.html do SimplesHC que você já tem.
+
+Exemplo de Estrutura para paginas/cadastro-login.html (RecomeçaSP):
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil - Recomeço</title>
-    <link rel="stylesheet" href="../../assets/css/style.css"> <!-- CSS Global, caminho ajustado -->
-    <link rel="stylesheet" href="../../assets/css/meu_perfil.css"> <!-- CSS Específico -->
-    <script src="../../assets/js/script.js" defer></script>
-    <script src="../../assets/js/meu_perfil.js" defer></script> <!-- JS específico se necessário -->
+    <title>Acesse ou Crie sua Conta - Recomeço</title>
+    <link rel="stylesheet" href="../assets/css/style.css"> <!-- CSS Global do RecomeçaSP -->
+    <link rel="stylesheet" href="../assets/css/cadastro-login.css"> <!-- CSS específico -->
+    <script src="../assets/js/dados-pacientes.js" defer></script> <!-- Dados do RecomeçaSP -->
+    <script src="../assets/js/cadastro-login.js" defer></script> <!-- Lógica adaptada -->
+    <script src="../assets/js/script.js" defer></script> <!-- Script global do RecomeçaSP (menu) -->
 </head>
 <body>
     <header class="site-header">
+        <!-- Seu header do RecomeçaSP -->
         <div class="container header-container">
             <a href="../../index.html" class="logo-link">
-                <img src="../../assets/imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img"><span class="logo-text-header">Recomeço</span>
+                <img src="../assets/imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img"><span class="logo-text-header">Recomeço</span>
             </a>
             <nav class="main-navigation" id="primary-navigation" aria-hidden="true">
                 <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
                     <span class="hamburger"></span>
                 </button>
                 <ul class="nav-list">
-                    <li><a href="../../index.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon">
-                        Início
-                    </a></li>
-                    <li><a href="../autocuidado.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon">
-                        Autocuidado
-                    </a></li>
-                    <li><a href="../entendendo_emocoes.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon">
-                        Entendendo Emoções
-                    </a></li>
-                    <li><a href="../integrantes.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon">
-                        Integrantes
-                    </a></li>
-                    <li><a href="../faq.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon">
-                        FAQ
-                    </a></li>
-                    <li><a href="../contato.html" class="nav-link">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
-                        Contato
-                    </a></li>
-                    {/* Lógica para mostrar "Meu Perfil" ou "Sair" em vez de "Entrar" após login seria feita com JS mais avançado e/ou backend */}
-                    <li class="nav-item-login"><a href="#" class="nav-link btn btn-logout">Sair (Simulado)</a></li>
+                    <li><a href="../../index.html" class="nav-link">...Início...</a></li>
+                    {/* ... outros links ... */}
+                    <li class="nav-item-login"><a href="#" class="nav-link btn btn-login-in-list active">Entrar</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="page-meu-perfil">
-        <section class="page-title-section perfil-title-section">
-            <div class="container">
-                <h1>Meu Perfil</h1>
-                <p class="section-subtitle short-subtitle">Bem-vindo(a) à sua área pessoal no Recomeço.</p>
-            </div>
-        </section>
+    <main class="login-main"> {/* Ou uma classe específica do RecomeçaSP */}
+        <div class="login-container"> {/* Ou classe específica do RecomeçaSP */}
 
-        <section class="profile-details-section">
-            <div class="container profile-layout">
-                <div class="profile-sidebar">
-                    <img src="https://via.placeholder.com/150/007BFF/FFFFFF?Text=Usuário" alt="Foto do Perfil" class="profile-picture">
-                    <h3 id="profileName">Nome do Usuário</h3>
-                    <p id="profileEmail">email@exemplo.com</p>
-                    <button class="btn btn-edit-profile">Editar Perfil (Simulado)</button>
+            {/* Seção de Login (copiar estrutura do SimplesHC, adaptar IDs se necessário) */}
+            <section id="login-form-section" class="auth-section active">
+                <div class="auth-card">
+                    <h2>Acesse sua conta Recomeço</h2>
+                    <p class="auth-subtitle">Entre para acessar seus recursos de apoio.</p>
+                    <form id="formLogin">
+                        <div class="form-group">
+                            <label for="loginCpf">CPF</label>
+                            <input type="text" id="loginCpf" name="loginCpf" placeholder="000.000.000-00" required>
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginSenha">Senha</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="loginSenha" name="loginSenha" placeholder="Sua senha" required>
+                                <button type="button" class="toggle-password" aria-label="Mostrar senha">👁️</button>
+                            </div>
+                            <small class="error-message"></small>
+                        </div>
+                        {/* <div class="form-options"> ... (lembrar de mim, esqueci senha) ... </div> */}
+                        <button type="submit" class="btn btn-primary btn-full-width">Entrar</button>
+                    </form>
+                    <p class="auth-switch">Não tem uma conta? <a href="#" id="linkCadastreSe" class="auth-link">Cadastre-se</a></p>
+                    <div id="loginStatus" class="form-status-message" aria-live="polite"></div>
                 </div>
-                <div class="profile-main-content">
-                    <h2>Suas Ferramentas e Recursos</h2>
-                    <div class="profile-actions-grid">
-                        <a href="diario_usuario.html" class="profile-action-card">
-                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/book-open-text.svg" alt="Diário" class="action-icon">
-                            <h4>Meu Diário Emocional</h4>
-                            <p>Registre seus sentimentos e acompanhe seu progresso.</p>
-                        </a>
-                        <a href="mapa_usuario.html" class="profile-action-card">
-                             <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/map.svg" alt="Mapa de Riscos" class="action-icon">
-                            <h4>Mapa de Riscos (Em breve)</h4>
-                            <p>Informações sobre sua região e como se preparar.</p>
-                        </a>
-                        <a href="../autocuidado.html" class="profile-action-card">
-                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/heart-pulse.svg" alt="Autocuidado" class="action-icon">
-                            <h4>Técnicas de Autocuidado</h4>
-                            <p>Acesse exercícios de respiração e relaxamento.</p>
-                        </a>
-                         <a href="#" class="profile-action-card disabled-card">
-                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/settings.svg" alt="Configurações" class="action-icon">
-                            <h4>Configurações da Conta</h4>
-                            <p>Gerencie suas preferências (Em breve).</p>
-                        </a>
+            </section>
+
+            {/* Seção de Cadastro (copiar estrutura do SimplesHC, adaptar IDs se necessário) */}
+            <section id="cadastro-form-section" class="auth-section">
+                <div class="auth-card">
+                    <a href="#" class="back-to-login" id="backToLoginFromCadastro" aria-label="Voltar para login">← Voltar para login</a>
+                    <h2>Crie sua conta Recomeço</h2>
+                    <p class="auth-subtitle">É rápido e fácil.</p>
+                    
+                    {/* Stepper (se quiser manter) */}
+                    <div class="stepper">
+                        <div class="step active" data-step="1">1</div><div class="step-line"></div>
+                        <div class="step" data-step="2">2</div><div class="step-line"></div>
+                        <div class="step" data-step="3">3</div>
                     </div>
-                    <div class="recent-activity">
-                        <h4>Atividade Recente (Simulado)</h4>
-                        <ul>
-                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle-2.svg" alt="" class="activity-icon"> Completou o exercício de respiração guiada.</li>
-                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/eye.svg" alt="" class="activity-icon"> Visitou a página "Entendendo Emoções".</li>
-                        </ul>
+
+                    <form id="formCadastro">
+                        {/* Etapa 1: Infos Pessoais */}
+                        <div class="form-step active" data-step="1">
+                            <h3>Informações Pessoais</h3>
+                            <div class="form-group">
+                                <label for="cadastroNomeCompleto">Nome completo*</label>
+                                <input type="text" id="cadastroNomeCompleto" name="cadastroNomeCompleto" required>
+                                <small class="error-message"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="cadastroCpf">CPF*</label>
+                                <input type="text" id="cadastroCpf" name="cadastroCpf" required>
+                                <small class="error-message"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="dataNascimento">Data de nascimento*</label>
+                                <input type="text" id="dataNascimento" name="dataNascimento" placeholder="dd/mm/yyyy" required>
+                                <small class="error-message"></small>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-full-width next-step">Continuar</button>
+                        </div>
+
+                        {/* Etapa 2: Contato */}
+                        <div class="form-step" data-step="2">
+                            <h3>Informações de Contato</h3>
+                             <div class="form-group">
+                                <label for="cadastroEmail">Email*</label>
+                                <input type="email" id="cadastroEmail" name="cadastroEmail" required>
+                                <small class="error-message"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="cadastroTelefone">Telefone (Opcional)</label>
+                                <input type="tel" id="cadastroTelefone" name="cadastroTelefone">
+                            </div>
+                            <div class="step-buttons">
+                                <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                                <button type="button" class="btn btn-primary next-step">Continuar</button>
+                            </div>
+                        </div>
+
+                        {/* Etapa 3: Senha */}
+                        <div class="form-step" data-step="3">
+                            <h3>Definir Senha</h3>
+                            <div class="form-group">
+                                <label for="cadastroSenha">Senha*</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="cadastroSenha" name="cadastroSenha" required>
+                                    <button type="button" class="toggle-password" aria-label="Mostrar senha">👁️</button>
+                                </div>
+                                <small class="error-message"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmarSenha">Confirmar senha*</label>
+                                 <div class="password-wrapper">
+                                    <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+                                    <button type="button" class="toggle-password" aria-label="Mostrar senha">👁️</button>
+                                </div>
+                                <small class="error-message"></small>
+                            </div>
+                            <div class="step-buttons">
+                                <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                                <button type="submit" class="btn btn-primary">Criar conta</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="cadastroStatus" class="form-status-message" aria-live="polite"></div>
+                </div>
+            </section>
+
+            {/* Seção Cadastro com Sucesso (copiar do SimplesHC) */}
+            <section id="cadastro-sucesso-section" class="auth-section">
+                 <div class="auth-card text-center">
+                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle-2.svg" alt="Sucesso" class="success-icon" style="width: 60px; height: 60px; margin: 0 auto 20px; color: green;">
+                    <h2>Cadastro realizado com sucesso!</h2>
+                    <p class="auth-subtitle">Sua conta no Recomeço foi criada. Você será redirecionado para o seu perfil.</p>
+                    <div class="success-actions">
+                        <a href="#" id="goToLoginFromSuccess" class="btn btn-primary btn-full-width">Ir para Login</a>
+                        {/* <a href="../../index.html" class="btn btn-secondary btn-full-width">Voltar à página inicial</a> */}
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            
+            {/* Seção Esqueci Senha (se for manter) */}
+             <section id="esqueci-senha-form-section" class="auth-section">
+                {/* ... (conteúdo do formulário de esqueci senha do SimplesHC) ... */}
+            </section>
+        </div>
     </main>
 
     <footer class="site-footer-final">
-        <!-- Conteúdo do footer idêntico ao da index.html, ajustar caminhos se necessário -->
-        <div class="container footer-content-grid">
-            <div class="footer-logo-info">
-                <a href="../../index.html" class="logo-link-footer">
-                    <img src="../../assets/imagens/icone-logo.png" alt="Logo Recomeço" class="footer-logo-img">
-                    <span class="logo-text-footer">Recomeço</span>
-                </a>
-                <p>Apoio psicológico especializado para vítimas de desastres naturais.</p>
-            </div>
-            <div class="footer-links-section">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="../../index.html">Início</a></li>
-                    <li><a href="../autocuidado.html">Autocuidado</a></li>
-                    <li><a href="../entendendo_emocoes.html">Entendendo Emoções</a></li>
-                </ul>
-            </div>
-            <div class="footer-links-section">
-                <h4>Sobre Nós</h4>
-                <ul>
-                    <li><a href="../integrantes.html">Integrantes</a></li>
-                    <li><a href="../faq.html">FAQ</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container copyright-container">
-            <p class="important-notice-footer"><strong>Importante:</strong> Este site oferece informações e ferramentas de apoio, mas não substitui o aconselhamento ou tratamento psicológico profissional. Em caso de crise ou emergência, procure ajuda imediatamente.</p>
-            <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
-        </div>
+        <!-- Seu footer do RecomeçaSP -->
     </footer>
 </body>
 </html>
@@ -227,255 +371,152 @@ Use code with caution.
 Html
 IGNORE_WHEN_COPYING_END
 
-3. Criar assets/css/meu_perfil.css
+Crie assets/css/cadastro-login.css (RecomeçaSP):
+Copie o conteúdo do cadastro-login.css do SimplesHC e cole aqui. Faça ajustes visuais (cores, fontes, espaçamentos) para que combine com a identidade visual do RecomeçaSP que definimos no style.css global.
 
-/* assets/css/meu_perfil.css */
+Passo 3: Criar paginas/area-paciente/meu-perfil.html (RecomeçaSP)
 
-main.page-meu-perfil {
-    padding-top: var(--header-height);
-    background-color: var(--color-background-section-alt); /* Fundo geral da página de perfil */
-    min-height: calc(100vh - var(--header-height)); /* Ocupar altura da tela menos header */
-}
+Use o HTML que já criamos na resposta anterior para meu-perfil.html do RecomeçaSP.
 
-.perfil-title-section {
-    background-color: var(--color-background-hero); /* Um fundo suave para o título */
-    padding: 40px 0;
-    text-align: center;
-}
-.perfil-title-section h1 {
-    color: var(--color-text-dark);
-    font-size: clamp(2rem, 4vw, 2.8rem);
-}
-.perfil-title-section .short-subtitle {
-    font-size: 1.05rem;
-    color: var(--color-text-medium);
-}
+Passo 4: Criar assets/css/meu_perfil.css (RecomeçaSP)
 
-.profile-details-section {
-    padding: 40px 0;
-}
+Use o CSS que já criamos na resposta anterior para meu_perfil.css do RecomeçaSP.
 
-.profile-layout {
-    display: grid;
-    grid-template-columns: 1fr; /* Uma coluna por padrão */
-    gap: 30px;
-}
+Passo 5: Criar/Adaptar assets/js/meu_perfil.js (RecomeçaSP)
 
-@media (min-width: 992px) {
-    .profile-layout {
-        grid-template-columns: 300px 1fr; /* Sidebar fixa, conteúdo principal flexível */
-        gap: 40px;
-    }
-}
+Use o JS que já criamos na resposta anterior para meu_perfil.js. Ele já está configurado para ler do localStorage (usando a chave recomecoUsuarioLogadoCpf).
 
-.profile-sidebar {
-    background-color: var(--color-background-light);
-    padding: 30px 25px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    height: fit-content; /* Para a sidebar não esticar desnecessariamente */
-}
-.profile-picture {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 15px auto;
-    border: 4px solid var(--color-primary-light, #BFDBFE); /* Borda suave */
-}
-.profile-sidebar h3 { /* #profileName */
-    font-size: 1.4rem;
-    color: var(--color-text-dark);
-    margin-bottom: 5px;
-}
-.profile-sidebar p { /* #profileEmail */
-    font-size: 0.95rem;
-    color: var(--color-text-medium);
-    margin-bottom: 20px;
-    word-break: break-all; /* Para emails longos */
-}
-.btn-edit-profile {
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    padding: 0.6em 1.5em;
-    font-size: 0.9rem;
-    width: 100%;
-}
-.btn-edit-profile:hover {
-    background-color: var(--color-primary);
-    color: white;
-}
-
-.profile-main-content {
-    background-color: var(--color-background-light);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-.profile-main-content h2 {
-    font-size: 1.8rem;
-    color: var(--color-primary-dark);
-    margin-bottom: 1.2em;
-    text-align: left; /* Título do conteúdo principal */
-}
-
-.profile-actions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
-.profile-action-card {
-    background-color: var(--color-background-section-alt);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    text-align: center;
-    border: 1px solid #E5E7EB;
-    transition: var(--transition-speed) var(--transition-easing);
-    color: var(--color-text-dark); /* Cor padrão do texto do card */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Alinha conteúdo ao topo */
-    text-decoration: none;
-}
-.profile-action-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    border-color: var(--color-primary-light, #BFDBFE);
-}
-.profile-action-card .action-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 15px;
-    color: var(--color-primary); /* Cor padrão dos ícones */
-}
-.profile-action-card h4 {
-    font-size: 1.1rem;
-    color: var(--color-text-dark);
-    margin-bottom: 8px;
-}
-.profile-action-card p {
-    font-size: 0.85rem;
-    color: var(--color-text-medium);
-    line-height: 1.5;
-}
-.profile-action-card.disabled-card {
-    background-color: #F3F4F6;
-    color: #9CA3AF;
-    cursor: not-allowed;
-}
-.profile-action-card.disabled-card:hover {
-    transform: none;
-    box-shadow: none;
-}
-.profile-action-card.disabled-card .action-icon {
-    opacity: 0.5;
-}
-
-.recent-activity h4 {
-    font-size: 1.2rem;
-    color: var(--color-text-medium);
-    margin-bottom: 15px;
-    border-bottom: 1px solid #E5E7EB;
-    padding-bottom: 10px;
-}
-.recent-activity ul li {
-    font-size: 0.9rem;
-    color: var(--color-text-medium);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-}
-.recent-activity .activity-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 10px;
-    color: var(--color-secondary); /* Ícones de atividade em verde */
-}
-
-/* Botão Sair no Header */
-.nav-link.btn-logout {
-    background-color: var(--color-accent) !important;
-    color: white !important;
-    padding: 0.6em 1.2em !important;
-    border-radius: var(--border-radius) !important;
-    font-weight: 600 !important;
-}
-.nav-link.btn-logout:hover {
-    background-color: #B91C1C !important; /* Vermelho mais escuro */
-}
-
-/* Responsividade para meu_perfil.css */
-@media (max-width: 991px) {
-    .profile-sidebar {
-        margin-bottom: 30px; /* Espaço se empilhado */
-    }
-}
-@media (max-width: 767px) {
-    .perfil-title-section { padding: 30px 0; }
-    .perfil-title-section h1 { font-size: 1.8rem; }
-
-    .profile-details-section { padding: 25px 0; }
-    .profile-sidebar { padding: 20px; }
-    .profile-picture { width: 100px; height: 100px; }
-    .profile-main-content { padding: 25px; }
-    .profile-main-content h2 { font-size: 1.5rem; }
-
-    .profile-actions-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
-    }
-}
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-Css
-IGNORE_WHEN_COPYING_END
-
-4. Criar assets/js/meu_perfil.js (Simples, para popular dados)
-
+// assets/js/meu_perfil.js (RecomeçaSP - como na resposta anterior)
 document.addEventListener('DOMContentLoaded', () => {
-    // Simulação de dados do usuário logado
-    // Em um cenário real, esses dados viriam do localStorage, sessionStorage ou de um estado da aplicação
-    // após o login bem-sucedido.
+    const LOGGED_IN_USER_KEY = 'recomecoUsuarioLogadoCpf'; // Deve ser a mesma chave usada no dados-pacientes.js
+    const DADOS_PACIENTES_STORAGE_KEY = 'recomecoDadosPacientes'; // Para buscar todos os dados se necessário
 
-    // Tenta pegar dados do usuário do localStorage (que seriam salvos no login)
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUserRecomeco'));
+    // Função para buscar os dados completos do usuário logado
+    function getDadosUsuarioLogadoCompleto() {
+        const cpfLogado = localStorage.getItem(LOGGED_IN_USER_KEY);
+        if (!cpfLogado) return null;
 
-    const profileNameElement = document.getElementById('profileName');
-    const profileEmailElement = document.getElementById('profileEmail');
-    const logoutButton = document.querySelector('.btn-logout'); // Botão de sair no header
+        const todosOsDadosJSON = localStorage.getItem(DADOS_PACIENTES_STORAGE_KEY);
+        if (!todosOsDadosJSON) return null;
 
-    if (loggedInUser && profileNameElement && profileEmailElement) {
-        profileNameElement.textContent = loggedInUser.name;
-        profileEmailElement.textContent = loggedInUser.email;
+        const todosOsDados = JSON.parse(todosOsDadosJSON);
+        return todosOsDados[cpfLogado] || null;
+    }
+
+    const loggedInUserData = getDadosUsuarioLogadoCompleto();
+
+    const profileNameElement = document.getElementById('profileName'); // Assumindo que este ID existe no seu meu-perfil.html
+    const profileEmailElement = document.getElementById('profileEmail'); // Assumindo que este ID existe
+
+    // Elementos da sidebar da Área do Paciente (do seu SimplesHC)
+    const sidebarUserName = document.getElementById('sidebarUserName');
+
+    // Elementos do formulário de Meu Perfil (do seu SimplesHC)
+    const userNameInput = document.getElementById('userName');
+    const userCpfInput = document.getElementById('userCpf');
+    const userDobInput = document.getElementById('userDob');
+    const userEmailInput = document.getElementById('userEmail');
+    const userTelefoneInput = document.getElementById('userTelefone');
+    // Adicione outros campos que você tem no perfil do RecomeçaSP se forem diferentes
+
+    const logoutButton = document.getElementById('linkSair'); // ID do botão de sair do SimplesHC
+
+    if (loggedInUserData) {
+        // Para o header da página de perfil (se existir no RecomeçaSP)
+        if (profileNameElement) profileNameElement.textContent = loggedInUserData.nomeCompleto;
+        if (profileEmailElement) profileEmailElement.textContent = loggedInUserData.email;
+
+        // Para a sidebar (se usar a mesma estrutura do SimplesHC)
+        if (sidebarUserName) sidebarUserName.textContent = loggedInUserData.nomeCompleto;
+
+        // Para os campos do formulário (se usar a mesma estrutura do SimplesHC)
+        if (userNameInput) userNameInput.value = loggedInUserData.nomeCompleto;
+        if (userCpfInput) userCpfInput.value = loggedInUserData.cpf; // CPF formatado
+        if (userDobInput) userDobInput.value = loggedInUserData.dataNascimento;
+        if (userEmailInput) userEmailInput.value = loggedInUserData.email;
+        if (userTelefoneInput) userTelefoneInput.value = loggedInUserData.telefone || "";
+
+        // Popular outras informações do perfil do RecomeçaSP aqui, se houver
+        // Ex: Resumo de atividades, links para diário, etc.
+
     } else {
-        // Se não houver usuário logado (ex: acesso direto à URL),
-        // pode redirecionar para a página de login ou mostrar uma mensagem padrão.
-        // Para este exemplo, manteremos placeholders ou um aviso.
-        if (profileNameElement) profileNameElement.textContent = "Visitante";
-        if (profileEmailElement) profileEmailElement.textContent = "Faça login para ver seus dados.";
-        console.warn("Nenhum usuário logado encontrado no localStorage. Exibindo dados padrão.");
+        alert("Você não está logado. Redirecionando para a página de login.");
+        // Ajuste o caminho para a página de login do RecomeçaSP
+        window.location.href = '../cadastro-login.html';
     }
 
     if (logoutButton) {
         logoutButton.addEventListener('click', (e) => {
             e.preventDefault();
-            localStorage.removeItem('loggedInUserRecomeco');
-            alert('Você foi desconectado (simulação).');
-            window.location.href = '../../index.html'; // Redireciona para a home
+            localStorage.removeItem(USUARIO_LOGADO_CPF_KEY);
+            alert('Você foi desconectado.');
+            // Ajuste o caminho para a página inicial do RecomeçaSP
+            window.location.href = '../../index.html';
         });
     }
 
-    // Adicionar funcionalidade ao botão "Editar Perfil (Simulado)"
-    const editProfileButton = document.querySelector('.btn-edit-profile');
-    if (editProfileButton) {
-        editProfileButton.addEventListener('click', () => {
-            alert('Funcionalidade "Editar Perfil" ainda não implementada.');
+    // Lógica para Editar/Salvar perfil (adaptada do seu SimplesHC - area-paciente.js)
+    const editProfileButton = document.getElementById('editProfileButton');
+    const saveProfileButton = document.getElementById('saveProfileButton');
+    const cancelEditButton = document.getElementById('cancelEditButton');
+    const formInputs = document.querySelectorAll('#formInformacoesPessoais input:not([disabled]), #formInformacoesPessoais select, #formInformacoesPessoais #userTelegramId');
+    // Adicionei userTelegramId para o exemplo, ajuste conforme os campos editáveis no RecomeçaSP
+
+    if (editProfileButton && saveProfileButton && cancelEditButton) {
+        saveProfileButton.style.display = 'none';
+        cancelEditButton.style.display = 'none';
+
+        function toggleEditMode(isEditing) {
+            formInputs.forEach(input => input.disabled = !isEditing);
+            editProfileButton.style.display = isEditing ? 'none' : 'inline-block';
+            saveProfileButton.style.display = isEditing ? 'inline-block' : 'none';
+            cancelEditButton.style.display = isEditing ? 'inline-block' : 'none';
+        }
+
+        editProfileButton.addEventListener('click', () => toggleEditMode(true));
+        cancelEditButton.addEventListener('click', () => {
+            toggleEditMode(false);
+            // Recarregar dados originais se o usuário cancelar
+            const currentUserData = getDadosUsuarioLogado(); // Assume que esta função existe em dados-pacientes.js
+            if (currentUserData) {
+                if (userEmailInput) userEmailInput.value = currentUserData.email;
+                if (userTelefoneInput) userTelefoneInput.value = currentUserData.telefone || "";
+                // Adicione outros campos aqui
+            }
         });
+
+        const formInformacoesPessoais = document.getElementById('formInformacoesPessoais');
+        if (formInformacoesPessoais) {
+            formInformacoesPessoais.addEventListener('submit', (e) => {
+                e.preventDefault(); // O onsubmit="return false;" no HTML já faz isso, mas é bom ter aqui.
+                
+                const dadosAtualizados = { // Pegue os dados do RecomeçaSP
+                    cpf: userCpfInput ? userCpfInput.value : loggedInUserData.cpf, // CPF não deve ser editável, mas precisa estar no objeto
+                    nomeCompleto: userNameInput ? userNameInput.value : loggedInUserData.nomeCompleto, // Nome não deve ser editável
+                    dataNascimento: userDobInput ? userDobInput.value : loggedInUserData.dataNascimento, // DN não deve ser editável
+                    email: userEmailInput ? userEmailInput.value : '',
+                    telefone: userTelefoneInput ? userTelefoneInput.value : '',
+                    // Adicione outros campos editáveis aqui
+                };
+
+                // Merge com dados existentes para não perder campos não editáveis
+                const usuarioCompletoParaSalvar = { ...loggedInUserData, ...dadosAtualizados };
+
+                // Simulação de salvar no localStorage (chamar função de dados-pacientes.js)
+                if (typeof atualizarDadosPacienteLogado === 'function' && atualizarDadosPacienteLogado(usuarioCompletoParaSalvar)) {
+                    alert('Perfil atualizado com sucesso! (Simulado)');
+                    // Atualiza os dados no localStorage do usuário logado também, se necessário para exibição imediata
+                    localStorage.setItem(LOGGED_IN_USER_KEY, JSON.stringify({
+                        id: loggedInUserData.id, // Mantenha o ID
+                        name: usuarioCompletoParaSalvar.nomeCompleto,
+                        email: usuarioCompletoParaSalvar.email
+                    }));
+                } else {
+                    alert('Erro ao atualizar o perfil. (Simulado)');
+                }
+                toggleEditMode(false);
+            });
+        }
     }
 });
 IGNORE_WHEN_COPYING_START
@@ -485,115 +526,14 @@ Use code with caution.
 JavaScript
 IGNORE_WHEN_COPYING_END
 
-5. Modificar assets/js/cadastro-login.js para Simular Login:
+Importante:
 
-Para que a página de perfil possa exibir algo, precisamos que o cadastro-login.js salve (simuladamente) os dados do usuário no localStorage após um "login" ou "cadastro" bem-sucedido.
+IDs dos Elementos: Verifique CUIDADOSAMENTE se os IDs usados no cadastro-login.js e meu_perfil.js (ex: loginCpf, formLogin, profileName, etc.) correspondem EXATAMENTE aos IDs que você tem nos seus arquivos HTML do RecomeçaSP. Qualquer divergência fará o JS não encontrar os elementos e não funcionar.
 
-Atualize as seções de submit dos formulários no seu assets/js/cadastro-login.js:
+Caminhos dos Arquivos: No meu-perfil.html e cadastro-login.html (RecomeçaSP), os caminhos para os arquivos CSS e JS precisam ser ajustados para a estrutura de pastas do RecomeçaSP (ex: ../assets/css/style.css, ../../assets/imagens/icone-logo.png).
 
-// ... (início do cadastro-login.js) ...
+Variáveis Globais JS: O dados-pacientes.js do SimplesHC parece definir uma variável global dadosPacientes. Certifique-se de que o cadastro-login.js (adaptado para RecomeçaSP) consiga acessar essa variável ou as funções de dados-pacientes.js corretamente.
 
-    // Usuários FAKE para simulação - Mova para o escopo global do DOMContentLoaded ou do arquivo se for usar em mais lugares
-    const fakeUsersRecomeco = [
-        { name: "Usuário Teste", email: "teste@recomeco.com.br", password: "123" }
-    ];
+Estilização: Você precisará criar/ajustar o assets/css/cadastro-login.css e assets/css/meu_perfil.css para o RecomeçaSP para que as páginas tenham a aparência desejada e sejam consistentes com o restante do site.
 
-
-    if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            clearFeedback();
-            const email = loginForm.loginEmail.value;
-            const password = loginForm.loginPassword.value;
-
-            const user = fakeUsersRecomeco.find(u => u.email === email && u.password === password);
-
-            if (user) {
-                // Salva o usuário "logado" no localStorage
-                localStorage.setItem('loggedInUserRecomeco', JSON.stringify({ name: user.name, email: user.email }));
-                displayFeedback('Login realizado com sucesso!', 'success');
-                // Redireciona para a página de perfil após um pequeno delay
-                setTimeout(() => {
-                    window.location.href = './area-paciente/meu-perfil.html'; // Caminho relativo da cadastro-login.html
-                }, 1500);
-            } else {
-                displayFeedback('Email ou senha inválidos. Tente "teste@recomeco.com.br" e senha "123".', 'error');
-            }
-        });
-    }
-
-    if (registerForm) {
-        registerForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            clearFeedback();
-            const name = registerForm.registerName.value;
-            const email = registerForm.registerEmail.value;
-            const password = registerForm.registerPassword.value;
-            const confirmPassword = registerForm.confirmPassword.value;
-
-            if (password !== confirmPassword) {
-                displayFeedback('As senhas não coincidem.', 'error');
-                return;
-            }
-            if (password.length < 6) {
-                displayFeedback('A senha deve ter pelo menos 6 caracteres.', 'error');
-                return;
-            }
-
-            // Verifica se o email já existe (simulação)
-            if (fakeUsersRecomeco.find(u => u.email === email)) {
-                displayFeedback('Este email já está cadastrado. Tente fazer login.', 'error');
-                return;
-            }
-
-            // Adiciona o novo usuário "fake" (simulação)
-            const newUser = { name, email, password };
-            fakeUsersRecomeco.push(newUser);
-            localStorage.setItem('loggedInUserRecomeco', JSON.stringify({ name: newUser.name, email: newUser.email }));
-
-            displayFeedback('Cadastro realizado com sucesso! Redirecionando para o perfil...', 'success');
-            registerForm.reset();
-            setTimeout(() => {
-                window.location.href = './area-paciente/meu-perfil.html'; // Caminho relativo
-            }, 2000);
-        });
-    }
-// ... (restante do cadastro-login.js) ...
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-JavaScript
-IGNORE_WHEN_COPYING_END
-
-Próximos Passos:
-
-Crie os Arquivos:
-
-paginas/area-paciente/meu-perfil.html
-
-assets/css/meu_perfil.css
-
-assets/js/meu_perfil.js
-
-Cole o Conteúdo: Copie e cole os respectivos HTML, CSS e JS.
-
-Atualize assets/js/cadastro-login.js com a lógica de salvar no localStorage.
-
-Teste o Fluxo:
-
-Vá para paginas/cadastro-login.html.
-
-Tente cadastrar um novo usuário. Você deve ser redirecionado para meu-perfil.html e ver o nome/email cadastrado.
-
-Volte para cadastro-login.html (ou clique em "Sair" no perfil).
-
-Tente fazer login com o usuário cadastrado (ou com teste@recomeco.com.br / 123). Você deve ser redirecionado e ver os dados.
-
-Acesse meu-perfil.html diretamente no navegador. Se não houver dados no localStorage, ele deve mostrar a mensagem padrão.
-
-Ícones: Substitua os CDNs do Lucide na meu-perfil.html por seus ícones locais ou mantenha os CDNs se preferir.
-
-Refinamento Visual: Ajuste o CSS de meu_perfil.css para que o layout fique agradável e responsivo.
-
-Agora você terá um fluxo básico de cadastro/login (simulado) levando a uma página de perfil do usuário.
+Depois de fazer essas adaptações e criar os arquivos HTML e CSS para o RecomeçaSP, o fluxo de cadastro e login simulado com localStorage deve funcionar.
