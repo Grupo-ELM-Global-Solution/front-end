@@ -1,0 +1,599 @@
+Ok, vamos focar em fazer a página cadastro-login.html funcionar com a lógica de alternar entre os formulários de login e cadastro, e simular o processo (já que não temos backend). Depois, criaremos a meu-perfil.html básica e seu CSS.
+
+Arquivos Fornecidos:
+Você forneceu vários arquivos. Para esta etapa, os mais relevantes são:
+
+cadastro-login.html
+
+cadastro-login.css
+
+cadastro-login.js (para a lógica dos formulários)
+
+style.css (para estilos globais e do header/footer)
+
+script.js (para o menu hambúrguer, se aplicável nesta página)
+
+1. Ajustes e Implementação para cadastro-login.html
+
+O cadastro-login.js que você forneceu já tem uma boa base para alternar entre os formulários e uma simulação de feedback. Vamos garantir que ele esteja corretamente linkado e que o CSS suporte os estados active.
+
+paginas/cadastro-login.html (Revisão e Confirmação)
+O HTML que você forneceu para cadastro-login.html parece bom. Ele já tem:
+
+Botões showLoginBtn e showRegisterBtn.
+
+Formulários loginForm e registerForm.
+
+Links switchToRegisterLink e switchToLoginLink.
+
+Elemento formFeedback.
+
+assets/css/cadastro-login.css (Revisão e Confirmação)
+O CSS fornecido já tem:
+
+Estilos para .form-container, .form-toggle-buttons, .toggle-btn e seu estado .active.
+
+Estilos para .auth-form e seu estado .active (para mostrar/esconder).
+
+Estilos para os campos, botões e links dentro dos formulários.
+
+Estilos para .form-feedback.success e .form-feedback.error.
+
+assets/js/cadastro-login.js (Revisão e Confirmação)
+O JavaScript que você forneceu para cadastro-login.js é sólido e faz o seguinte:
+
+Adiciona event listeners aos botões de toggle (showLoginBtn, showRegisterBtn).
+
+Adiciona event listeners aos links de troca (switchToRegisterLink, switchToLoginLink).
+
+A função showForm corretamente alterna as classes active para mostrar o formulário desejado.
+
+Simula o envio de login e cadastro com console.log e exibe mensagens de feedback (erro, pois não há backend).
+
+Inclui validação básica para senhas no cadastro.
+
+O que já deve estar funcionando:
+Com os arquivos cadastro-login.html, cadastro-login.css e cadastro-login.js que você forneceu, a funcionalidade de alternar entre o formulário de login e o de cadastro, e a simulação de envio/feedback, já devem estar operacionais.
+
+Certifique-se de que:
+
+Os caminhos para os arquivos CSS e JS no <head> da cadastro-login.html estão corretos (ex: ../css/style.css, ../css/cadastro-login.css, ../js/script.js para o menu, ../js/cadastro-login.js para a lógica da página).
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Cadastro - Recomeço</title>
+    <link rel="stylesheet" href="../css/style.css"> <!-- CSS Global -->
+    <link rel="stylesheet" href="../css/cadastro-login.css"> <!-- CSS Específico -->
+    <script src="../js/script.js" defer></script> <!-- JS Global (menu, etc.) -->
+    <script src="../js/cadastro-login.js" defer></script> <!-- JS da Página -->
+</head>
+
+
+O script.js (global) não interfira negativamente com o cadastro-login.js (específico). Como eles manipulam elementos diferentes (menu vs. formulários de login), não deve haver conflito.
+
+2. Criar a Página paginas/area-paciente/meu-perfil.html
+
+Esta será uma página simples inicialmente, representando o que o usuário veria após um "login" bem-sucedido.
+
+Objetivo da Página meu-perfil.html:
+Mostrar informações básicas do usuário (simuladas) e talvez links para outras seções da área do paciente (que podem ser desenvolvidas depois, como "Diário" ou "Mapa de Riscos").
+
+paginas/area-paciente/meu-perfil.html
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Recomeço</title>
+    <link rel="stylesheet" href="../../assets/css/style.css"> <!-- CSS Global, caminho ajustado -->
+    <link rel="stylesheet" href="../../assets/css/meu_perfil.css"> <!-- CSS Específico -->
+    <script src="../../assets/js/script.js" defer></script>
+    <script src="../../assets/js/meu_perfil.js" defer></script> <!-- JS específico se necessário -->
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="../../index.html" class="logo-link">
+                <img src="../../assets/imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img"><span class="logo-text-header">Recomeço</span>
+            </a>
+            <nav class="main-navigation" id="primary-navigation" aria-hidden="true">
+                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon">
+                        Início
+                    </a></li>
+                    <li><a href="../autocuidado.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon">
+                        Autocuidado
+                    </a></li>
+                    <li><a href="../entendendo_emocoes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon">
+                        Entendendo Emoções
+                    </a></li>
+                    <li><a href="../integrantes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon">
+                        Integrantes
+                    </a></li>
+                    <li><a href="../faq.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon">
+                        FAQ
+                    </a></li>
+                    <li><a href="../contato.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
+                        Contato
+                    </a></li>
+                    {/* Lógica para mostrar "Meu Perfil" ou "Sair" em vez de "Entrar" após login seria feita com JS mais avançado e/ou backend */}
+                    <li class="nav-item-login"><a href="#" class="nav-link btn btn-logout">Sair (Simulado)</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-meu-perfil">
+        <section class="page-title-section perfil-title-section">
+            <div class="container">
+                <h1>Meu Perfil</h1>
+                <p class="section-subtitle short-subtitle">Bem-vindo(a) à sua área pessoal no Recomeço.</p>
+            </div>
+        </section>
+
+        <section class="profile-details-section">
+            <div class="container profile-layout">
+                <div class="profile-sidebar">
+                    <img src="https://via.placeholder.com/150/007BFF/FFFFFF?Text=Usuário" alt="Foto do Perfil" class="profile-picture">
+                    <h3 id="profileName">Nome do Usuário</h3>
+                    <p id="profileEmail">email@exemplo.com</p>
+                    <button class="btn btn-edit-profile">Editar Perfil (Simulado)</button>
+                </div>
+                <div class="profile-main-content">
+                    <h2>Suas Ferramentas e Recursos</h2>
+                    <div class="profile-actions-grid">
+                        <a href="diario_usuario.html" class="profile-action-card">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/book-open-text.svg" alt="Diário" class="action-icon">
+                            <h4>Meu Diário Emocional</h4>
+                            <p>Registre seus sentimentos e acompanhe seu progresso.</p>
+                        </a>
+                        <a href="mapa_usuario.html" class="profile-action-card">
+                             <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/map.svg" alt="Mapa de Riscos" class="action-icon">
+                            <h4>Mapa de Riscos (Em breve)</h4>
+                            <p>Informações sobre sua região e como se preparar.</p>
+                        </a>
+                        <a href="../autocuidado.html" class="profile-action-card">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/heart-pulse.svg" alt="Autocuidado" class="action-icon">
+                            <h4>Técnicas de Autocuidado</h4>
+                            <p>Acesse exercícios de respiração e relaxamento.</p>
+                        </a>
+                         <a href="#" class="profile-action-card disabled-card">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/settings.svg" alt="Configurações" class="action-icon">
+                            <h4>Configurações da Conta</h4>
+                            <p>Gerencie suas preferências (Em breve).</p>
+                        </a>
+                    </div>
+                    <div class="recent-activity">
+                        <h4>Atividade Recente (Simulado)</h4>
+                        <ul>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/check-circle-2.svg" alt="" class="activity-icon"> Completou o exercício de respiração guiada.</li>
+                            <li><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/eye.svg" alt="" class="activity-icon"> Visitou a página "Entendendo Emoções".</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-final">
+        <!-- Conteúdo do footer idêntico ao da index.html, ajustar caminhos se necessário -->
+        <div class="container footer-content-grid">
+            <div class="footer-logo-info">
+                <a href="../../index.html" class="logo-link-footer">
+                    <img src="../../assets/imagens/icone-logo.png" alt="Logo Recomeço" class="footer-logo-img">
+                    <span class="logo-text-footer">Recomeço</span>
+                </a>
+                <p>Apoio psicológico especializado para vítimas de desastres naturais.</p>
+            </div>
+            <div class="footer-links-section">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="../../index.html">Início</a></li>
+                    <li><a href="../autocuidado.html">Autocuidado</a></li>
+                    <li><a href="../entendendo_emocoes.html">Entendendo Emoções</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-section">
+                <h4>Sobre Nós</h4>
+                <ul>
+                    <li><a href="../integrantes.html">Integrantes</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright-container">
+            <p class="important-notice-footer"><strong>Importante:</strong> Este site oferece informações e ferramentas de apoio, mas não substitui o aconselhamento ou tratamento psicológico profissional. Em caso de crise ou emergência, procure ajuda imediatamente.</p>
+            <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
+        </div>
+    </footer>
+</body>
+</html>
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Html
+IGNORE_WHEN_COPYING_END
+
+3. Criar assets/css/meu_perfil.css
+
+/* assets/css/meu_perfil.css */
+
+main.page-meu-perfil {
+    padding-top: var(--header-height);
+    background-color: var(--color-background-section-alt); /* Fundo geral da página de perfil */
+    min-height: calc(100vh - var(--header-height)); /* Ocupar altura da tela menos header */
+}
+
+.perfil-title-section {
+    background-color: var(--color-background-hero); /* Um fundo suave para o título */
+    padding: 40px 0;
+    text-align: center;
+}
+.perfil-title-section h1 {
+    color: var(--color-text-dark);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+}
+.perfil-title-section .short-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-medium);
+}
+
+.profile-details-section {
+    padding: 40px 0;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna por padrão */
+    gap: 30px;
+}
+
+@media (min-width: 992px) {
+    .profile-layout {
+        grid-template-columns: 300px 1fr; /* Sidebar fixa, conteúdo principal flexível */
+        gap: 40px;
+    }
+}
+
+.profile-sidebar {
+    background-color: var(--color-background-light);
+    padding: 30px 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    height: fit-content; /* Para a sidebar não esticar desnecessariamente */
+}
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    border: 4px solid var(--color-primary-light, #BFDBFE); /* Borda suave */
+}
+.profile-sidebar h3 { /* #profileName */
+    font-size: 1.4rem;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+.profile-sidebar p { /* #profileEmail */
+    font-size: 0.95rem;
+    color: var(--color-text-medium);
+    margin-bottom: 20px;
+    word-break: break-all; /* Para emails longos */
+}
+.btn-edit-profile {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    padding: 0.6em 1.5em;
+    font-size: 0.9rem;
+    width: 100%;
+}
+.btn-edit-profile:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.profile-main-content {
+    background-color: var(--color-background-light);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.profile-main-content h2 {
+    font-size: 1.8rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.2em;
+    text-align: left; /* Título do conteúdo principal */
+}
+
+.profile-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.profile-action-card {
+    background-color: var(--color-background-section-alt);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid #E5E7EB;
+    transition: var(--transition-speed) var(--transition-easing);
+    color: var(--color-text-dark); /* Cor padrão do texto do card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinha conteúdo ao topo */
+    text-decoration: none;
+}
+.profile-action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    border-color: var(--color-primary-light, #BFDBFE);
+}
+.profile-action-card .action-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+    color: var(--color-primary); /* Cor padrão dos ícones */
+}
+.profile-action-card h4 {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+}
+.profile-action-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-medium);
+    line-height: 1.5;
+}
+.profile-action-card.disabled-card {
+    background-color: #F3F4F6;
+    color: #9CA3AF;
+    cursor: not-allowed;
+}
+.profile-action-card.disabled-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+.profile-action-card.disabled-card .action-icon {
+    opacity: 0.5;
+}
+
+.recent-activity h4 {
+    font-size: 1.2rem;
+    color: var(--color-text-medium);
+    margin-bottom: 15px;
+    border-bottom: 1px solid #E5E7EB;
+    padding-bottom: 10px;
+}
+.recent-activity ul li {
+    font-size: 0.9rem;
+    color: var(--color-text-medium);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.recent-activity .activity-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    color: var(--color-secondary); /* Ícones de atividade em verde */
+}
+
+/* Botão Sair no Header */
+.nav-link.btn-logout {
+    background-color: var(--color-accent) !important;
+    color: white !important;
+    padding: 0.6em 1.2em !important;
+    border-radius: var(--border-radius) !important;
+    font-weight: 600 !important;
+}
+.nav-link.btn-logout:hover {
+    background-color: #B91C1C !important; /* Vermelho mais escuro */
+}
+
+/* Responsividade para meu_perfil.css */
+@media (max-width: 991px) {
+    .profile-sidebar {
+        margin-bottom: 30px; /* Espaço se empilhado */
+    }
+}
+@media (max-width: 767px) {
+    .perfil-title-section { padding: 30px 0; }
+    .perfil-title-section h1 { font-size: 1.8rem; }
+
+    .profile-details-section { padding: 25px 0; }
+    .profile-sidebar { padding: 20px; }
+    .profile-picture { width: 100px; height: 100px; }
+    .profile-main-content { padding: 25px; }
+    .profile-main-content h2 { font-size: 1.5rem; }
+
+    .profile-actions-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    }
+}
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+Css
+IGNORE_WHEN_COPYING_END
+
+4. Criar assets/js/meu_perfil.js (Simples, para popular dados)
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Simulação de dados do usuário logado
+    // Em um cenário real, esses dados viriam do localStorage, sessionStorage ou de um estado da aplicação
+    // após o login bem-sucedido.
+
+    // Tenta pegar dados do usuário do localStorage (que seriam salvos no login)
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUserRecomeco'));
+
+    const profileNameElement = document.getElementById('profileName');
+    const profileEmailElement = document.getElementById('profileEmail');
+    const logoutButton = document.querySelector('.btn-logout'); // Botão de sair no header
+
+    if (loggedInUser && profileNameElement && profileEmailElement) {
+        profileNameElement.textContent = loggedInUser.name;
+        profileEmailElement.textContent = loggedInUser.email;
+    } else {
+        // Se não houver usuário logado (ex: acesso direto à URL),
+        // pode redirecionar para a página de login ou mostrar uma mensagem padrão.
+        // Para este exemplo, manteremos placeholders ou um aviso.
+        if (profileNameElement) profileNameElement.textContent = "Visitante";
+        if (profileEmailElement) profileEmailElement.textContent = "Faça login para ver seus dados.";
+        console.warn("Nenhum usuário logado encontrado no localStorage. Exibindo dados padrão.");
+    }
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('loggedInUserRecomeco');
+            alert('Você foi desconectado (simulação).');
+            window.location.href = '../../index.html'; // Redireciona para a home
+        });
+    }
+
+    // Adicionar funcionalidade ao botão "Editar Perfil (Simulado)"
+    const editProfileButton = document.querySelector('.btn-edit-profile');
+    if (editProfileButton) {
+        editProfileButton.addEventListener('click', () => {
+            alert('Funcionalidade "Editar Perfil" ainda não implementada.');
+        });
+    }
+});
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+JavaScript
+IGNORE_WHEN_COPYING_END
+
+5. Modificar assets/js/cadastro-login.js para Simular Login:
+
+Para que a página de perfil possa exibir algo, precisamos que o cadastro-login.js salve (simuladamente) os dados do usuário no localStorage após um "login" ou "cadastro" bem-sucedido.
+
+Atualize as seções de submit dos formulários no seu assets/js/cadastro-login.js:
+
+// ... (início do cadastro-login.js) ...
+
+    // Usuários FAKE para simulação - Mova para o escopo global do DOMContentLoaded ou do arquivo se for usar em mais lugares
+    const fakeUsersRecomeco = [
+        { name: "Usuário Teste", email: "teste@recomeco.com.br", password: "123" }
+    ];
+
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearFeedback();
+            const email = loginForm.loginEmail.value;
+            const password = loginForm.loginPassword.value;
+
+            const user = fakeUsersRecomeco.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                // Salva o usuário "logado" no localStorage
+                localStorage.setItem('loggedInUserRecomeco', JSON.stringify({ name: user.name, email: user.email }));
+                displayFeedback('Login realizado com sucesso!', 'success');
+                // Redireciona para a página de perfil após um pequeno delay
+                setTimeout(() => {
+                    window.location.href = './area-paciente/meu-perfil.html'; // Caminho relativo da cadastro-login.html
+                }, 1500);
+            } else {
+                displayFeedback('Email ou senha inválidos. Tente "teste@recomeco.com.br" e senha "123".', 'error');
+            }
+        });
+    }
+
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearFeedback();
+            const name = registerForm.registerName.value;
+            const email = registerForm.registerEmail.value;
+            const password = registerForm.registerPassword.value;
+            const confirmPassword = registerForm.confirmPassword.value;
+
+            if (password !== confirmPassword) {
+                displayFeedback('As senhas não coincidem.', 'error');
+                return;
+            }
+            if (password.length < 6) {
+                displayFeedback('A senha deve ter pelo menos 6 caracteres.', 'error');
+                return;
+            }
+
+            // Verifica se o email já existe (simulação)
+            if (fakeUsersRecomeco.find(u => u.email === email)) {
+                displayFeedback('Este email já está cadastrado. Tente fazer login.', 'error');
+                return;
+            }
+
+            // Adiciona o novo usuário "fake" (simulação)
+            const newUser = { name, email, password };
+            fakeUsersRecomeco.push(newUser);
+            localStorage.setItem('loggedInUserRecomeco', JSON.stringify({ name: newUser.name, email: newUser.email }));
+
+            displayFeedback('Cadastro realizado com sucesso! Redirecionando para o perfil...', 'success');
+            registerForm.reset();
+            setTimeout(() => {
+                window.location.href = './area-paciente/meu-perfil.html'; // Caminho relativo
+            }, 2000);
+        });
+    }
+// ... (restante do cadastro-login.js) ...
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+JavaScript
+IGNORE_WHEN_COPYING_END
+
+Próximos Passos:
+
+Crie os Arquivos:
+
+paginas/area-paciente/meu-perfil.html
+
+assets/css/meu_perfil.css
+
+assets/js/meu_perfil.js
+
+Cole o Conteúdo: Copie e cole os respectivos HTML, CSS e JS.
+
+Atualize assets/js/cadastro-login.js com a lógica de salvar no localStorage.
+
+Teste o Fluxo:
+
+Vá para paginas/cadastro-login.html.
+
+Tente cadastrar um novo usuário. Você deve ser redirecionado para meu-perfil.html e ver o nome/email cadastrado.
+
+Volte para cadastro-login.html (ou clique em "Sair" no perfil).
+
+Tente fazer login com o usuário cadastrado (ou com teste@recomeco.com.br / 123). Você deve ser redirecionado e ver os dados.
+
+Acesse meu-perfil.html diretamente no navegador. Se não houver dados no localStorage, ele deve mostrar a mensagem padrão.
+
+Ícones: Substitua os CDNs do Lucide na meu-perfil.html por seus ícones locais ou mantenha os CDNs se preferir.
+
+Refinamento Visual: Ajuste o CSS de meu_perfil.css para que o layout fique agradável e responsivo.
+
+Agora você terá um fluxo básico de cadastro/login (simulado) levando a uma página de perfil do usuário.

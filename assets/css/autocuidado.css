@@ -122,10 +122,10 @@
     height: 24px;
 }
 .tab-pane {
-    display: none; 
+    display: none;
 }
 .tab-pane.active {
-    display: block; 
+    display: block;
 }
 .tab-pane > h4 + p {
     margin-bottom: 1.5em;

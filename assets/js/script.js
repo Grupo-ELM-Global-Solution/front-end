@@ -125,14 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             // Verifica se o link é APENAS uma âncora na mesma página
             if (this.pathname === window.location.pathname && this.hash !== "") {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
                 try {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
                     }
                 } catch (error) {
                     // Se o seletor for inválido (ex: href="#" apenas), não faz nada
