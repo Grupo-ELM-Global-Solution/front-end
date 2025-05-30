@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const profilePictureImgElement = document.getElementById('profilePictureImg'); // Seleciona a imagem
     const logoutButton = document.querySelector('.btn-logout');
 
-    const genericProfilePicUrl = "https://cdn-icons-png.flaticon.com/512/9706/9706583.png"; // URL da imagem genérica atualizada
+    const genericProfilePicUrl = "https://cdn-icons-png.flaticon.com/512/9706/9706583.png";
 
     // Modal elements
     const editProfileModal = document.getElementById('editProfileModal');
@@ -33,16 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (profileEmailElement) profileEmailElement.textContent = currentUser.email;
             
             if (profilePictureImgElement) {
-                if (currentUser.fotoUrl && currentUser.fotoUrl.trim() !== "") {
-                    profilePictureImgElement.src = currentUser.fotoUrl;
-                } else {
-                    profilePictureImgElement.src = genericProfilePicUrl;
-                }
+                profilePictureImgElement.src = genericProfilePicUrl;
             }
         } else {
             // Se não houver usuário logado, redireciona para a página de login
             // alert("Você não está logado. Redirecionando para login...");
-            // window.location.href = '../cadastro-login.html'; // Ajuste o caminho se necessário
+
 
             // Ou, para permitir visualização da estrutura da página de perfil mesmo sem login (para desenvolvimento):
             if (profileNameElement) profileNameElement.textContent = "Visitante";
@@ -118,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 telefone: telefone,
                 dataNascimento: dataNascimento,
                 // Só inclui a senha se ela for alterada
-                ...(novaSenha && { senhaPlana: novaSenha })
+                ...(novaSenha && { senha: novaSenha })
             };
 
             if (atualizarDadosUsuarioLogado(dadosAtualizados)) {

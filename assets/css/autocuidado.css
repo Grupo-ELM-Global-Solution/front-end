@@ -365,7 +365,8 @@
     background-color: var(--color-primary);
     border-radius: 50%;
     position: absolute;
-    transition: transform 4s ease-in-out, background-color 4s ease-in-out;
+    transition-property: transform, background-color;
+    transition-timing-function: ease-in-out;
     transform-origin: center center;
     display: flex;
     align-items: center;
@@ -374,10 +375,12 @@
 .breathing-circle.inhale {
     transform: scale(1.85);
     background-color: #5bbaff;
+    transition-duration: 4s;
 }
 .breathing-circle.exhale {
     transform: scale(1);
     background-color: var(--color-primary);
+    transition-duration: 8s;
 }
 .breathing-instruction {
     position: absolute;
@@ -440,7 +443,7 @@
     }
 }
 
-@media (max-width: 700px) { /* Movido para manter a ordem com 600px depois */
+@media (max-width: 700px) {
     .universal-cards-grid {
         grid-template-columns: 1fr;
         gap: 18px;
@@ -471,7 +474,7 @@
         border-bottom: 3px solid transparent;
         background: #eaf3ff;
     }
-    .universal-cards-grid, .routine-grid { /* .universal-cards-grid já estava em 700px, aqui apenas adiciona .routine-grid */
+    .universal-cards-grid, .routine-grid {
         grid-template-columns: 1fr;
         gap: 18px;
     }

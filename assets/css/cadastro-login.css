@@ -1,12 +1,12 @@
 /* assets/css/cadastro-login.css */
 
 main.page-login-register {
-    padding-top: calc(var(--header-height) + 40px); /* Espaço para o header fixo + margem */
+    padding-top: calc(var(--header-height) + 40px);
     padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height, 150px)); /* Ajustar footer-height se necessário */
+    min-height: calc(100vh - var(--header-height) - var(--footer-height, 150px));
     background-color: var(--color-background-section-alt);
 }
 
@@ -49,7 +49,7 @@ main.page-login-register {
 }
 
 .auth-form {
-    display: none; /* Escondido por padrão, JS controla a visibilidade */
+    display: none;
 }
 
 .auth-form.active {
@@ -151,20 +151,18 @@ main.page-login-register {
     border-radius: var(--border-radius);
     font-size: 0.9rem;
     text-align: center;
-    display: none; /* Escondido por padrão */
-    transition: opacity 0.3s ease; /* Para uma transição suave se desejar */
+    display: none;
+    transition: opacity 0.3s ease;
 }
 .form-feedback.success {
     background-color: #D1FAE5;
     color: #065F46;
     border: 1px solid #6EE7B7;
-    /* display: block; JS controlará o display */
 }
 .form-feedback.error {
     background-color: #FEE2E2;
     color: #991B1B;
     border: 1px solid #FCA5A5;
-    /* display: block; JS controlará o display */
 }
 
 @media (max-width: 600px) {

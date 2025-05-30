@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let fasesRespiração = ['inspire', 'segure', 'expire'];
         let faseAtual = -1;
 
-        const tempoInspiração = 4; // Segundos
-        const tempoSegurar = 7;    // Segundos
-        const tempoExpiração = 8;    // Segundos
+        const tempoInspiração = 4; 
+        const tempoSegurar = 7;   
+        const tempoExpiração = 8;   
 
         function iniciarTimer(duracaoSegundos) {
             clearInterval(timerInterval);
@@ -129,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Ativa a primeira aba se nenhuma estiver ativa (ou a aba salva em localStorage, se preferir)
-        // Para simplificar, vamos apenas ativar a primeira se nenhuma estiver marcada como ativa no HTML.
         let anyTabActive = false;
         tabButtonsAutocuidado.forEach(btn => {
             if (btn.classList.contains('active')) {

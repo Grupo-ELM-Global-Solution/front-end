@@ -1,8 +1,7 @@
-// assets/js/dados-usuarios.js (RecomeçaSP - Adaptado para login com Email)
-
+// assets/js/dados-usuarios.js
 const DADOS_USUARIOS_STORAGE_KEY = 'recomecoDadosUsuarios';
 const USUARIO_LOGADO_EMAIL_KEY = 'recomecoUsuarioLogadoEmail';
-const CHAVE_DIARIO_FICTICIO_POPULADO = 'recomecoDiarioFicticioPopulado'; // Nova chave de controle
+const CHAVE_DIARIO_FICTICIO_POPULADO = 'recomecoDiarioFicticioPopulado';
 
 // Dados iniciais/padrão, usando email como chave primária
 const dadosIniciaisUsuariosRecomeco = {
@@ -11,24 +10,21 @@ const dadosIniciaisUsuariosRecomeco = {
         dataNascimento: "30/10/2006",
         email: "enzo.okuizumi@gmail.com",
         telefone: "(11) 98765-4321",
-        senhaPlana: "123@mudar",
-        fotoUrl: null, // Campo para foto do perfil
+        senha: "123@mudar",
     },
     "lucas.barros@gmail.com": {
         nomeCompleto: "Lucas Barros",
         dataNascimento: "22/09/1992",
         email: "lucas.barros@gmail.com",
         telefone: "(11) 91234-5678",
-        senhaPlana: "123@mudar",
-        fotoUrl: null, // Campo para foto do perfil
+        senha: "123@mudar",
     },
     "milton.marcelino@gmail.com": {
         nomeCompleto: "Milton Marcelino",
         dataNascimento: "05/03/1978",
         email: "milton.marcelino@gmail.com",
         telefone: "(11) 90987-6543",
-        senhaPlana: "123@mudar",
-        fotoUrl: null, // Campo para foto do perfil
+        senha: "123@mudar",
     }
 };
 
@@ -49,7 +45,7 @@ let dadosUsuarios = getAllUsuariosData();
 
 function autenticarUsuario(emailInput, senhaInput) {
     const email = emailInput.trim().toLowerCase();
-    if (dadosUsuarios[email] && dadosUsuarios[email].senhaPlana === senhaInput) {
+    if (dadosUsuarios[email] && dadosUsuarios[email].senha === senhaInput) {
         localStorage.setItem(USUARIO_LOGADO_EMAIL_KEY, email);
         return true;
     }
@@ -68,8 +64,7 @@ function registrarNovoUsuario(dadosNovoUsuario) {
         dataNascimento: dadosNovoUsuario.dataNascimento,
         email: email,
         telefone: dadosNovoUsuario.telefone,
-        senhaPlana: dadosNovoUsuario.senha,
-        fotoUrl: null, // Inicializa fotoUrl para novos usuários
+        senha: dadosNovoUsuario.senha
     };
     saveAllUsuariosData(dadosUsuarios);
     return true;
@@ -109,20 +104,12 @@ function atualizarDadosUsuarioLogado(novosDados) {
         dadosUsuarios[emailLogado].dataNascimento = novosDados.dataNascimento;
     }
     // Atualiza a senha apenas se uma nova senha for fornecida e não estiver vazia
-    if (novosDados.senhaPlana && novosDados.senhaPlana.trim() !== "") {
-        dadosUsuarios[emailLogado].senhaPlana = novosDados.senhaPlana;
+    if (novosDados.senha && novosDados.senha.trim() !== "") {
+        dadosUsuarios[emailLogado].senha = novosDados.senha;
     }
-    // fotoUrl poderia ser atualizada aqui também se houvesse um campo para upload/link no formulário
-    // if (novosDados.fotoUrl) {
-    //     dadosUsuarios[emailLogado].fotoUrl = novosDados.fotoUrl;
-    // }
-
     saveAllUsuariosData(dadosUsuarios); // Salva todos os dados de usuários atualizados
     return true;
 }
-
-// A função atualizarDadosUsuarioLogado precisaria ser adaptada para usar email como chave
-// e para os campos que agora existem, se for implementada. 
 
 // Função para popular o diário com entradas fictícias se estiver vazio para os usuários padrão
 function popularDiarioFicticio() {
@@ -130,7 +117,6 @@ function popularDiarioFicticio() {
 
     // Verifica se o diário fictício já foi populado uma vez desde a última limpeza do localStorage específico
     if (localStorage.getItem(CHAVE_DIARIO_FICTICIO_POPULADO) === 'true') {
-        // console.log("Diário fictício já populado anteriormente nesta sessão/configuração. Não populando novamente.");
         return;
     }
 
@@ -152,7 +138,7 @@ function popularDiarioFicticio() {
         {
             titulo: "Pequenos progressos",
             texto: "Consegui organizar uma parte da casa e conversei com um vizinho. Pequenos passos, mas me senti um pouco mais produtivo e conectado. A saudade ainda aperta, mas a esperança resiste.",
-            emocao: "esperancoso"
+            emocao: "esperançoso"
         },
         {
             titulo: "Sentimentos mistos",

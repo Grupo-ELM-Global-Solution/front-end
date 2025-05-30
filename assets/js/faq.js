@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = item.querySelector('.accordion-content');
 
             if (header && content) {
-                // Set initial ARIA states
+                // Define os estados ARIA iniciais
                 const isInitiallyExpanded = header.classList.contains('active') || header.getAttribute('aria-expanded') === 'true';
                 header.setAttribute('aria-expanded', isInitiallyExpanded ? 'true' : 'false');
                 content.setAttribute('aria-hidden', isInitiallyExpanded ? 'false' : 'true');
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.addEventListener('click', () => {
                     const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
-                    // Option 1: Close all others when one is opened
                     accordionItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             const otherHeader = otherItem.querySelector('.accordion-header');
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 otherHeader.setAttribute('aria-expanded', 'false');
                                 otherContent.style.maxHeight = null;
                                 otherContent.setAttribute('aria-hidden', 'true');
-                                otherHeader.classList.remove('active'); // Ensure class is also removed
+                                otherHeader.classList.remove('active');
                             }
                         }
                     });

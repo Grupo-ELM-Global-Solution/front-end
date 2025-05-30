@@ -6,7 +6,7 @@
 }
 
 .mapa-title-section {
-    background-color: var(--color-secondary-light, #d1e7dd); /* Um verde claro ou outra cor temática */
+    background-color: var(--color-secondary-light, #d1e7dd);
     color: var(--color-secondary-dark, #155724);
     padding: 40px 0;
     text-align: center;
@@ -45,8 +45,5 @@
 
 /* Botão de voltar (para o botão Voltar) */
 .btn-voltar-inicio {
-    margin-top: 30px; /* Ajuste conforme necessário */
-    /* As demais propriedades como background-color, color, padding, 
-       text-decoration, border-radius e transition virão das classes 
-       .btn e .btn-primary do style.css */
+    margin-top: 30px;
 } 

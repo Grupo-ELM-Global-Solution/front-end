@@ -2,13 +2,13 @@
 
 /* Estilos gerais para a página de Técnicas de Autocuidado */
 .page-tecnicas-avancadas {
-    padding-top: var(--header-height); /* Adicionado para evitar sobreposição com o header fixo */
-    background-color: var(--color-background-section-alt); /* Fundo suave consistente */
-    padding-bottom: 60px; /* Espaço no final da página */
+    padding-top: var(--header-height); 
+    background-color: var(--color-background-section-alt); 
+    padding-bottom: 60px; 
 }
 
 .page-tecnicas-avancadas .page-title-section {
-    background-color: var(--color-primary-light); /* Cor de destaque suave */
+    background-color: var(--color-primary-light);
     color: var(--color-primary-dark);
     padding: 50px 0;
     text-align: center;
@@ -30,7 +30,7 @@
 
 /* Estilo para as seções de conteúdo (Textos e Vídeos) */
 .content-section-autocuidado {
-    padding: 0 20px; /* Padding lateral */
+    padding: 0 20px; 
 }
 
 .content-section-autocuidado h2 {
@@ -126,15 +126,12 @@
     font-size: 0.9rem;
     color: var(--color-text-medium);
     line-height: 1.5;
-    flex-grow: 1; /* Faz a descrição ocupar espaço disponível */
+    flex-grow: 1; 
 }
 
 /* Botão de voltar */
 .btn-voltar-inicio {
     margin-top: 50px;
-    /* As demais propriedades como background-color, color, padding, 
-       text-decoration, border-radius e transition virão das classes 
-       .btn e .btn-primary do style.css */
 }
 
 /* Separador */
@@ -150,21 +147,57 @@
     text-align: center;
 }
 
-/* Botão Sair no Header (copiado de meu_perfil.css para consistência) - ESTILOS AGORA EM STYLE.CSS */
-/*
-.nav-link.btn-logout {
-    background-color: transparent;
-    color: var(--color-accent); 
-    padding: 0.8em 1.8em; 
-    border-radius: var(--border-radius); 
-    font-weight: 600; 
-    border: 2px solid var(--color-accent); 
-    line-height: 1.5; 
+/* ===================== RESPONSIVIDADE ===================== */
+
+@media (max-width: 900px) {
+    .content-section-autocuidado {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .page-tecnicas-avancadas .page-title-section {
+        padding: 30px 0;
+        margin-bottom: 25px;
+    }
+    .article-block {
+        padding: 16px;
+    }
 }
-.nav-link.btn-logout:hover {
-    background-color: var(--color-accent); 
-    color: white; 
-    border-color: var(--color-accent); 
-    box-shadow: 0 8px 15px rgba(0,0,0,0.12); 
+
+@media (max-width: 600px) {
+    .content-section-autocuidado {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    .page-tecnicas-avancadas .page-title-section {
+        padding: 18px 0;
+        margin-bottom: 15px;
+    }
+    .page-tecnicas-avancadas .page-title-section h1 {
+        font-size: 1.5rem;
+    }
+    .content-section-autocuidado h2 {
+        font-size: 1.1rem;
+        padding-bottom: 6px;
+        margin-bottom: 18px;
+    }
+    .article-block {
+        padding: 10px;
+        margin-bottom: 16px;
+    }
+    .video-grid-autocuidado {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .video-item-autocuidado {
+        padding: 10px;
+    }
+    .btn-voltar-inicio {
+        margin-top: 25px;
+    }
 }
-*/
+
+@media (max-width: 400px) {
+    .page-tecnicas-avancadas .page-title-section h1 {
+        font-size: 1.1rem;
+    }
+}

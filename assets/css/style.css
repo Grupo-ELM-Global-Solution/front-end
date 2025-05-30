@@ -693,17 +693,17 @@ h3 {
     margin-left: auto;
 }
 .btn-login-in-list {
-    background-color: var(--color-primary) !important;
-    color: var(--color-text-light) !important; 
+    background-color: transparent;
+    color: var(--color-primary);
     padding: 0.6em 1.5em;
     border: 2px solid var(--color-primary);
 }
 .main-navigation .nav-list li.nav-item-login a.btn-login-in-list:hover {
-    background-color: transparent !important;
-    color: var(--color-primary) !important;
-    border-color: var(--color-primary) !important;
-    transform: none !important;
-    box-shadow: none !important;
+    background-color: var(--color-primary);
+    color: var(--color-text-light); 
+    border-color: var(--color-primary);
+    transform: none;
+    box-shadow: none;
 }
 
 /* Estilos Globais para Botão de Logout no Header (Desktop) */
@@ -715,7 +715,6 @@ h3 {
     font-weight: 600;
     border: 2px solid var(--color-accent);
     line-height: 1.5;
-    /* Importante: Esses estilos não devem usar !important para que a media query do mobile possa sobrepor */
 }
 
 .main-navigation .nav-list li .nav-link.btn-logout:hover {
@@ -723,7 +722,6 @@ h3 {
     color: white;
     border-color: var(--color-accent);
     box-shadow: 0 8px 15px rgba(0,0,0,0.12);
-     /* transform: translateY(-3px); foi removido anteriormente a pedido */
 }
 
 /* Estilo para evitar rolagem do body quando um modal está aberto */
@@ -818,23 +816,23 @@ body.modal-open-no-scroll {
         text-align: center;
         margin: 8px 15px;
         border-radius: var(--border-radius);
-        background-color: var(--color-primary) !important;
-        color: var(--color-text-light) !important;
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
     }
     .main-navigation .nav-list li.nav-item-login a.btn-login-in-list:hover {
-        background-color: var(--color-primary-dark) !important;
-        color: var(--color-text-light) !important;
+        background-color: var(--color-primary-dark);
+        color: var(--color-text-light);
     }
     .nav-link.btn-logout {
-        background-color: var(--color-accent) !important;
-        color: white !important;
-        padding: 1em !important;
-        display: block !important;
-        width: 100% !important;
-        border: none !important;
-        margin: 10px 0 !important;
-        text-align: center !important;
-        box-shadow: none !important;
+        background-color: var(--color-accent);
+        color: white;
+        padding: 1em;
+        display: block;
+        width: 100%;
+        border: none;
+        margin: 10px 0;
+        text-align: center;
+        box-shadow: none;
     }
 }
 
@@ -858,7 +856,7 @@ body.modal-open-no-scroll {
 @media (max-width: 600px) {
     .container { width: 98%; padding-left: 10px; padding-right: 10px; }
     .hero-section { 
-        padding-top: calc(var(--header-height) + 80px); /* Mantido o +80px, ajustar se o design mudar */
+        padding-top: calc(var(--header-height) + 80px); 
         padding-bottom: 20px; 
         min-height: auto; 
     }
@@ -867,15 +865,13 @@ body.modal-open-no-scroll {
     .hero-buttons { flex-direction: column; gap: 8px; align-items: center; }
     .hero-buttons .btn { width: 80%; max-width: 300px; margin-left: 0; font-size: 0.9rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid, .footer-content-grid { grid-template-columns: 1fr; gap: 15px; }
-    /* .site-header { height: var(--header-height); }  Removido, pois já é 80px por padrão */
     .main-navigation .nav-link { font-size: 0.95rem; padding: 12px 10px; }
     .footer-logo-info, .footer-links-section { text-align: center; }
     .footer-links-section ul { justify-content: center; }
     .emergency-contacts { flex-direction: column; gap: 10px; }
-    /* .main-navigation .nav-list { top: var(--header-height); } Removido, pois o menu mobile tem seu próprio top */
 }
 
-@media (min-width: 600px) { /* Este bloco parece redundante com os outros min-width. Verificar se é necessário ou se pode ser mesclado. */
+@media (min-width: 600px) {
     .container { width: 98%; padding-left: 10px; padding-right: 10px; }
     .hero-section h1 { font-size: 2rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid, .footer-content-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -888,17 +884,16 @@ body.modal-open-no-scroll {
     .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Estilos Globais para Botão de Logout no Menu Mobile */
 @media (max-width: 1190px) {
     .main-navigation .nav-list li .nav-link.btn-logout {
-        background-color: var(--color-accent) !important;
-        color: white !important;
-        padding: 1em !important;
-        display: block !important;
-        width: 100% !important;
-        border: none !important;
-        margin: 10px 0 !important;
-        text-align: center !important;
-        box-shadow: none !important;
+        background-color: var(--color-accent);
+        color: white;
+        padding: 1em;
+        display: block;
+        width: 100%;
+        border: none;
+        margin: 10px 0;
+        text-align: center;
+        box-shadow: none;
     }
 }
