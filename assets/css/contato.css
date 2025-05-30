@@ -86,16 +86,6 @@ main.page-contato {
 }
 
 /* Estilos do Formulário */
-.form-row {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.form-row .form-group {
-    flex: 1;
-    min-width: 200px;
-}
-
 .form-group {
     margin-bottom: 20px;
 }
@@ -560,14 +550,6 @@ main.page-contato {
 }
 
 @media (max-width: 600px) {
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    .form-row .form-group {
-        min-width: 100%;
-        margin-bottom: 15px;
-    }
     .form-group {
         margin-bottom: 15px; 
     }

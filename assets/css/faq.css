@@ -7,15 +7,11 @@ main.page-faq {
     padding: 50px 0;
     text-align: center;
 }
-.page-main-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto 15px auto;
-    color: var(--color-primary);
-}
+
 .faq-title-section h1 {
     color: var(--color-text-dark);
 }
+
 .faq-title-section .short-subtitle {
     font-size: 1.1rem;
     color: var(--color-text-medium);

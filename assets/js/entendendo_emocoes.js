@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const checkboxes = reflexionForm.querySelectorAll('input[type="checkbox"]');
-            // const totalCheckboxes = checkboxes.length; // Não é usado diretamente, mas pode ser útil para o texto.
 
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', updateReflexionFeedback);
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function updateReflexionFeedback() {
                 const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-                const totalCheckboxes = checkboxes.length; // Recalculado aqui para escopo.
+                const totalCheckboxes = checkboxes.length;
                 let feedbackMessageText = '';
                 let counterTextContent = '';
 

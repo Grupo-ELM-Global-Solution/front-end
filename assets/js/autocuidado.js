@@ -140,4 +140,29 @@ document.addEventListener('DOMContentLoaded', () => {
             tabButtonsAutocuidado[0].click(); // Dispara o evento de clique para configurar tudo.
         }
     }
+
+    // Animação de entrada para os blocos de técnica e outros elementos
+    const elementsToFadeIn = document.querySelectorAll('.scroll-fade-in');
+
+    if (elementsToFadeIn.length > 0) {
+        const observerOptions = {
+            root: null, // Relativo ao viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% do elemento visível
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Para de observar após a animação
+                }
+            });
+        };
+
+        const intersectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+        elementsToFadeIn.forEach(element => {
+            intersectionObserver.observe(element);
+        });
+    }
 });
