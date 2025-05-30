@@ -2,6 +2,7 @@
 
 const DADOS_USUARIOS_STORAGE_KEY = 'recomecoDadosUsuarios';
 const USUARIO_LOGADO_EMAIL_KEY = 'recomecoUsuarioLogadoEmail';
+const CHAVE_DIARIO_FICTICIO_POPULADO = 'recomecoDiarioFicticioPopulado'; // Nova chave de controle
 
 // Dados iniciais/padrão, usando email como chave primária
 const dadosIniciaisUsuariosRecomeco = {
@@ -11,6 +12,7 @@ const dadosIniciaisUsuariosRecomeco = {
         email: "enzo.okuizumi@gmail.com",
         telefone: "(11) 98765-4321",
         senhaPlana: "123@mudar",
+        fotoUrl: null, // Campo para foto do perfil
     },
     "lucas.barros@gmail.com": {
         nomeCompleto: "Lucas Barros",
@@ -18,6 +20,7 @@ const dadosIniciaisUsuariosRecomeco = {
         email: "lucas.barros@gmail.com",
         telefone: "(11) 91234-5678",
         senhaPlana: "123@mudar",
+        fotoUrl: null, // Campo para foto do perfil
     },
     "milton.marcelino@gmail.com": {
         nomeCompleto: "Milton Marcelino",
@@ -25,6 +28,7 @@ const dadosIniciaisUsuariosRecomeco = {
         email: "milton.marcelino@gmail.com",
         telefone: "(11) 90987-6543",
         senhaPlana: "123@mudar",
+        fotoUrl: null, // Campo para foto do perfil
     }
 };
 
@@ -65,6 +69,7 @@ function registrarNovoUsuario(dadosNovoUsuario) {
         email: email,
         telefone: dadosNovoUsuario.telefone,
         senhaPlana: dadosNovoUsuario.senha,
+        fotoUrl: null, // Inicializa fotoUrl para novos usuários
     };
     saveAllUsuariosData(dadosUsuarios);
     return true;
@@ -82,7 +87,130 @@ function getDadosUsuarioLogado() {
 
 function fazerLogout() {
     localStorage.removeItem(USUARIO_LOGADO_EMAIL_KEY);
+    window.location.href = '/index.html';
+}
+
+function atualizarDadosUsuarioLogado(novosDados) {
+    const emailLogado = getUsuarioLogadoEmail();
+    if (!emailLogado || !dadosUsuarios[emailLogado]) {
+        console.error("Nenhum usuário logado ou dados não encontrados para atualizar.");
+        return false;
+    }
+
+    // Atualiza apenas os campos fornecidos em novosDados
+    // Não se deve permitir alteração de e-mail por aqui, pois é a chave.
+    if (novosDados.nomeCompleto) {
+        dadosUsuarios[emailLogado].nomeCompleto = novosDados.nomeCompleto;
+    }
+    if (novosDados.telefone) {
+        dadosUsuarios[emailLogado].telefone = novosDados.telefone;
+    }
+    if (novosDados.dataNascimento) {
+        dadosUsuarios[emailLogado].dataNascimento = novosDados.dataNascimento;
+    }
+    // Atualiza a senha apenas se uma nova senha for fornecida e não estiver vazia
+    if (novosDados.senhaPlana && novosDados.senhaPlana.trim() !== "") {
+        dadosUsuarios[emailLogado].senhaPlana = novosDados.senhaPlana;
+    }
+    // fotoUrl poderia ser atualizada aqui também se houvesse um campo para upload/link no formulário
+    // if (novosDados.fotoUrl) {
+    //     dadosUsuarios[emailLogado].fotoUrl = novosDados.fotoUrl;
+    // }
+
+    saveAllUsuariosData(dadosUsuarios); // Salva todos os dados de usuários atualizados
+    return true;
 }
 
 // A função atualizarDadosUsuarioLogado precisaria ser adaptada para usar email como chave
 // e para os campos que agora existem, se for implementada. 
+
+// Função para popular o diário com entradas fictícias se estiver vazio para os usuários padrão
+function popularDiarioFicticio() {
+    const CHAVE_STORAGE_DIARIO = 'recomecoDiarioEmocional';
+
+    // Verifica se o diário fictício já foi populado uma vez desde a última limpeza do localStorage específico
+    if (localStorage.getItem(CHAVE_DIARIO_FICTICIO_POPULADO) === 'true') {
+        // console.log("Diário fictício já populado anteriormente nesta sessão/configuração. Não populando novamente.");
+        return;
+    }
+
+    let todasAsEntradasTodosUsuarios = JSON.parse(localStorage.getItem(CHAVE_STORAGE_DIARIO) || '{}');
+    let dadosModificados = false;
+
+    const usuariosParaPopular = [
+        "enzo.okuizumi@gmail.com",
+        "lucas.barros@gmail.com",
+        "milton.marcelino@gmail.com"
+    ];
+
+    const entradasFicticiasBase = [
+        {
+            titulo: "Um dia de reflexão",
+            texto: "Hoje tirei um tempo para pensar sobre tudo o que aconteceu. Foi difícil, mas sinto que estou começando a processar as coisas. A caminhada que fiz ajudou a clarear a mente.",
+            emocao: "calmo"
+        },
+        {
+            titulo: "Pequenos progressos",
+            texto: "Consegui organizar uma parte da casa e conversei com um vizinho. Pequenos passos, mas me senti um pouco mais produtivo e conectado. A saudade ainda aperta, mas a esperança resiste.",
+            emocao: "esperancoso"
+        },
+        {
+            titulo: "Sentimentos mistos",
+            texto: "O dia foi uma montanha-russa. Horas de tristeza, mas também momentos em que consegui sorrir ao lembrar de coisas boas. Aprender a conviver com essa dualidade é um desafio.",
+            emocao: "confuso"
+        },
+        {
+            titulo: "Buscando forças",
+            texto: "Alguns dias são mais difíceis que outros. Hoje a energia estava baixa, mas li um artigo sobre resiliência que me deu um novo ânimo para continuar.",
+            emocao: "cansado"
+        },
+        {
+            titulo: "A importância do apoio",
+            texto: "Falei com um amigo querido hoje e me senti muito acolhido. É incrível como uma boa conversa pode aliviar o peso que carregamos. Gratidão.",
+            emocao: "feliz"
+        },
+        {
+            titulo: "Lidando com a ansiedade",
+            texto: "A noite passada foi complicada, muita ansiedade. Tentei focar na respiração e fazer alguns exercícios de relaxamento. Aos poucos, a calma retornou.",
+            emocao: "ansioso"
+        }
+    ];
+
+    usuariosParaPopular.forEach(email => {
+        if (!getAllUsuariosData()[email]) { // Verifica se o usuário existe nos dados principais
+            console.warn(`Usuário ${email} não encontrado nos dados principais. Não populando diário para este usuário.`);
+            return;
+        }
+
+        if (!todasAsEntradasTodosUsuarios[email] || todasAsEntradasTodosUsuarios[email].length === 0) {
+            console.log(`Populando diário para ${email}...`);
+            todasAsEntradasTodosUsuarios[email] = [];
+            // Pega 3 entradas aleatórias da base para cada usuário
+            const entradasUnicasParaUsuario = [...entradasFicticiasBase].sort(() => 0.5 - Math.random()).slice(0, 3);
+
+            entradasUnicasParaUsuario.forEach((baseEntrada, index) => {
+                // Simula datas diferentes para cada entrada
+                const data = new Date();
+                data.setDate(data.getDate() - (index * 3 + Math.floor(Math.random() * 3))); // Dias anteriores variados
+
+                todasAsEntradasTodosUsuarios[email].push({
+                    id: Date.now() + email + index, // ID único
+                    data: data.toISOString().split('T')[0], // Formato AAAA-MM-DD
+                    titulo: baseEntrada.titulo,
+                    texto: baseEntrada.texto,
+                    emocao: baseEntrada.emocao
+                });
+            });
+            dadosModificados = true;
+        }
+    });
+
+    if (dadosModificados) {
+        localStorage.setItem(CHAVE_STORAGE_DIARIO, JSON.stringify(todasAsEntradasTodosUsuarios));
+        localStorage.setItem(CHAVE_DIARIO_FICTICIO_POPULADO, 'true'); // Marca como populado para não repetir sem limpeza manual
+        console.log("Diário fictício populado e salvo no localStorage.");
+    }
+}
+
+// Chama a função para popular o diário ao carregar o script, se necessário
+popularDiarioFicticio(); 

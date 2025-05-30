@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Apoio Local - Recomeço</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/mapa-usuario.css">
+    <script src="../../js/script.js" defer></script>
+    <script src="../../js/dados-usuarios.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="../../../index.html" class="logo-link">
+                <img src="../../imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img">
+                <span class="logo-text-header">Recomeço</span>
+            </a>
+            <nav class="main-navigation" id="primary-navigation" aria-hidden="true">
+                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="../../../index.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon"> Início</a></li>
+                    <li><a href="../autocuidado.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon"> Autocuidado</a></li>
+                    <li><a href="../entendendo_emocoes.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon"> Entendendo Emoções</a></li>
+                    <li><a href="../integrantes.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon"> Integrantes</a></li>
+                    <li><a href="../faq.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon"> FAQ</a></li>
+                    <li><a href="../contato.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon"> Contato</a></li>
+                    <li class="nav-item-login"><a href="#" id="btnLogoutMapa" class="nav-link btn btn-logout">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-mapa-usuario">
+        <section class="page-title-section mapa-title-section">
+            <div class="container">
+                <h1>Mapa de Apoio Local</h1>
+                <p class="section-subtitle short-subtitle">Visualize informações sobre riscos e orientações para sua região.</p>
+            </div>
+        </section>
+
+        <section class="mapa-content-section">
+            <div class="container">
+                <div class="placeholder-mapa">
+                    <h2>Funcionalidade de Mapa em Desenvolvimento</h2>
+                    <p>Em breve você poderá consultar mapas interativos com pontos de apoio, abrigos e informações de risco relevantes para sua localidade.</p>
+                    <img src="https://via.placeholder.com/800x400.png?text=Placeholder+para+Mapa+Interativo" alt="Placeholder para Mapa Interativo" style="max-width: 100%; height: auto; margin-top: 20px; border-radius: var(--border-radius); box-shadow: var(--box-shadow-light);">
+                </div>
+
+                <div class="text-center-container" style="margin-top: 40px;">
+                    <a href="./meu-perfil.html" class="btn btn-primary btn-voltar-inicio">Voltar para Meu Perfil</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-final">
+        <div class="container footer-content-grid">
+            <div class="footer-logo-info">
+                <a href="../../../index.html" class="logo-link-footer">
+                    <img src="../../imagens/icone-logo.png" alt="Logo Recomeço" class="footer-logo-img">
+                    <span class="logo-text-footer">Recomeço</span>
+                </a>
+                <p>Apoio psicológico especializado para vítimas de desastres naturais.</p>
+            </div>
+            <div class="footer-links-section">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="../../../index.html">Início</a></li>
+                    <li><a href="./meu-perfil.html">Meu Perfil</a></li>
+                    <li><a href="../autocuidado.html">Autocuidado</a></li>
+                    <li><a href="../entendendo_emocoes.html">Entendendo Emoções</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-section">
+                <h4>Sobre Nós</h4>
+                <ul>
+                    <li><a href="../integrantes.html">Integrantes</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright-container">
+            <p class="important-notice-footer"><strong>Importante:</strong> Este site oferece informações e ferramentas de apoio, mas não substitui o aconselhamento ou tratamento psicológico profissional. Em caso de crise ou emergência, procure ajuda imediatamente.</p>
+            <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnLogout = document.getElementById('btnLogoutMapa');
+            if (btnLogout) {
+                btnLogout.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    if (typeof fazerLogout === 'function') {
+                        fazerLogout();
+                    } else {
+                        console.error('Função fazerLogout não encontrada. Tentando redirecionamento manual.');
+                        window.location.href = '../../../index.html';
+                    }
+                });
+            }
+            if (typeof getUsuarioLogadoEmail === 'function' && !getUsuarioLogadoEmail()) {
+                window.location.href = '../cadastro-login.html';
+            } else if (typeof getUsuarioLogadoEmail !== 'function') {
+                console.error('Função getUsuarioLogadoEmail não encontrada. Não é possível verificar o status de login.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -144,17 +144,24 @@ main.page-meu-perfil {
     opacity: 0.5;
 }
 
-/* Botão Sair no Header */
+/* Botão Sair no Header - ESTILOS AGORA EM STYLE.CSS */
+/* 
 .nav-link.btn-logout {
-    background-color: var(--color-accent) !important;
-    color: white !important;
-    padding: 0.6em 1.2em !important;
-    border-radius: var(--border-radius) !important;
-    font-weight: 600 !important;
+    background-color: transparent; 
+    color: var(--color-accent); 
+    padding: 0.8em 1.8em; 
+    border-radius: var(--border-radius); 
+    font-weight: 600; 
+    border: 2px solid var(--color-accent); 
+    line-height: 1.5; 
 }
 .nav-link.btn-logout:hover {
-    background-color: #B91C1C !important; /* Vermelho mais escuro */
+    background-color: var(--color-accent); 
+    color: white; 
+    border-color: var(--color-accent); 
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12); 
 }
+*/
 
 /* Responsividade para meu_perfil.css */
 @media (max-width: 991px) {
@@ -175,4 +182,126 @@ main.page-meu-perfil {
     .profile-actions-grid {
         grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
     }
-} 
+}
+
+/* Estilos para o Modal de Edição de Perfil */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; 
+    z-index: 1000; /* Fica sobre todos os outros conteúdos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Revertido para auto para garantir rolagem em telas menores */
+    background-color: rgba(0,0,0,0.6); /* Fundo escurecido */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 8% auto; /* Ajustado para dar mais espaço acima */
+    padding: 20px 25px; /* Reduzido o padding */
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px; /* Largura máxima reduzida */
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.close-modal-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: var(--color-primary-dark);
+    font-size: 1.6rem; /* Tamanho da fonte reduzido para o título do modal */
+}
+
+#editProfileForm .form-group {
+    margin-bottom: 0.8rem; /* Reduzida a margem para compactar */
+}
+
+#editProfileForm label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+#editProfileForm input[type="text"],
+#editProfileForm input[type="email"],
+#editProfileForm input[type="tel"],
+#editProfileForm input[type="password"] {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-small);
+    box-sizing: border-box;
+}
+#editProfileForm input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+#editProfileForm .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+#editProfileForm .btn-save-profile {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+#editProfileForm .btn-save-profile:hover {
+    background-color: var(--color-primary-dark);
+}
+
+#editProfileForm .btn-cancel-edit {
+    background-color: #f0f0f0; /* Cinza claro como padrão */
+    color: var(--color-text-dark);
+    border: none;
+}
+#editProfileForm .btn-cancel-edit:hover {
+    background-color: #d9d9d9; /* Cinza um pouco mais escuro no hover */
+    color: var(--color-text-dark); /* Texto escuro para garantir contraste */
+}
+
+#editProfileFeedback {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Adiciona cursor de ponteiro para o card de configurações que abre o modal */
+#openEditProfileModalCard {
+    cursor: pointer;
+}
+
+/* Estilo para conteúdo de página placeholder na área do usuário */
+.page-placeholder-content {
+    padding-top: var(--header-height);
+    text-align: center;
+}
+
+/* Estilo para a seção interna de conteúdo das páginas placeholder */
+.placeholder-inner-section {
+    padding: 40px 20px;
+}

@@ -63,7 +63,7 @@
         <section class="profile-details-section">
             <div class="container profile-layout">
                 <div class="profile-sidebar">
-                    <img src="https://via.placeholder.com/150/007BFF/FFFFFF?Text=Usuário" alt="Foto do Perfil" class="profile-picture">
+                    <img src="https://via.placeholder.com/150/007BFF/FFFFFF?Text=Usuário" alt="Foto do Perfil" class="profile-picture" id="profilePictureImg">
                     <h3 id="profileName">Nome do Usuário</h3>
                     <p id="profileEmail">email@exemplo.com</p>
                     <button class="btn btn-edit-profile">Editar Perfil</button>
@@ -71,31 +71,70 @@
                 <div class="profile-main-content">
                     <h2>Suas Ferramentas e Recursos</h2>
                     <div class="profile-actions-grid">
-                        <a href="diario_usuario.html" class="profile-action-card"> <!-- Link relativo à pasta area-usuario -->
-                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/book-open-text.svg" alt="Diário" class="action-icon">
+                        <a href="./diario-usuario.html" class="profile-action-card">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/book-marked.svg" alt="Diário" class="action-icon">
                             <h4>Meu Diário Emocional</h4>
-                            <p>Registre seus sentimentos e acompanhe seu progresso.</p>
+                            <p>Registre seus pensamentos e sentimentos com segurança.</p>
                         </a>
-                        <a href="mapa_usuario.html" class="profile-action-card"> <!-- Link relativo à pasta area-usuario -->
-                             <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/map.svg" alt="Mapa de Riscos" class="action-icon">
-                            <h4>Mapa de Riscos (Em breve)</h4>
-                            <p>Informações sobre sua região e como se preparar.</p>
+                        <a href="./mapa-usuario.html" class="profile-action-card">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/map.svg" alt="Mapa" class="action-icon">
+                            <h4>Mapa de Apoio Local</h4>
+                            <p>Encontre recursos e abrigos próximos a você.</p>
                         </a>
-                        <a href="../autocuidado.html" class="profile-action-card"> <!-- Caminho para páginas em assets/paginas/ -->
+                        <a href="./tecnicas-autocuidado.html" class="profile-action-card">
                             <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/heart-pulse.svg" alt="Autocuidado" class="action-icon">
                             <h4>Técnicas de Autocuidado</h4>
                             <p>Acesse exercícios de respiração e relaxamento.</p>
                         </a>
-                         <a href="#" class="profile-action-card disabled-card">
+                         <div class="profile-action-card" id="openEditProfileModalCard"> <!-- Alterado para div, sem href, com ID -->
                             <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/settings.svg" alt="Configurações" class="action-icon">
                             <h4>Configurações da Conta</h4>
-                            <p>Gerencie suas preferências (Em breve).</p>
-                        </a>
+                            <p>Gerencie seus dados e preferências.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Modal de Edição de Perfil -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>Editar Perfil e Configurações</h2>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label for="editNomeCompleto">Nome Completo</label>
+                    <input type="text" id="editNomeCompleto" name="nomeCompleto" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">Email (não editável)</label>
+                    <input type="email" id="editEmail" name="email" readonly disabled>
+                </div>
+                <div class="form-group">
+                    <label for="editTelefone">Telefone</label>
+                    <input type="tel" id="editTelefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDataNascimento">Data de Nascimento</label>
+                    <input type="text" id="editDataNascimento" name="dataNascimento" placeholder="DD/MM/AAAA" required>
+                </div>
+                <div class="form-group">
+                    <label for="editSenha">Nova Senha (deixe em branco para não alterar)</label>
+                    <input type="password" id="editSenha" name="senha" minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="confirmEditSenha">Confirmar Nova Senha</label>
+                    <input type="password" id="confirmEditSenha" name="confirmSenha">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-save-profile">Salvar</button>
+                    <button type="button" class="btn btn-cancel-edit">Cancelar</button>
+                </div>
+                 <div id="editProfileFeedback" class="form-feedback" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
 
     <footer class="site-footer-final">
         <div class="container footer-content-grid">

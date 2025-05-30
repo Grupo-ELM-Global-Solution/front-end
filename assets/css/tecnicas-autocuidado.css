@@ -1,0 +1,170 @@
+/* assets/css/tecnicas-autocuidado.css */
+
+/* Estilos gerais para a página de Técnicas de Autocuidado */
+.page-tecnicas-avancadas {
+    padding-top: var(--header-height); /* Adicionado para evitar sobreposição com o header fixo */
+    background-color: var(--color-background-section-alt); /* Fundo suave consistente */
+    padding-bottom: 60px; /* Espaço no final da página */
+}
+
+.page-tecnicas-avancadas .page-title-section {
+    background-color: var(--color-primary-light); /* Cor de destaque suave */
+    color: var(--color-primary-dark);
+    padding: 50px 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-tecnicas-avancadas .page-title-section h1 {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    color: var(--color-primary-darker);
+}
+
+.page-tecnicas-avancadas .page-title-section .short-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para as seções de conteúdo (Textos e Vídeos) */
+.content-section-autocuidado {
+    padding: 0 20px; /* Padding lateral */
+}
+
+.content-section-autocuidado h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--color-primary-dark);
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid var(--color-primary-lighter);
+    padding-bottom: 10px;
+}
+
+/* Estilos para blocos de texto/artigos */
+.article-block {
+    background-color: var(--color-background-light);
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    border-left: 5px solid var(--color-primary);
+}
+
+.article-block h3 {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+}
+
+.article-block p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-medium);
+    margin-bottom: 10px;
+}
+
+.article-block ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.article-block li {
+    margin-bottom: 8px;
+    color: var(--color-text-medium);
+}
+
+.article-block strong {
+    color: var(--color-text-dark);
+}
+
+/* Estilos para a grade de vídeos */
+.video-grid-autocuidado {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.video-item-autocuidado {
+    background-color: var(--color-background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--color-secondary);
+}
+
+.video-item-autocuidado h3 {
+    font-size: 1.3rem;
+    color: var(--color-secondary-dark);
+    margin-bottom: 15px;
+}
+
+.video-embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius-small);
+}
+
+.video-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-item-autocuidado p.video-description {
+    font-size: 0.9rem;
+    color: var(--color-text-medium);
+    line-height: 1.5;
+    flex-grow: 1; /* Faz a descrição ocupar espaço disponível */
+}
+
+/* Botão de voltar */
+.btn-voltar-inicio {
+    margin-top: 50px;
+    /* As demais propriedades como background-color, color, padding, 
+       text-decoration, border-radius e transition virão das classes 
+       .btn e .btn-primary do style.css */
+}
+
+/* Separador */
+.content-separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-gray-light), rgba(0, 0, 0, 0));
+    margin: 50px 0;
+}
+
+/* Container para centralizar texto */
+.text-center-container {
+    text-align: center;
+}
+
+/* Botão Sair no Header (copiado de meu_perfil.css para consistência) - ESTILOS AGORA EM STYLE.CSS */
+/*
+.nav-link.btn-logout {
+    background-color: transparent;
+    color: var(--color-accent); 
+    padding: 0.8em 1.8em; 
+    border-radius: var(--border-radius); 
+    font-weight: 600; 
+    border: 2px solid var(--color-accent); 
+    line-height: 1.5; 
+}
+.nav-link.btn-logout:hover {
+    background-color: var(--color-accent); 
+    color: white; 
+    border-color: var(--color-accent); 
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12); 
+}
+*/

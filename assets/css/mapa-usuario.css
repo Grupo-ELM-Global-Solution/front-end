@@ -1,0 +1,52 @@
+/* assets/css/mapa-usuario.css */
+.page-mapa-usuario {
+    padding-top: var(--header-height);
+    background-color: var(--color-background-section-alt);
+    min-height: calc(100vh - var(--header-height) - var(--footer-height, 0px));
+}
+
+.mapa-title-section {
+    background-color: var(--color-secondary-light, #d1e7dd); /* Um verde claro ou outra cor temática */
+    color: var(--color-secondary-dark, #155724);
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.mapa-title-section h1 {
+    color: var(--color-secondary-darker, #0c2f14);
+}
+
+.mapa-content-section {
+    padding-bottom: 40px;
+}
+
+.placeholder-mapa {
+    background-color: var(--color-background-light);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+.placeholder-mapa h2 {
+    font-size: 1.8rem;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+}
+.placeholder-mapa p {
+    font-size: 1.1rem;
+    color: var(--color-text-medium);
+    line-height: 1.6;
+}
+
+/* Container para centralizar texto (para o botão Voltar) */
+.text-center-container {
+    text-align: center;
+}
+
+/* Botão de voltar (para o botão Voltar) */
+.btn-voltar-inicio {
+    margin-top: 30px; /* Ajuste conforme necessário */
+    /* As demais propriedades como background-color, color, padding, 
+       text-decoration, border-radius e transition virão das classes 
+       .btn e .btn-primary do style.css */
+} 

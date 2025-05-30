@@ -706,7 +706,30 @@ h3 {
     box-shadow: none !important;
 }
 
+/* Estilos Globais para Botão de Logout no Header (Desktop) */
+.main-navigation .nav-list li .nav-link.btn-logout {
+    background-color: transparent;
+    color: var(--color-accent);
+    padding: 0.8em 1.8em;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    border: 2px solid var(--color-accent);
+    line-height: 1.5;
+    /* Importante: Esses estilos não devem usar !important para que a media query do mobile possa sobrepor */
+}
 
+.main-navigation .nav-list li .nav-link.btn-logout:hover {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+     /* transform: translateY(-3px); foi removido anteriormente a pedido */
+}
+
+/* Estilo para evitar rolagem do body quando um modal está aberto */
+body.modal-open-no-scroll {
+    overflow: hidden;
+}
 
 /* Media Queries */
 
@@ -802,6 +825,17 @@ h3 {
         background-color: var(--color-primary-dark) !important;
         color: var(--color-text-light) !important;
     }
+    .nav-link.btn-logout {
+        background-color: var(--color-accent) !important;
+        color: white !important;
+        padding: 1em !important;
+        display: block !important;
+        width: 100% !important;
+        border: none !important;
+        margin: 10px 0 !important;
+        text-align: center !important;
+        box-shadow: none !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -852,4 +886,19 @@ h3 {
     .hero-section h1 { font-size: 3.8rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 48px; }
     .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Estilos Globais para Botão de Logout no Menu Mobile */
+@media (max-width: 1190px) {
+    .main-navigation .nav-list li .nav-link.btn-logout {
+        background-color: var(--color-accent) !important;
+        color: white !important;
+        padding: 1em !important;
+        display: block !important;
+        width: 100% !important;
+        border: none !important;
+        margin: 10px 0 !important;
+        text-align: center !important;
+        box-shadow: none !important;
+    }
 }
