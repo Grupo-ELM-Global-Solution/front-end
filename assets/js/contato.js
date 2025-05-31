@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Exibe mensagem de sucesso (simulada)
-            formFeedback.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve. (Simulado)';
+            formFeedback.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
             formFeedback.className = 'form-feedback success';
 
             contactForm.reset();

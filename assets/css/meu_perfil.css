@@ -30,6 +30,11 @@ main.page-meu-perfil {
     gap: 30px;
 }
 
+/* Estilo para evitar rolagem do body quando um modal está aberto */
+body.modal-open-no-scroll {
+    overflow: hidden;
+}
+
 @media (min-width: 992px) {
     .profile-layout {
         grid-template-columns: 300px 1fr;

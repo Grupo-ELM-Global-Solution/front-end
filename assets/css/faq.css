@@ -118,18 +118,3 @@ main.page-faq {
     text-decoration: none;
     color: var(--color-primary-dark);
 }
-
-@media (max-width: 767px) {
-    .faq-title-section { padding: 40px 0; }
-    .page-main-icon { width: 40px; height: 40px; }
-    .faq-title-section h1 { font-size: 1.8rem; }
-    .faq-title-section .short-subtitle { font-size: 1rem; }
-    .accordion-header { font-size: 1rem; padding: 15px; }
-    .accordion-icon { width: 18px; height: 18px; }
-    .accordion-content { font-size: 0.9rem; }
-    .faq-important-reminder { padding: 30px 0; }
-    .faq-important-reminder h3 { font-size: 1.2rem; }
-    .faq-important-reminder p { font-size: 0.95rem; }
-    .faq-contact-prompt { padding: 25px 0; }
-    .faq-contact-prompt p { font-size: 1rem; }
-} 

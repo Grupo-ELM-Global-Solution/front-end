@@ -724,11 +724,6 @@ h3 {
     box-shadow: 0 8px 15px rgba(0,0,0,0.12);
 }
 
-/* Estilo para evitar rolagem do body quando um modal está aberto */
-body.modal-open-no-scroll {
-    overflow: hidden;
-}
-
 /* Media Queries */
 
 
@@ -738,9 +733,19 @@ body.modal-open-no-scroll {
         position: relative;
         justify-content: space-between;
     }
-    .main-navigation {
+    .main-navigation .nav-list li .nav-link.btn-logout {
+        background-color: var(--color-accent);
+        color: white;
+        padding: 1em;
+        display: block;
+        width: 100%;
+        border: none;
+        margin: 10px 0;
+        text-align: center;
+        box-shadow: none;
         order: 1;
     }
+
     .logo-link {
         order: 0;
     }
@@ -811,17 +816,20 @@ body.modal-open-no-scroll {
         margin-left: 0;
     }
     .main-navigation .nav-list li.nav-item-login a.btn-login-in-list {
+        width: 100%;
         display: block;
-        padding: 15px 20px;
         text-align: center;
-        margin: 8px 15px;
-        border-radius: var(--border-radius);
-        background-color: var(--color-primary);
-        color: var(--color-text-light);
+        margin-top: 10px;
+        padding: 12px 15px;
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+        font-weight: 600;
     }
     .main-navigation .nav-list li.nav-item-login a.btn-login-in-list:hover {
-        background-color: var(--color-primary-dark);
+        background-color: var(--color-primary);
         color: var(--color-text-light);
+        border-color: var(--color-primary);
     }
     .nav-link.btn-logout {
         background-color: var(--color-accent);
@@ -882,18 +890,4 @@ body.modal-open-no-scroll {
     .hero-section h1 { font-size: 3.8rem; }
     .pillars-grid, .steps-grid, .disaster-cards-grid, .resource-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 48px; }
     .footer-content-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (max-width: 1190px) {
-    .main-navigation .nav-list li .nav-link.btn-logout {
-        background-color: var(--color-accent);
-        color: white;
-        padding: 1em;
-        display: block;
-        width: 100%;
-        border: none;
-        margin: 10px 0;
-        text-align: center;
-        box-shadow: none;
-    }
 }

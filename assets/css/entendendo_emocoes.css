@@ -262,33 +262,3 @@
 .recovery-process-section p strong {
     font-weight: 700;
 }
-
-
-/* Media Queries */
-
-
-@media (min-width: 768px) {
-    .reactions-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/*Responsividade*/
-@media (max-width: 767px) {
-    .page-title-section h1 { font-size: 1.8rem; }
-    .page-title-section .short-subtitle { font-size: 0.95rem; }
-    .intro-comprehension-section { padding: 30px 0; }
-    .intro-comprehension-content h3 { font-size: 1.4rem; }
-    .intro-comprehension-content p { font-size: 1rem; }
-    .reactions-grid { grid-template-columns: 1fr; }
-    .reaction-card { padding: 20px; }
-    .reaction-card h4 { font-size: 1.1rem; }
-    .self-reflection-section { padding: 40px 0; }
-    .reflexion-form { padding: 20px; }
-    .reflexion-item label { font-size: 0.9rem; }
-    .when-to-seek-help-section { padding: 40px 0; }
-    .seek-help-list li { padding: 10px 12px 10px 40px; font-size: 0.9rem; }
-    .seek-help-list li::before { width: 18px; height: 18px; left: 12px; }
-    .recovery-process-section { padding: 40px 0; }
-    .recovery-process-section p { font-size: 1rem; }
-}

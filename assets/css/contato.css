@@ -479,20 +479,10 @@ main.page-contato {
 }
 
 /* Media Queries */
-
 @media (min-width: 992px) {
     .contact-main-layout {
         grid-template-columns: 1.7fr 1fr;
         gap: 40px;
-    }
-}
-
-@media (max-width: 991px) {
-    .contact-main-layout {
-        grid-template-columns: 1fr;
-    }
-    .other-contact-column > h3 {
-        margin-top: 30px;
     }
 }
 

@@ -143,25 +143,3 @@ main.page-integrantes {
     color: var(--color-primary-dark);
     text-decoration-color: var(--color-primary);
 }
-
-/* Responsividade para integrantes.css */
-@media (max-width: 767px) {
-    .equipe-hero { padding: 30px 0; }
-    .equipe-hero h1 { font-size: 1.8rem; }
-    .equipe-hero .short-subtitle { font-size: 1rem; }
-
-    .membros-equipe-section, .sobre-projeto-recomeco-section { padding: 40px 0; }
-
-    .equipe-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    .integrante-foto {
-        width: 120px;
-        height: 120px;
-    }
-    .integrante-info h3 { font-size: 1.15rem;}
-
-    .sobre-projeto-content h2 { font-size: 1.5rem; }
-    .sobre-projeto-content p { font-size: 0.95rem; }
-} 
