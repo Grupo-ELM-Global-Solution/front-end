@@ -27,15 +27,15 @@ O projeto está organizado da seguinte forma:
 |   |   |-- tecnicas-autocuidado.css
 |   |-- js/
 |   |   |-- script.js (JavaScript geral)
-|   |   |-- autocuidado.js
-|   |   |-- cadastro-login.js
-|   |   |-- contato.js
-|   |   |-- dados-usuarios.js 
-|   |   |-- diario-usuario.js
-|   |   |-- entendendo_emocoes.js
-|   |   |-- faq.js
-|   |   |-- meu_perfil.js
-|   |-- imagens/  (Anteriormente listado como img/, corrigido para imagens/)
+|   |   |-- autocuidado.js (Exercícios e técnicas de autocuidado)
+|   |   |-- cadastro-login.js (Lógica de login e registro)
+|   |   |-- contato.js (Formulário de contato)
+|   |   |-- dados-usuarios.js (Gerenciamento de dados de usuários)
+|   |   |-- diario-usuario.js (Funcionalidades do diário emocional)
+|   |   |-- entendendo_emocoes.js (Interatividade da página de emoções)
+|   |   |-- faq.js (Funcionalidade do acordeão de FAQ)
+|   |   |-- meu_perfil.js (Gerenciamento do perfil do usuário)
+|   |-- imagens/
 |       |-- icone-logo.png (Logotipo principal da plataforma)
 |       |-- imagens-integrantes/ (Fotos dos integrantes da equipe)
 |-- paginas/
