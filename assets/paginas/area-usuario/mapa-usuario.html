@@ -3,31 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Apoio Local - Recomeço</title>
+    <title>Seu Mapa de Apoio - Recomeço</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/mapa-usuario.css">
-    <script src="../../js/script.js" defer></script>
     <script src="../../js/dados-usuarios.js" defer></script>
+    <script src="../../js/script.js" defer></script>
+    <!-- Se houver um mapa-usuario.js específico, adicionar aqui -->
 </head>
 <body>
     <header class="site-header">
         <div class="container header-container">
             <a href="../../../index.html" class="logo-link">
-                <img src="../../imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img">
-                <span class="logo-text-header">Recomeço</span>
+                <img src="../../imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img"><span class="logo-text-header">Recomeço</span>
             </a>
             <nav class="main-navigation" id="primary-navigation" aria-hidden="true">
                 <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
                     <span class="hamburger"></span>
                 </button>
                 <ul class="nav-list">
-                    <li><a href="../../../index.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon"> Início</a></li>
-                    <li><a href="../autocuidado.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon"> Autocuidado</a></li>
-                    <li><a href="../entendendo_emocoes.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon"> Entendendo Emoções</a></li>
-                    <li><a href="../integrantes.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon"> Integrantes</a></li>
-                    <li><a href="../faq.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon"> FAQ</a></li>
-                    <li><a href="../contato.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon"> Contato</a></li>
-                    <li class="nav-item-login"><a href="#" id="btnLogoutMapa" class="nav-link btn btn-logout">Sair</a></li>
+                    <li><a href="../../../index.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon">
+                        Início
+                    </a></li>
+                    <li><a href="../autocuidado.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon">
+                        Autocuidado
+                    </a></li>
+                    <li><a href="../entendendo_emocoes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon">
+                        Entendendo Emoções
+                    </a></li>
+                    <li><a href="../integrantes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon">
+                        Integrantes
+                    </a></li>
+                    <li><a href="../faq.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon">
+                        FAQ
+                    </a></li>
+                    <li><a href="../contato.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
+                        Contato
+                    </a></li>
+                    <!-- O botão de Entrar/Logout será dinâmico aqui ou removido se o usuário já está na área logada -->
+                    <li class="nav-item-login"><a href="../cadastro-login.html" class="nav-link btn btn-login-in-list">Sair (Logout)</a></li> 
                 </ul>
             </nav>
         </div>

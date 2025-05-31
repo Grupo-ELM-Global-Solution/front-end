@@ -6,88 +6,107 @@
     <title>Meu Diário Emocional - Recomeço</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/diario-usuario.css">
-    <script src="../../js/script.js" defer></script>
     <script src="../../js/dados-usuarios.js" defer></script>
+    <script src="../../js/script.js" defer></script>
     <script src="../../js/diario-usuario.js" defer></script>
 </head>
 <body>
     <header class="site-header">
         <div class="container header-container">
             <a href="../../../index.html" class="logo-link">
-                <img src="../../imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img">
-                <span class="logo-text-header">Recomeço</span>
+                <img src="../../imagens/icone-logo.png" alt="Logo Recomeço" class="logo-img"><span class="logo-text-header">Recomeço</span>
             </a>
             <nav class="main-navigation" id="primary-navigation" aria-hidden="true">
                 <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
                     <span class="hamburger"></span>
                 </button>
                 <ul class="nav-list">
-                    <li><a href="../../../index.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon"> Início</a></li>
-                    <li><a href="../autocuidado.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon"> Autocuidado</a></li>
-                    <li><a href="../entendendo_emocoes.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon"> Entendendo Emoções</a></li>
-                    <li><a href="../integrantes.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon"> Integrantes</a></li>
-                    <li><a href="../faq.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon"> FAQ</a></li>
-                    <li><a href="../contato.html" class="nav-link"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon"> Contato</a></li>
-                    <li class="nav-item-login"><a href="#" id="btnLogoutDiario" class="nav-link btn btn-logout">Sair</a></li>
+                    <li><a href="../../../index.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg" alt="Ícone Início" class="nav-icon">
+                        Início
+                    </a></li>
+                    <li><a href="../autocuidado.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/leaf.svg" alt="Ícone Autocuidado" class="nav-icon">
+                        Autocuidado
+                    </a></li>
+                    <li><a href="../entendendo_emocoes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg" alt="Ícone Entendendo Emoções" class="nav-icon">
+                        Entendendo Emoções
+                    </a></li>
+                    <li><a href="../integrantes.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="Ícone Integrantes" class="nav-icon">
+                        Integrantes
+                    </a></li>
+                    <li><a href="../faq.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/help-circle.svg" alt="Ícone FAQ" class="nav-icon">
+                        FAQ
+                    </a></li>
+                    <li><a href="../contato.html" class="nav-link">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
+                        Contato
+                    </a></li>
+                    <li class="nav-item-login"><a href="#" class="nav-link btn btn-logout">Sair</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="page-diario-usuario">
-        <section class="page-title-section diario-title-section">
+        <section class="diario-title-section">
             <div class="container">
                 <h1>Meu Diário Emocional</h1>
-                <p class="section-subtitle short-subtitle">Registre seus sentimentos, pensamentos e experiências.</p>
+                <p class="section-subtitle short-subtitle">Um espaço seguro para registrar seus sentimentos e reflexões.</p>
             </div>
         </section>
 
         <section class="diario-content-section">
             <div class="container">
-                <form id="formNovaEntradaDiario" class="form-diario">
+                <div class="form-diario">
                     <h2>Nova Entrada</h2>
-                    <div class="form-group">
-                        <label for="dataEntrada">Data:</label>
-                        <input type="date" id="dataEntrada" name="dataEntrada" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tituloEntrada">Título (opcional):</label>
-                        <input type="text" id="tituloEntrada" name="tituloEntrada" placeholder="Como foi seu dia?">
-                    </div>
-                    <div class="form-group">
-                        <label for="textoEntrada">Seus pensamentos e sentimentos:</label>
-                        <textarea id="textoEntrada" name="textoEntrada" rows="8" placeholder="Escreva livremente sobre como você está se sentindo..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="comoSeSente">Como você está se sentindo hoje?</label>
-                        <select id="comoSeSente" name="comoSeSente">
-                            <option value="">Selecione uma emoção...</option>
-                            <option value="feliz">Feliz</option>
-                            <option value="triste">Triste</option>
-                            <option value="ansioso">Ansioso(a)</option>
-                            <option value="calmo">Calmo(a)</option>
-                            <option value="irritado">Irritado(a)</option>
-                            <option value="esperancoso">Esperançoso(a)</option>
-                            <option value="cansado">Cansado(a)</option>
-                            <option value="confuso">Confuso(a)</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-salvar-entrada">Salvar Entrada</button>
-                </form>
+                    <form id="formNovaEntradaDiario">
+                        <div class="form-group">
+                            <label for="dataEntrada">Data:</label>
+                            <input type="date" id="dataEntrada" name="dataEntrada" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tituloEntrada">Título (opcional):</label>
+                            <input type="text" id="tituloEntrada" name="tituloEntrada">
+                        </div>
+                        <div class="form-group">
+                            <label for="textoEntrada">Como você está se sentindo hoje?</label>
+                            <textarea id="textoEntrada" name="textoEntrada" rows="6" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="comoSeSente">Emoção Predominante (opcional):</label>
+                            <select id="comoSeSente" name="comoSeSente">
+                                <option value="">Selecione uma emoção</option>
+                                <option value="feliz">Feliz</option>
+                                <option value="triste">Triste</option>
+                                <option value="ansioso">Ansioso(a)</option>
+                                <option value="calmo">Calmo(a)</option>
+                                <option value="irritado">Irritado(a)</option>
+                                <option value="cansado">Cansado(a)</option>
+                                <option value="esperancoso">Esperançoso(a)</option>
+                                <option value="confuso">Confuso(a)</option>
+                                <option value="grato">Grato(a)</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-salvar-entrada">Salvar Entrada</button>
+                    </form>
+                </div>
 
                 <div class="entradas-salvas-diario">
                     <h2>Minhas Entradas</h2>
                     <div id="listaEntradasDiario" class="lista-entradas">
-                        <!-- Entradas do diário serão carregadas aqui pelo JavaScript -->
-                        <p class="nenhuma-entrada">Nenhuma entrada no diário ainda.</p>
+                        <!-- Entradas do diário serão carregadas aqui pelo JS -->
+                        <p class="nenhuma-entrada">Nenhuma entrada no diário ainda.</p> 
                     </div>
                 </div>
-
-                <div class="text-center-container" style="margin-top: 40px;">
+                
+                <div class="text-center-container">
                     <a href="./meu-perfil.html" class="btn btn-primary btn-voltar-inicio">Voltar para Meu Perfil</a>
                 </div>
-
             </div>
         </section>
     </main>
@@ -102,48 +121,47 @@
                 <p>Apoio psicológico especializado para vítimas de desastres naturais.</p>
             </div>
             <div class="footer-links-section">
-                <h4>Navegação</h4>
+                <h4>Navegação Rápida</h4>
                 <ul>
-                    <li><a href="../../../index.html">Início</a></li>
                     <li><a href="./meu-perfil.html">Meu Perfil</a></li>
                     <li><a href="../autocuidado.html">Autocuidado</a></li>
-                    <li><a href="../entendendo_emocoes.html">Entendendo Emoções</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-links-section">
-                <h4>Sobre Nós</h4>
+                <h4>Contato e Suporte</h4>
                 <ul>
-                    <li><a href="../integrantes.html">Integrantes</a></li>
-                    <li><a href="../faq.html">FAQ</a></li>
-                    <li><a href="../contato.html">Contato</a></li>
+                    <li><a href="../contato.html">Fale Conosco</a></li>
+                    <li><a href="../../../index.html#emergenciaPsicologica">Ajuda Urgente</a></li>
                 </ul>
             </div>
         </div>
         <div class="container copyright-container">
-            <p class="important-notice-footer"><strong>Importante:</strong> Este site oferece informações e ferramentas de apoio, mas não substitui o aconselhamento ou tratamento psicológico profissional. Em caso de crise ou emergência, procure ajuda imediatamente.</p>
+            <p class="important-notice-footer"><strong>Importante:</strong> As entradas do seu diário são salvas localmente no seu navegador e não são enviadas para nenhum servidor. Sua privacidade é fundamental.</p>
             <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
         </div>
     </footer>
+    <!-- Script inline para verificação de login e logout (a ser removido ou melhorado) -->
+    <!-- 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const btnLogout = document.getElementById('btnLogoutDiario');
-            if (btnLogout) {
-                btnLogout.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    if (typeof fazerLogout === 'function') {
-                        fazerLogout();
-                    } else {
-                        console.error('Função fazerLogout não encontrada. Tentando redirecionamento manual.');
-                        window.location.href = '../../../index.html';
-                    }
-                });
+            // Verifica se o usuário está logado (usando a função de dados-usuarios.js)
+            if (!getUsuarioLogadoEmail()) {
+                alert("Você precisa estar logado para acessar esta página.");
+                window.location.href = '../cadastro-login.html'; // Redireciona para a página de login
             }
-            if (typeof getUsuarioLogadoEmail === 'function' && !getUsuarioLogadoEmail()) {
-                window.location.href = '../cadastro-login.html';
-            } else if (typeof getUsuarioLogadoEmail !== 'function') {
-                console.error('Função getUsuarioLogadoEmail não encontrada. Não é possível verificar o status de login.');
+
+            // Logout (usando a função de dados-usuarios.js)
+            const btnLogout = document.querySelector('.btn-logout'); // Ajuste o seletor se necessário
+            if (btnLogout) {
+                btnLogout.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    fazerLogout(); // Função de dados-usuarios.js
+                    // window.location.href = '../../../index.html'; // Redireciona para a home após logout
+                });
             }
         });
     </script>
+    -->
 </body>
 </html>
