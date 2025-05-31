@@ -57,22 +57,58 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll para links de âncora (global)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            // Verifica se o link é APENAS uma âncora na mesma página
             if (this.pathname === window.location.pathname && this.hash !== "") {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
                 try {
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     }
                 } catch (error) {
-                    // Se o seletor for inválido (ex: href="#" apenas), não faz nada
                     console.warn('Smooth scroll target not found or invalid selector:', targetId);
                 }
             }
         });
     });
+
+    // Chamadas para as funções de proteção de página e logout global
+    // Verifica se dados-usuarios.js carregou (e portanto as funções getUsuarioLogadoEmail e fazerLogout)
+    if (typeof getUsuarioLogadoEmail === 'function' && typeof fazerLogout === 'function') {
+        protegerPaginaUsuario();
+        configurarLogoutGlobal();
+    } else {
+        console.warn('Funções de autenticação (getUsuarioLogadoEmail/fazerLogout) não encontradas. A proteção de página e o logout global podem não funcionar.');
+    }
 });
+
+// Função para verificar se o usuário está logado e proteger a página
+function protegerPaginaUsuario() {
+    const paginasProtegidas = [
+        '/assets/paginas/area-usuario/meu-perfil.html',
+        '/assets/paginas/area-usuario/diario-usuario.html',
+        '/assets/paginas/area-usuario/mapa-usuario.html',
+        '/assets/paginas/area-usuario/tecnicas-autocuidado.html'
+    ];
+    const paginaAtual = window.location.pathname;
+
+    if (paginasProtegidas.some(pagina => paginaAtual.endsWith(pagina))) {
+        if (!getUsuarioLogadoEmail()) { // getUsuarioLogadoEmail já foi verificado acima
+            console.log("Usuário não logado, redirecionando para a página de login.");
+            window.location.href = '/assets/paginas/cadastro-login.html';
+        }
+    }
+}
+
+// Função para configurar o botão de logout globalmente
+function configurarLogoutGlobal() {
+    const logoutButtons = document.querySelectorAll('.btn-logout');
+    logoutButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            fazerLogout(); // fazerLogout já foi verificado acima e já redireciona
+        });
+    });
+}

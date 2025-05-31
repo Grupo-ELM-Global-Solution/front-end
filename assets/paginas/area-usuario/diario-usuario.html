@@ -45,6 +45,7 @@
                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Ícone Contato" class="nav-icon">
                         Contato
                     </a></li>
+                    <!-- O botão de Sair/Logout requer que o usuário esteja logado e utiliza funções de logout de dados-usuarios.js ou script.js -->
                     <li class="nav-item-login"><a href="#" class="nav-link btn btn-logout">Sair</a></li>
                 </ul>
             </nav>
@@ -63,6 +64,7 @@
             <div class="container">
                 <div class="form-diario">
                     <h2>Nova Entrada</h2>
+                    <!-- Formulário para adicionar novas entradas ao diário. A submissão é gerenciada por diario-usuario.js -->
                     <form id="formNovaEntradaDiario">
                         <div class="form-group">
                             <label for="dataEntrada">Data:</label>
@@ -98,6 +100,7 @@
 
                 <div class="entradas-salvas-diario">
                     <h2>Minhas Entradas</h2>
+                    <!-- Esta div exibirá as entradas do diário salvas, carregadas dinamicamente por diario-usuario.js -->
                     <div id="listaEntradasDiario" class="lista-entradas">
                         <!-- Entradas do diário serão carregadas aqui pelo JS -->
                         <p class="nenhuma-entrada">Nenhuma entrada no diário ainda.</p> 
@@ -137,31 +140,10 @@
             </div>
         </div>
         <div class="container copyright-container">
+            <!-- Nota importante sobre a privacidade das entradas do diário, que são salvas localmente. -->
             <p class="important-notice-footer"><strong>Importante:</strong> As entradas do seu diário são salvas localmente no seu navegador e não são enviadas para nenhum servidor. Sua privacidade é fundamental.</p>
             <p>© 2025 Recomeço - Plataforma de Apoio Psicológico Pós-Desastre.</p>
         </div>
     </footer>
-    <!-- Script inline para verificação de login e logout (a ser removido ou melhorado) -->
-    <!-- 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Verifica se o usuário está logado (usando a função de dados-usuarios.js)
-            if (!getUsuarioLogadoEmail()) {
-                alert("Você precisa estar logado para acessar esta página.");
-                window.location.href = '../cadastro-login.html'; // Redireciona para a página de login
-            }
-
-            // Logout (usando a função de dados-usuarios.js)
-            const btnLogout = document.querySelector('.btn-logout'); // Ajuste o seletor se necessário
-            if (btnLogout) {
-                btnLogout.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    fazerLogout(); // Função de dados-usuarios.js
-                    // window.location.href = '../../../index.html'; // Redireciona para a home após logout
-                });
-            }
-        });
-    </script>
-    -->
 </body>
 </html>

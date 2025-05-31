@@ -1,26 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // As chaves de localStorage são gerenciadas em dados-usuarios.js
-    // const LOGGED_IN_USER_KEY = 'loggedInUserRecomeco'; // Não é mais necessário aqui
-
-    const dadosUsuario = getDadosUsuarioLogado(); // Usar a função de dados-usuarios.js
-
-    // Redireciona para login/cadastro se não estiver logado
-    if (!dadosUsuario) {
-        window.location.href = '/assets/paginas/cadastro-login.html';
-        return;
-    }
 
     const profileNameElement = document.getElementById('profileName');
     const profileEmailElement = document.getElementById('profileEmail');
-    const profilePictureImgElement = document.getElementById('profilePictureImg'); // Seleciona a imagem
-    const logoutButton = document.querySelector('.btn-logout');
+    const profilePictureImgElement = document.getElementById('profilePictureImg');
 
     const genericProfilePicUrl = "https://cdn-icons-png.flaticon.com/512/9706/9706583.png";
 
     // Modal elements
     const editProfileModal = document.getElementById('editProfileModal');
-    const editProfileButton = document.querySelector('.btn-edit-profile'); // Botão na sidebar
-    const openEditProfileModalCard = document.getElementById('openEditProfileModalCard'); // Card de Configurações
+    const editProfileButton = document.querySelector('.btn-edit-profile');
+    const openEditProfileModalCard = document.getElementById('openEditProfileModalCard');
     const closeModalBtn = editProfileModal.querySelector('.close-modal-btn');
     const cancelEditBtn = editProfileModal.querySelector('.btn-cancel-edit');
     const editProfileForm = document.getElementById('editProfileForm');
@@ -36,14 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 profilePictureImgElement.src = genericProfilePicUrl;
             }
         } else {
-            // Se não houver usuário logado, redireciona para a página de login
-            // alert("Você não está logado. Redirecionando para login...");
-
 
             // Ou, para permitir visualização da estrutura da página de perfil mesmo sem login (para desenvolvimento):
             if (profileNameElement) profileNameElement.textContent = "Visitante";
             if (profileEmailElement) profileEmailElement.textContent = "Faça login para ver seus dados.";
-            if (profilePictureImgElement) profilePictureImgElement.src = genericProfilePicUrl; // Imagem genérica se não logado
+            if (profilePictureImgElement) profilePictureImgElement.src = genericProfilePicUrl;
             
             console.warn("Nenhum usuário logado. Para testar, faça login ou cadastre-se.");
         }
@@ -57,10 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // Preenche o formulário do modal com os dados atuais
         editProfileForm.nomeCompleto.value = currentUser.nomeCompleto || '';
-        editProfileForm.email.value = currentUser.email || ''; // Readonly
+        editProfileForm.email.value = currentUser.email || '';
         editProfileForm.telefone.value = currentUser.telefone || '';
         editProfileForm.dataNascimento.value = currentUser.dataNascimento || '';
-        editProfileForm.senha.value = ''; // Limpa campos de senha
+        editProfileForm.senha.value = '';
         editProfileForm.confirmSenha.value = '';
         editProfileFeedback.style.display = 'none';
         editProfileFeedback.textContent = '';
@@ -133,14 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (logoutButton) {
-        logoutButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            fazerLogout();
-            window.location.href = '/index.html'; // Agora sempre vai para a raiz do projeto
-        });
-    }
-
     // Exibição inicial dos dados do usuário
-    displayUserData(); 
+    const currentUserData = getDadosUsuarioLogado();
+    if (currentUserData) {
+        displayUserData(); 
+    } else {
+        if (window.location.pathname.endsWith('meu-perfil.html')) { // Confirma se ainda estamos na página de perfil
+            console.warn("Tentando exibir dados do perfil, mas nenhum usuário logado. Proteção global pode ter falhado ou esta é uma execução inesperada.");
+            // Força redirecionamento se a proteção global falhar
+             if (typeof getUsuarioLogadoEmail === 'function' && !getUsuarioLogadoEmail()) {
+                window.location.href = '/assets/paginas/cadastro-login.html';
+            }
+        }
+    }
 }); 
