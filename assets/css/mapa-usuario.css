@@ -20,30 +20,67 @@
     padding-bottom: 40px;
 }
 
-.placeholder-mapa {
-    background-color: var(--color-background-light);
-    padding: 30px;
+/* Estilos para a caixa de instruções do mapa */
+.mapa-instrucoes {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f8f9fa;
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    text-align: center;
+    border: 1px solid #e9ecef;
 }
-.placeholder-mapa h2 {
-    font-size: 1.8rem;
-    color: var(--color-text-dark);
-    margin-bottom: 15px;
+
+.mapa-instrucoes h4 {
+    margin-top: 0;
+    color: var(--color-primary-dark);
+    margin-bottom: 10px;
 }
-.placeholder-mapa p {
-    font-size: 1.1rem;
-    color: var(--color-text-medium);
+
+.mapa-instrucoes ol {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.mapa-instrucoes ol li {
+    margin-bottom: 8px;
     line-height: 1.6;
 }
 
-/* Container para centralizar texto (para o botão Voltar) */
+.mapa-instrucoes ol li img { 
+    height: 1em;
+    vertical-align: middle;
+    margin: 0 2px;
+}
+
+.mapa-instrucoes .mapa-instrucoes-nota {
+    font-size: 0.85em;
+    margin-top: 15px;
+    color: #6c757d;
+}
+
+/* Container e estilos para o iframe do mapa */
+.mapa-container iframe {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+}
+
+.map-info-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--color-text-medium);
+}
+.map-info-text a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+.map-info-text a:hover {
+    color: var(--color-primary-dark);
+}
+
 .text-center-container {
     text-align: center;
 }
 
-/* Botão de voltar (para o botão Voltar) */
 .btn-voltar-inicio {
     margin-top: 30px;
 } 

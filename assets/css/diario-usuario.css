@@ -2,7 +2,7 @@
 .page-diario-usuario {
     padding-top: var(--header-height);
     background-color: var(--color-background-section-alt);
-    min-height: calc(100vh - var(--header-height) - var(--footer-height, 0px)); /* Ajustar se footer tiver altura fixa */
+    min-height: calc(100vh - var(--header-height) - var(--footer-height, 0px));
 }
 
 .diario-title-section {
@@ -58,7 +58,7 @@
     font-family: var(--font-primary);
 }
 .form-diario input[type="date"] {
-    appearance: none; /* Para melhor estilização se necessário */
+    appearance: none; 
 }
 .form-diario textarea {
     resize: vertical;
@@ -66,7 +66,6 @@
 }
 
 .form-diario .btn-salvar-entrada {
-    /* Estilos do .btn e .btn-primary já aplicados pela classe */
     padding: 0.8em 2em;
 }
 
@@ -96,19 +95,19 @@
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px dashed #eee;
-    gap: 10px; /* Adiciona espaço entre o título e o container de data/emoção */
+    gap: 10px;
 }
-.entrada-item-header h3 { /* Título da entrada */
+.entrada-item-header h3 {
     font-size: 1.3rem;
     color: var(--color-text-dark);
     margin-bottom: 0;
     overflow-wrap: break-word; 
     word-break: break-all;   
-    min-width: 0; /* Restaurado: Permite que o item flex encolha */
+    min-width: 0;
 }
 .entrada-item-header .data-emocao-container {
     text-align: right;
-    flex-shrink: 0; /* Impede que este container encolha demais */
+    flex-shrink: 0; 
 }
 .entrada-item .data-entrada {
     font-size: 0.9rem;
@@ -130,8 +129,8 @@
     font-size: 1rem;
     line-height: 1.6;
     color: var(--color-text-medium);
-    white-space: pre-wrap; /* Preserva quebras de linha e espaços */
-    overflow-wrap: break-word; /* Quebra palavras longas para evitar transbordamento */
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
     margin-bottom: 10px;
 }
 .entrada-item .btn-excluir-entrada {
@@ -166,8 +165,5 @@
 
 /* Botão de voltar (para o botão Voltar) */
 .btn-voltar-inicio {
-    margin-top: 30px; /* Ajuste conforme necessário */
-    /* As demais propriedades como background-color, color, padding, 
-       text-decoration, border-radius e transition virão das classes 
-       .btn e .btn-primary do style.css */
+    margin-top: 30px;
 } 
