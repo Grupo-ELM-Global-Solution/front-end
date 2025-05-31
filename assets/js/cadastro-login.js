@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchToLoginLink = document.getElementById('switchToLoginLink');
     const formFeedback = document.getElementById('formFeedback');
 
+    // Campo de Data de Nascimento para formatação automática
+    const dataNascimentoInput = document.getElementById('registerDataNascimento');
+
+    // Campo de Telefone para formatação automática
+    const telefoneInput = document.getElementById('registerTelefone');
+
     // Constante para a chave do usuário logado no localStorage (para consistência)
     const LOGGED_IN_USER_KEY = 'loggedInUserRecomeco';
 
@@ -134,5 +140,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar formulário de login por padrão
     if (loginForm && showLoginBtn) {
         showForm(loginForm, showLoginBtn);
+    }
+
+    // Formatação automática do campo de Data de Nascimento
+    if (dataNascimentoInput) {
+        dataNascimentoInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2);
+            }
+            if (value.length > 5) {
+                value = value.substring(0, 5) + '/' + value.substring(5, 9);
+            }
+            e.target.value = value.substring(0, 10); // Limita a 10 caracteres (DD/MM/AAAA)
+        });
+    }
+
+    // Formatação automática do campo de Telefone (XX) XXXXX-XXXX
+    if (telefoneInput) {
+        telefoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+            value = value.substring(0, 11); // Limita a 11 dígitos (XX XXXXX XXXX)
+            let formattedValue = '';
+            if (value.length > 0) {
+                formattedValue = '(' + value.substring(0, Math.min(2, value.length));
+            }
+            if (value.length > 2) {
+                formattedValue += ') ' + value.substring(2, Math.min(7, value.length));
+            }
+            if (value.length > 7) {
+                formattedValue += '-' + value.substring(7, 11);
+            }
+            e.target.value = formattedValue;
+        });
     }
 }); 

@@ -262,3 +262,17 @@
 .recovery-process-section p strong {
     font-weight: 700;
 }
+
+/* Para tablets e telas médias */
+@media (min-width: 768px) {
+    .reactions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Para desktops e telas maiores */
+@media (min-width: 992px) {
+    .reactions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
