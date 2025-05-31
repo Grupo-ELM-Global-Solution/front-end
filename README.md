@@ -2,7 +2,7 @@
 
 ## Objetivo do Projeto
 
-Apoio Especializado Após Desastres Naturais. Recursos profissionais para sobreviventes de incêndios, inundações e deslizamentos. Oferecemos ferramentas baseadas em evidência científica para apoio psicológico imediato e orientação para recuperação a longo prazo.
+O Recomeço é uma plataforma digital dedicada a fortalecer a resiliência e o bem-estar emocional de sobreviventes de desastres naturais (incêndios, inundações, deslizamentos). Nosso objetivo é capacitar os usuários com acesso imediato a apoio psicológico, ferramentas de autocuidado baseadas em evidências, informações claras sobre trauma e recursos para a jornada de recuperação, promovendo a autonomia e a busca por uma vida mais equilibrada após o impacto.
 
 ## Estrutura de Pastas e Arquivos
 
@@ -67,13 +67,11 @@ O projeto foi desenvolvido utilizando exclusivamente:
 Para explorar a área do usuário e testar funcionalidades, você pode utilizar as seguintes credenciais fictícias:
 
 *   **E-mail:** `enzo.okuizumi@gmail.com`
-*   **Senha:** `123@mudar`
-<br>
+    **Senha:** `123@mudar`
 *   **E-mail:** `lucas.barros@gmail.com`
-*   **Senha:** `123@mudar`
-<br>
+    **Senha:** `123@mudar`
 *   **E-mail:** `milton.marcelino@gmail.com`
-*   **Senha:** `123@mudar`
+    **Senha:** `123@mudar`
 
 **Observação:** Todos os dados são fictícios e as interações são simuladas e armazenadas apenas localmente no seu navegador (`localStorage`). O sistema inclui a funcionalidade de popular o diário com entradas fictícias para os usuários de teste.
 
@@ -258,7 +256,7 @@ O JavaScript é responsável pela interatividade, gerenciamento de dados do usu�
   </tr>
   <tr>
     <td align="center">
-      <img src="assets/img/imagens-integrantes/foto-enzo.jpeg" width="100px" alt="Foto de Enzo"/>
+      <img src="assets/imagens/imagens-integrantes/foto-enzo.jpeg" width="100px" alt="Foto de Enzo"/>
     </td>
     <td>Enzo Okuizumi</td>
     <td>561432</td>
@@ -268,7 +266,7 @@ O JavaScript é responsável pela interatividade, gerenciamento de dados do usu�
   </tr>
   <tr>
     <td align="center">
-      <img src="assets/img/imagens-integrantes/foto-lucas.jpg" width="100px" alt="Foto de Lucas"/>
+      <img src="assets/imagens/imagens-integrantes/foto-lucas.jpg" width="100px" alt="Foto de Lucas"/>
     </td>
     <td>Lucas Barros Gouveia</td>
     <td>566422</td>
@@ -278,7 +276,7 @@ O JavaScript é responsável pela interatividade, gerenciamento de dados do usu�
   </tr>
   <tr>
     <td align="center">
-      <img src="assets/img/imagens-integrantes/foto-milton.jpeg" width="100px" alt="Foto de Milton"/>
+      <img src="assets/imagens/imagens-integrantes/foto-milton.jpeg" width="100px" alt="Foto de Milton"/>
     </td>
     <td>Milton Marcelino</td>
     <td>564836</td>
@@ -295,4 +293,4 @@ O JavaScript é responsável pela interatividade, gerenciamento de dados do usu�
 
 ---
 
-Este site oferece recursos educacionais e de apoio psicossocial específicos para trauma pós-desastre natural, mas não constitui atendimento psicológico, diagnóstico ou tratamento profissional. Em situações de crise ou necessidade de intervenção clínica, procure sempre um profissional de saúde mental qualificado em trauma pós-desastre ou serviços de emergência.
+**Nota Importante:** O Recomeço se dedica a ser um farol de esperança e um guia com ferramentas valiosas para sua jornada de autocuidado e compreensão emocional após um desastre. Contudo, é crucial lembrar que os recursos aqui disponibilizados são para fins educacionais e de apoio psicossocial, não substituindo o diagnóstico, aconselhamento ou tratamento de um profissional de saúde mental qualificado. Se você está enfrentando uma crise aguda ou sente que precisa de um acompanhamento individualizado, por favor, procure imediatamente um especialista ou os serviços de emergência indicados. Seu bem-estar é a prioridade.
