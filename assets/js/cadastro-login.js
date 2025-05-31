@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayFeedback('Cadastro realizado com sucesso! Redirecionando...', 'success');
                 registerForm.reset();
                 setTimeout(() => {
-                    window.location.href = './area-paciente/meu-perfil.html';
+                    window.location.href = './area-usuario/meu-perfil.html';
                 }, 2000);
             } else {
                 displayFeedback('Este email já está cadastrado. Tente fazer login.', 'error');
