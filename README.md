@@ -289,7 +289,7 @@ O JavaScript é responsável pela interatividade, gerenciamento de dados do usu�
 
 ## Endereço do Repositório do Projeto no GitHub
 
-[Link Repositório Front-end](https://github.com/Grupo-Challenge-EML-1TDSPG/front-end-design-engineering)
+[Link Repositório Front-end](https://github.com/Grupo-ELM-Global-Solution/front-end)
 
 ---
 
